@@ -42,7 +42,20 @@ const produtosController = {
 
         return response.json(produtoDelete);
         
+    },
+
+    show: async(request, response) => {
+        const { id } = request.params;
+
+        const produtocategoria = await Produto.findAll({
+            where: {
+                categoria_id: id
+            }
+        });
+
+        return response.json(produtocategoria);
     }
+
 }
 
 module.exports = produtosController;
