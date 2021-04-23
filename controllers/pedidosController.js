@@ -7,17 +7,17 @@ const pedidosController = {
         let pedidos = await Pedido.findAll();
         return res.json(pedidos);
     }, create: async (req, res) => {
-        let {data, valor_total, status, pagamentos_id, usuarios_id} = req.body;
+        let {data_pedido, valor_total, pagamentos_id, usuarios_id, status_pedido_id} = req.body;
         let novoPedido = await Pedido.create(
-            {data, valor_total, status, pagamentos_id, usuarios_id}
+            {data_pedido: new Date(data_pedido), valor_total, pagamentos_id, usuarios_id, status_pedido_id}
         );
         return res.json(novoPedido);
     }, update: async (req, res) => {
         let {id} = req.params;
-        let {data, valor_total, status} = req.body;
+        let {data_pedido, valor_total, status_pedido_id} = req.body;
 
         let atualizarPedido = await Pedido.update(
-            {data, valor_total, status
+            {data_pedido, valor_total, status_pedido_id
             }, {
                 where: {id}
             });
