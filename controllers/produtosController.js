@@ -7,14 +7,14 @@ const produtosController = {
         return response.json(produtos);
     },
     create: async (request, response) => {
-        const {nome, descricao, valor, quantidade, categoria_id} = request.body;
+        const {nome, descricao, valor, quantidade, categorias_id} = request.body;
 
         const novoProduto = await Produto.create({
             nome,
             descricao,
             valor,
             quantidade,
-            categoria_id
+            categorias_id
         });
 
         return response.json(novoProduto);
@@ -49,7 +49,7 @@ const produtosController = {
 
         const produtocategoria = await Produto.findAll({
             where: {
-                categoria_id: id
+                categorias_id: id
             }
         });
 
