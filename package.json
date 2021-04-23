@@ -15,5 +15,18 @@
     "mysql2": "^2.2.5",
     "nodemon": "^2.0.7",
     "sequelize": "^6.6.2"
-  }
+  },
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RonierisonBraz/turmalina.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RonierisonBraz/turmalina/issues"
+  },
+  "homepage": "https://github.com/RonierisonBraz/turmalina#readme",
+  "description": ""
 }
