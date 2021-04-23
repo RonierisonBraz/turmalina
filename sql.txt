@@ -1,0 +1,166 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema turmalina
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema turmalina
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `turmalina` DEFAULT CHARACTER SET utf8 ;
+USE `turmalina` ;
+
+-- -----------------------------------------------------
+-- Table `turmalina`.`categoria`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `turmalina`.`categoria` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `turmalina`.`produtos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `turmalina`.`produtos` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `descricao` VARCHAR(100) NOT NULL,
+  `nome` VARCHAR(45) NOT NULL,
+  `valor` DOUBLE NOT NULL,
+  `quantidade` INT NOT NULL,
+  `categoria_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_produtos_categoria1_idx` (`categoria_id` ASC) VISIBLE,
+  CONSTRAINT `fk_produtos_categoria1`
+    FOREIGN KEY (`categoria_id`)
+    REFERENCES `turmalina`.`categoria` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `turmalina`.`tipos_pagamento`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `turmalina`.`tipos_pagamento` (
+  `id` INT NOT NULL,
+  `descricao` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `turmalina`.`pagamentos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `turmalina`.`pagamentos` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `parcelas` INT NOT NULL,
+  `data` DATE NOT NULL,
+  `tipos_pagamento_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_pagamentos_tipos_pagamento1_idx` (`tipos_pagamento_id` ASC) VISIBLE,
+  CONSTRAINT `fk_pagamentos_tipos_pagamento1`
+    FOREIGN KEY (`tipos_pagamento_id`)
+    REFERENCES `turmalina`.`tipos_pagamento` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `turmalina`.`enderecos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `turmalina`.`enderecos` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `logradouro` VARCHAR(100) NOT NULL,
+  `numero` VARCHAR(5) NOT NULL,
+  `bairro` VARCHAR(25) NOT NULL,
+  `cidade` VARCHAR(25) NOT NULL,
+  `cep` CHAR(8) NOT NULL,
+  `complemento` VARCHAR(60) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `turmalina`.`usuarios`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `turmalina`.`usuarios` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(100) NOT NULL,
+  `cep` VARCHAR(9) NOT NULL,
+  `telefone` VARCHAR(15) NOT NULL,
+  `email` VARCHAR(50) NOT NULL,
+  `senha` VARCHAR(45) NOT NULL,
+  `enderecos_id` INT NOT NULL,
+  `cpf` CHAR(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_clientes_endereco1_idx` (`enderecos_id` ASC) VISIBLE,
+  CONSTRAINT `fk_clientes_endereco1`
+    FOREIGN KEY (`enderecos_id`)
+    REFERENCES `turmalina`.`enderecos` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `turmalina`.`pedidos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `turmalina`.`pedidos` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `data` DATE NOT NULL,
+  `valor_total` DOUBLE NOT NULL,
+  `status` VARCHAR(45) NOT NULL,
+  `pagamentos_id` INT NOT NULL,
+  `clientes_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_pedido_pagamento1_idx` (`pagamentos_id` ASC) VISIBLE,
+  INDEX `fk_pedido_clientes1_idx` (`clientes_id` ASC) VISIBLE,
+  CONSTRAINT `fk_pedido_pagamento1`
+    FOREIGN KEY (`pagamentos_id`)
+    REFERENCES `turmalina`.`pagamentos` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_pedido_clientes1`
+    FOREIGN KEY (`clientes_id`)
+    REFERENCES `turmalina`.`usuarios` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `turmalina`.`itens_pedido`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `turmalina`.`itens_pedido` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `valor` DOUBLE NOT NULL,
+  `quantidade` INT NOT NULL,
+  `valor_total` DOUBLE NOT NULL,
+  `pedidos_id` INT NOT NULL,
+  `produtos_id1` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_item_pedido_pedidos1_idx` (`pedidos_id` ASC) VISIBLE,
+  INDEX `fk_itens_pedido_produtos2_idx` (`produtos_id1` ASC) VISIBLE,
+  CONSTRAINT `fk_item_pedido_pedidos1`
+    FOREIGN KEY (`pedidos_id`)
+    REFERENCES `turmalina`.`pedidos` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_itens_pedido_produtos2`
+    FOREIGN KEY (`produtos_id1`)
+    REFERENCES `turmalina`.`produtos` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
