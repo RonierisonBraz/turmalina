@@ -8,5 +8,10 @@ module.exports = (sequelize, DataTypes) => {
                 timestamps: false
             }
         );
-        return Categoria;   
-};
+
+Categoria.associate = (models) => {
+    Categoria.hasMany(models.Produto, { as: "produto", foreignKey: "categorias_id" });   
+    }
+
+return Categoria;   
+}

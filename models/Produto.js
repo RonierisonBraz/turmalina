@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
             }
         );
     Produto.associate = (models) => {
-        Produto.belongsTo(models.Categoria, { as: "categoria", foreignKey: "categorias_id" });
+        Produto.hasOne(models.Categoria, { as: "categoria", foreignKey: "categorias_id" });
     }
 
         return Produto;   
