@@ -14,10 +14,10 @@ const pedidosController = {
         return res.json(novoPedido);
     }, update: async (req, res) => {
         let {id} = req.params;
-        let {data_pedido, valor_total, status_pedido_id} = req.body;
+        let {valor_total, status_pedido_id} = req.body;
 
         let atualizarPedido = await Pedido.update(
-            {data_pedido, valor_total, status_pedido_id
+            {valor_total, status_pedido_id
             }, {
                 where: {id}
             });

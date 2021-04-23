@@ -1,14 +1,14 @@
 module.exports = (sequelize, DataTypes) => {
 
-    const Pedido = sequelize.define(
-        'Pedido', {
+    const StatusPedido = sequelize.define(
+        'StatusPedido', {
             descricao: DataTypes.STRING
         }, {
-            tableName: 'pedidos',
+            tableName: 'status_pedidos',
             timestamps: false
         });
 
-        return Pedido;
+        return StatusPedido;
     
     }
 
