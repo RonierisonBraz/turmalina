@@ -1,5 +1,6 @@
 module.exports = {
 
+
     "username": "root",
     "password": "root",
     "database": "turmalina",
@@ -8,4 +9,5 @@ module.exports = {
     "port": "3306"
   
 }
+
 
