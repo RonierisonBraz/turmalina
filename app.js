@@ -24,7 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/turmalina', indexRouter);
 
-app.use('/turmalina/usuarios', usuariosRouter);
+app.use('/turmalina/usuario', usuariosRouter);
 
 app.use('/pedidos', pedidosRouter);
 

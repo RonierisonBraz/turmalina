@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Cadastro</title>
+</head>
+<body>
+    <main>
+        <div class="banner">
+            <img src="../img/banner-login.png" alt="Banner-logo" >
+        </div>
+        <div class="login">
+            <img src="../img/logo.png" alt="logo" class="logo" >
+
+            <form action="/usuarios" method="POST">
+                <input type="nome" name="nome" id="nome" placeholder="Digite seu nome" required>
+                <input type="email" name="email" id="email" placeholder="Digite seu email" required>
+                <input type="password" name="senha" id="senha" placeholder="Digite sua senha" required>
+                <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Digite sua senha" required>
+                
+                <span class="alert"> <%= (erro) ? erro : ''; %> </span>
+                
+                <button type="submit">Cadastrar</button>
+                <p>Ao se cadastrar, você concorda com nossos <a class="termos" href="#">Termos, Politica de Dados e Politica Cookies</a></p>
+            </form>
+            <div class="cta-cadastro-2">
+                <p>Tenho uma conta ? <a href="cadastro.html">Login</a></p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
