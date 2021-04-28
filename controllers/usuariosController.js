@@ -1,6 +1,6 @@
 // const { where } = require('sequelize/types');
-const { Usuario, sequelize } = require('../models/');
-const Endereco = require('../models/Endereco');
+const { Usuario, Endereco, sequelize } = require('../models/');
+// const Endereco = require('../models/Endereco');
 
 const usuariosController = {
 
@@ -33,11 +33,12 @@ const usuariosController = {
     enderecos: async (request, response) => {
         const { id } = request.params;
 
-        const endereco = await Endereco.findOne({
-            where: {
-                usuarios_id: id
-            }
-        });
+        const usuario = await Usuario.findByPk(id);
+
+        const enderecoId = usuario.enderecos_id;
+
+        const endereco = await Endereco.findByPk(enderecoId);
+        // const enderecos = await Endereco.findOne();
 
         return response.json(endereco);
     },
@@ -45,13 +46,9 @@ const usuariosController = {
         const { id } = request.params;
         const { lougradouro, numero, bairro, cidade, cep, complemento } = request.body;
 
-        const endereco = await Endereco.findOne({
-            where: {
-                usuarios_id: id
-            }
-        });
+        const usuario = await Usuario.findByPk(id);
 
-        usuarioID = endereco.id;
+        const enderecoId = usuario.enderecos_id;
 
         const enderecoAtualizar = await Endereco.update({
             lougradouro,
@@ -61,7 +58,7 @@ const usuariosController = {
             cep,
             complemento
         }, {
-            where: {usuarioID}
+            where: {id: enderecoId}
         });
 
         return response.json(enderecoAtualizar);

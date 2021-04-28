@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const usuariosController = require('../controllers/usuariosController');
 
 // router.get('/', usuariosController.index); // http://localhost:3000/turmalina/perfil/
