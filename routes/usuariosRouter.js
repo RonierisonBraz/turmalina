@@ -12,6 +12,7 @@ router.get('/cadastro', usuariosController.cadastro);
 
 
 router.get('/enderecos/:id', usuariosController.enderecos);
+router.put('/enderecos/:id', usuariosController.enderecosUpdate);
 
 
 
