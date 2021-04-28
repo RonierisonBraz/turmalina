@@ -1,3 +1,4 @@
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -8,7 +9,7 @@ var indexRouter = require('./routes/index');
 var usuariosRouter = require('./routes/usuariosRouter');
 
 const pedidosRouter = require('./routes/pedidosRouter');
-var produtosRouter = require('./routes/produtosRouter');
+var catalogoRouter = require('./routes/catalogoRouter');
 
 var app = express();
 
@@ -22,13 +23,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/turmalina', indexRouter);
+app.use('/', indexRouter);
 
-app.use('/turmalina/usuario', usuariosRouter);
+app.use('/usuario', usuariosRouter);
 
-app.use('/pedidos', pedidosRouter);
+app.use('/usuario/pedidos', pedidosRouter);
 
-app.use('/produtos', produtosRouter);
+app.use('/catalogo', catalogoRouter);
 
 
 

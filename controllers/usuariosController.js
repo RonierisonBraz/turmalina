@@ -1,14 +1,11 @@
-const { Usuario, sequelize } = require('../models/');
-const Endereco = require('../models/Endereco');
+const { Usuario, Endereco, sequelize } = require('../models/');
 
 const usuariosController = {
 
-    // index: async (request,response) => {
-    //     // const usuarios = await Usuario.findAll();
-    //     // return response.json({listaUsuarios: usuarios});
-    //      return response.render('perfil');
-
-    // }
+    // index: async (request,response) => { //mostra todos os usuários
+    //     const usuarios = await Usuario.findAll();
+    //     return response.json(usuarios);
+    // },
     cadastro: (req, res) => {
         return res.render('cadastro');
     },
@@ -30,15 +27,8 @@ const usuariosController = {
         }
     },
     enderecos: async (request, response) => {
-        const { id } = request.params;
-
-        const endereco = await Endereco.findOne({
-            where: {
-                usuarios_id: id
-            }
-        });
-
-        return response.json(endereco);
+        let enderecos = await Endereco.findAll();
+        return response.json(enderecos);
     },
     create: async (request, response) => {
         const { nome, telefone, email, senha, cpf, enderecos_id } = request.body;
@@ -78,7 +68,6 @@ const usuariosController = {
         });
 
         return response.json(usuarioRemover);
-
     }
 }
 module.exports = usuariosController;
