@@ -8,7 +8,7 @@ const usuariosController = {
     //     // return response.json({listaUsuarios: usuarios});
     //      return response.render('perfil');
 
-    // }
+    // },
     cadastro: (req, res) => {
         return res.render('cadastro');
     },
