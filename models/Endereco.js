@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
 
     Endereco.associate = (models) => {
      //N:1 Muitos usuarios para um endereço
-     Endereco.hasMany(models.Usuario, {as:"usuarios", foreignKey:"enderecos_id"});
+     Endereco.hasMany(models.Usuario, {as:"usuarios", foreignKey:"id"});
     }
     return Endereco;
 }
