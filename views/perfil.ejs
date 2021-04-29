@@ -1,12 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
     <title>Perfil</title>
 </head>
 <body>
-    <h2>seja bem vindo sua peste.</h2>
+    <h2> <%= Usuarios.nome %>  </h2>
+    <!-- <button class="btn-statusPedido" onclick="showDiv()">Status do pedido</button> -->
+    <input type="button" name="answer" value="Show Div" onclick="showDiv()" />
+    <button class="btn-historico" id="btn-hist">Historico</button>
+    <!-- Essas duas divs de statusPedido e historico sao eventos, so aparecem ao clicar na opcao -->
+    <div id="statusPedido">
+        <p>Status do Pedido!!!!</p>
+    </div>
+    <div id="historico">
+        <p>Historico!!!!</p>
+    </div>
+    <script src="../js/main.js"></script>
 </body>
 </html>

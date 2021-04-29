@@ -1,5 +1,6 @@
-const { Usuario, sequelize } = require('../models/');
-const Endereco = require('../models/Endereco');
+const { request } = require('express');
+const { Usuario, Endereco, sequelize } = require('../models/');
+// const Endereco = require('../models/Endereco');
 
 const usuariosController = {
 
@@ -29,16 +30,68 @@ const usuariosController = {
             return res.redirect('/');
         }
     },
+    perfil: async (request, response) => {
+        const {id} = request.params;
+        const usuario = await Usuario.findByPk(id);
+
+        console.log(usuario);
+
+        return response.render('perfil', {Usuarios: usuario});
+    },
     enderecos: async (request, response) => {
         const { id } = request.params;
 
-        const endereco = await Endereco.findOne({
-            where: {
-                usuarios_id: id
-            }
-        });
+        const usuario = await Usuario.findByPk(id);
+
+        const enderecoId = usuario.enderecos_id;
+
+        const endereco = await Endereco.findByPk(enderecoId);
+        // const enderecos = await Endereco.findOne();
 
         return response.json(endereco);
+    },
+    enderecosUpdate: async (request, response) => {
+        const { id } = request.params;
+        const { lougradouro, numero, bairro, cidade, cep, complemento } = request.body;
+
+        const usuario = await Usuario.findByPk(id);
+
+        const enderecoId = usuario.enderecos_id;
+
+        const enderecoAtualizar = await Endereco.update({
+            lougradouro,
+            numero,
+            bairro,
+            cidade,
+            cep,
+            complemento
+        }, {
+            where: {id: enderecoId}
+        });
+
+        return response.json(enderecoAtualizar);
+    },
+    senhaUpdate: async (request, response) => {
+        const { id } = request.params;
+        const { senha } = request.body;
+
+        const senhaAtualizar = await Usuario.update({
+            senha
+        },{
+            where: { id }
+        });
+        return response.json(senhaAtualizar);
+    },
+    telefoneUpdate: async (request, response) => {
+        const { id } = request.params;
+        const { telefone } = request.body;
+
+        const telefoneAtualizar = await Usuario.update({
+            telefone
+        },{
+            where: { id }
+        });
+        return response.json(telefoneAtualizar);
     },
     create: async (request, response) => {
         const { nome, telefone, email, senha, cpf, enderecos_id } = request.body;
