@@ -2,11 +2,16 @@ const express = require('express');
 const router = express.Router();
 const usuariosController = require('../controllers/usuariosController');
 
-// router.get('/', usuariosController.index); // http://localhost:3000/turmalina/perfil/
-
+//PERFIL
+router.get('/perfil', usuariosController.perfil); // http://localhost:3000/perfil
 router.post('/login', usuariosController.auth);
 router.get('/login', usuariosController.login);
 router.get('/cadastro', usuariosController.cadastro);
+
+
+//USUSARIOS
+router.get('/usuarios', usuariosController.listarUsuarios);
+router.get('/enderecos', usuariosController.enderecos);
 
 // rotas de endereço: http://localhost:3000/usuario/enderecos/1
 router.get('/enderecos/:id', usuariosController.enderecos);

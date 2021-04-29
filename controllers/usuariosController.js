@@ -1,15 +1,19 @@
-const { request } = require('express');
+
 const { Usuario, Endereco, sequelize } = require('../models/');
 // const Endereco = require('../models/Endereco');
 
+
 const usuariosController = {
 
-    // index: async (request,response) => {
-    //     // const usuarios = await Usuario.findAll();
-    //     // return response.json({listaUsuarios: usuarios});
-    //      return response.render('perfil');
-
-    // }
+    perfil: async (request, response) => {
+        // const usuarios = await Usuario.findAll();
+        // return response.json({listaUsuarios: usuarios});
+        return response.render('perfil');
+    },
+    listarUsuarios: async (request, response) => {
+        let listarUsuarios = await Usuario.findAll();
+        return response.json(listarUsuarios);
+    },
     cadastro: (req, res) => {
         return res.render('cadastro');
     },
@@ -48,11 +52,13 @@ const usuariosController = {
         const endereco = await Endereco.findByPk(enderecoId);
         // const enderecos = await Endereco.findOne();
 
+
         return response.json(endereco);
     },
     enderecosUpdate: async (request, response) => {
         const { id } = request.params;
         const { lougradouro, numero, bairro, cidade, cep, complemento } = request.body;
+
 
         const usuario = await Usuario.findByPk(id);
 
@@ -68,7 +74,6 @@ const usuariosController = {
         }, {
             where: {id: enderecoId}
         });
-
         return response.json(enderecoAtualizar);
     },
     senhaUpdate: async (request, response) => {
@@ -93,6 +98,7 @@ const usuariosController = {
         });
         return response.json(telefoneAtualizar);
     },
+
     create: async (request, response) => {
         const { nome, telefone, email, senha, cpf, enderecos_id } = request.body;
 

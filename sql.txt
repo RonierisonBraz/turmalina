@@ -234,7 +234,11 @@ INSERT INTO usuarios(nome,telefone,email,senha,enderecos_id,cpf) VALUES
 
 INSERT INTO produtos(descricao,nome,valor,quantidade,categorias_id) VALUES
 ("Ouro 18k","Aliança bold",300,10,1),
+("Ouro 24k","Alianca master brilho",500,10,1),
+("Ouro 16k","Alianca duo",200,12,1),
 ("Prata","Anel de estrela",100,5,2),
+("Prata","Anel de Jade",150,6,2),
+("Prata","Anel fade",170,10,2),
 ("Rosé Gold","Brinco Rosé",100,10,3),
 ("Ouro 24k","Colar do infinito",200,5,4),
 ("Prata","Pulseira olho grego",100,10,5);

@@ -18,10 +18,9 @@ module.exports = (sequelize, DataTypes) => {
          //N:1 Um usuario para muitos pedidos
         Usuario.belongsTo(models.Endereco, {as:"enderecos", foreignKey:"enderecos_id"});
 
-        /*
-        //1:N Um usuario para muitos pedidos
-        Usuario.hasMany(models.Pedidos, {as:"pedidos",foreignKey:usuarios_id});
-        */
+        //1:N
+        Usuario.hasMany(models.Pedido, { as: "pedidos", foreignKey: "usuarios_id" });
+
     };
 
     return Usuario;
