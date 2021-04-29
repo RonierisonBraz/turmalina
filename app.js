@@ -10,6 +10,7 @@ const indexRouter = require('./routes/index');
 const usuariosRouter = require('./routes/usuariosRouter');
 const pedidosRouter = require('./routes/pedidosRouter');
 //const produtosRouter = require('./routes/produtosRouter');
+const catalogoRouter = require('./routes/catalogoRouter');
 
 var app = express();
 
@@ -28,6 +29,7 @@ app.use('/', indexRouter);
 
 app.use('/usuario', usuariosRouter);
 
+app.use('/catalogo', catalogoRouter)
 
 app.use('/pedidos', pedidosRouter);
 //app.use('/produtos', produtosRouter);

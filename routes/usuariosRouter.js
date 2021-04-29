@@ -9,9 +9,9 @@ router.get('/login', usuariosController.login);
 router.get('/cadastro', usuariosController.cadastro);
 
 
-//USUSARIOS
-router.get('/usuarios', usuariosController.listarUsuarios);
-router.get('/enderecos', usuariosController.enderecos);
+//USUARIOS
+router.get('/', usuariosController.listarUsuarios);
+
 
 // rotas de endereço: http://localhost:3000/usuario/enderecos/1
 router.get('/enderecos/:id', usuariosController.enderecos);
