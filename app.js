@@ -5,8 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var usuariosRouter = require('./routes/usuariosRouter');
 
+const usuariosRouter = require('./routes/usuariosRouter');
 const pedidosRouter = require('./routes/pedidosRouter');
 var produtosRouter = require('./routes/produtosRouter');
 
@@ -22,9 +22,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/turmalina', indexRouter);
+app.use('/', indexRouter);
 
-app.use('/turmalina/usuario', usuariosRouter);
+app.use('/usuario', usuariosRouter);
 
 app.use('/pedidos', pedidosRouter);
 
