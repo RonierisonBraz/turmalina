@@ -1,4 +1,6 @@
 // const { where } = require('sequelize/types');
+// const { request } = require('express');
+// const { response } = require('../app');
 const { Usuario, Endereco, sequelize } = require('../models/');
 // const Endereco = require('../models/Endereco');
 
@@ -62,6 +64,28 @@ const usuariosController = {
         });
 
         return response.json(enderecoAtualizar);
+    },
+    senhaUpdate: async (request, response) => {
+        const { id } = request.params;
+        const { senha } = request.body;
+
+        const senhaAtualizar = await Usuario.update({
+            senha
+        },{
+            where: { id }
+        });
+        return response.json(senhaAtualizar);
+    },
+    telefoneUpdate: async (request, response) => {
+        const { id } = request.params;
+        const { telefone } = request.body;
+
+        const telefoneAtualizar = await Usuario.update({
+            telefone
+        },{
+            where: { id }
+        });
+        return response.json(telefoneAtualizar);
     },
     create: async (request, response) => {
         const { nome, telefone, email, senha, cpf, enderecos_id } = request.body;
