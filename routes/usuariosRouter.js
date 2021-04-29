@@ -22,4 +22,12 @@ router.put('/:id', usuariosController.update); // http://localhost:3000/usuarios
 
 router.delete('/:id', usuariosController.delete); // http://localhost:3000/usuarios/id
 
+router.get('/perfil/:id', usuariosController.perfil);   //CRIAR MIDDLEWARE QUE SO ACESSE SE FOR O ID DELE
+//OU ENTAO FAZ UMA SESSION QUE VAI PEGAR O USUARIO LOGADO 
+
+// // Para pagina do perfil: http://localhost:3000/usuario
+// router.get('/', function(req, res, next) {
+//     res.render('perfil');
+//   });
+
 module.exports = router;

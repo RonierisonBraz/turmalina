@@ -1,6 +1,4 @@
-// const { where } = require('sequelize/types');
-// const { request } = require('express');
-// const { response } = require('../app');
+const { request } = require('express');
 const { Usuario, Endereco, sequelize } = require('../models/');
 // const Endereco = require('../models/Endereco');
 
@@ -31,6 +29,14 @@ const usuariosController = {
             req.session.usuarioLogado = usuario;  //  criando atributo usuarioLogado
             return res.redirect('/');
         }
+    },
+    perfil: async (request, response) => {
+        const {id} = request.params;
+        const usuario = await Usuario.findByPk(id);
+
+        console.log(usuario);
+
+        return response.render('perfil', {Usuarios: usuario});
     },
     enderecos: async (request, response) => {
         const { id } = request.params;
