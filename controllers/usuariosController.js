@@ -1,11 +1,17 @@
-const { Usuario, Endereco, sequelize } = require('../models/');
+// const { where } = require('sequelize/types');
+const { Usuario, Endereco, sequelize } = require('../models');
 
 const usuariosController = {
 
-    // index: async (request,response) => { //mostra todos os usuários
-    //     const usuarios = await Usuario.findAll();
-    //     return response.json(usuarios);
-    // },
+    perfil: async (request, response) => {
+        // const usuarios = await Usuario.findAll();
+        // return response.json({listaUsuarios: usuarios});
+        return response.render('perfil');
+    },
+    listarUsuarios: async (request, response) => {
+        let listarUsuarios = await Usuario.findAll();
+        return response.json(listarUsuarios);
+    },
     cadastro: (req, res) => {
         return res.render('cadastro');
     },
@@ -27,8 +33,40 @@ const usuariosController = {
         }
     },
     enderecos: async (request, response) => {
-        let enderecos = await Endereco.findAll();
-        return response.json(enderecos);
+        const { id } = request.params;
+
+        const endereco = await Endereco.findByPk({
+            where: {
+                usuarios_id: id
+            }
+        });
+
+        return response.json(endereco);
+    },
+    enderecosUpdate: async (request, response) => {
+        const { id } = request.params;
+        const { lougradouro, numero, bairro, cidade, cep, complemento } = request.body;
+
+        const endereco = await Endereco.findOne({
+            where: {
+                usuarios_id: id
+            }
+        });
+
+        usuarioID = endereco.id;
+
+        const enderecoAtualizar = await Endereco.update({
+            lougradouro,
+            numero,
+            bairro,
+            cidade,
+            cep,
+            complemento
+        }, {
+            where: { usuarioID }
+        });
+
+        return response.json(enderecoAtualizar);
     },
     create: async (request, response) => {
         const { nome, telefone, email, senha, cpf, enderecos_id } = request.body;
@@ -68,6 +106,7 @@ const usuariosController = {
         });
 
         return response.json(usuarioRemover);
+
     }
 }
 module.exports = usuariosController;

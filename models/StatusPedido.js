@@ -8,10 +8,10 @@ module.exports = (sequelize, DataTypes) => {
             timestamps: false
         });
 
-        // StatusPedido.associate = (models) => {
-        //     //Relação 1:1 - pedido/status-pedido
-        //     StatusPedido.belongsTo(models.Pedido, {as: "status_pedido", foreignKey:"status_pedido_id"});
-        // }
+        StatusPedido.associate = (models) => {
+            //Relação 1:1 - pedido/status-pedido
+            StatusPedido.hasMany(models.Pedido, {as: "status_pedido", foreignKey:"status_pedido_id"});
+        }
 
         return StatusPedido;
     }

@@ -1,15 +1,13 @@
-
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usuariosRouter = require('./routes/usuariosRouter');
-
+const indexRouter = require('./routes/index');
+const usuariosRouter = require('./routes/usuariosRouter');
 const pedidosRouter = require('./routes/pedidosRouter');
-var catalogoRouter = require('./routes/catalogoRouter');
+//const produtosRouter = require('./routes/produtosRouter');
 
 var app = express();
 
@@ -24,12 +22,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-
-app.use('/usuario', usuariosRouter);
-
-app.use('/usuario/pedidos', pedidosRouter);
-
-app.use('/catalogo', catalogoRouter);
+app.use('/', usuariosRouter);
+app.use('/pedidos', pedidosRouter);
+//app.use('/produtos', produtosRouter);
 
 
 

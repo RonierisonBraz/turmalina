@@ -12,15 +12,17 @@ module.exports = (sequelize, DataTypes) => {
         timestamps: false
     });
 
-    // Pedido.associate = (models) => {
-    //     //Relação N:1 - pedidos/pagamento
-    //     Pedido.belongsTo(models.Pedido, { as: "pagamentos", foreignKey: "pagamentos_id" });
-    //     //Relação 1:N - pedidos/usuario
-    //     Pedido.hasMany(models.Pedido, { as: "usuarios", foreignKey: "usuarios_id" });
-    //     //Relação 1:1 - pedido/status-pedido
-    //     Pedido.hasOne(models.Pedido, { as: "status_pedido", foreignKey: "status_pedido_id" });
+    Pedido.associate = (models) => {
+        //Relação 1:1 - pedidos/pagamento
+        Pedido.hasOne(models.Pagamento, { as: "pagamentos", foreignKey: "pagamentos_id" });
 
-    // }
+        //Relação 1:N - pedidos/usuario
+        Pedido.belongsTo(models.Usuario, { as: "usuarios", foreignKey: "usuarios_id" });
+
+        //Relação 1:1 - pedido/status-pedido
+        Pedido.belongsTo(models.StatusPedido, { as: "status_pedido", foreignKey: "status_pedido_id" });
+
+    }
     return Pedido;
 
 }
