@@ -12,6 +12,7 @@ router.post('/', pedidosController.create);
 http://localhost:3000/pedidos/id
 router.put('/:id', pedidosController.update);
 
+//router.put('/cancelar/:id', pedidosController.cancelarPedido);
 
 router.delete('/:id', pedidosController.delete);
 

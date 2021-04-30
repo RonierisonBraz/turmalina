@@ -3,8 +3,8 @@ const { Op } = require('sequelize');
 
 const pedidosController = {
     index: async (req, res) => {
-        let pedidos = await Pedido.findAll();
-        return res.json(pedidos);
+     //   let pedidos = await Pedido.findAll();
+        return res.render('perfil-pedido');
     }, 
     create: async (req, res) => {
         let {data_pedido, valor_total, pagamentos_id, usuarios_id, status_pedido_id} = req.body;
@@ -23,8 +23,18 @@ const pedidosController = {
                 where: {id}
             });
         return res.send(atualizarPedido);
-    }, 
-    delete: async (req, res) => {
+
+   // }, cancelarPedido: async (req, res) => {
+    //     let {id} = req.params;
+    //     let {status_pedido_id} = req.body;
+    //     let atualizarStatus = await Pedido.update(
+    //         {status_pedido_id} , {
+    //             where: {id}
+    //         })
+    //         return res.render('perfil-pedido' ,{Pedidos:atualizarStatus});
+        
+
+    },   delete: async (req, res) => {
         let {id} = req.params;
 
         const deletarPedido = await Pedido.destroy ({
