@@ -4,7 +4,7 @@
 .container{
     width: 700px;
     max-width: 100%;
-    background-color: #fafafa;
+    background-color: rgb(151, 135, 222);
     margin: 0 auto;
 }
 
@@ -90,13 +90,11 @@ a {
 
 
 main {
-    height: 600px;
+    max-width: 100%;
+    height: 1250px;
     font-family: Ropa Sans;
     text-align-last: center;
-    padding: 10px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
+    padding: 10px 50px;
 }
 
 /* -------------------------------------------------------SOBRE---------------------------------------------------- */
@@ -108,7 +106,7 @@ main {
 }
 
 .joias{
-    background-color: burlywood;
+    background-color: rgb(255, 249, 239);
 }
 
 .sobre{
@@ -120,6 +118,58 @@ main {
     height: 300px;
     max-width: 70%;
 }
+
+.sec-cat{
+  max-width: 100%;
+  opacity: 70%;
+}
+
+.aneis{
+    background-image: url("/front/img/aneis1.jpg");
+    margin-bottom: 20px;
+    height: 170px;
+    box-shadow: 0 0 10px  rgb(22, 20, 20);
+    
+}
+.aliancas{
+    background-image: url("/front/img/aliancas1.jpg");
+    margin-bottom: 20px;
+    height: 170px;
+    box-shadow: 0 0 10px  rgb(22, 20, 20);
+}
+.brincos{
+    background-image: url("/front/img/brincos1.jpg");
+    margin-bottom: 20px;
+    height: 170px;
+    box-shadow: 0 0 10px  rgb(22, 20, 20);
+}
+.colares{
+    background-image: url("/front/img/colares1.jfif");
+    margin-bottom: 20px;
+    height: 170px;
+    box-shadow: 0 0 10px  rgb(22, 20, 20);
+}
+.conjuntos{
+    background-image: url("/front/img/conjuntos1.jfif");
+    margin-bottom: 20px;
+    height: 170px;
+    box-shadow: 0 0 10px  rgb(22, 20, 20);
+}
+.pulseiras{
+    background-image: url("/front/img/pulseiras1.jfif");
+    margin-bottom: 20px;
+    height: 170px;
+    box-shadow: 0 0 10px  rgb(22, 20, 20);
+}
+.btn-cat{
+    margin: 10px;
+    font-family: Ropa Sans;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    background-color: rgb(151, 135, 222);
+}
+
 
 /* ---------------------------------------------------FOOTER------------------------------------------------ */
 footer{
