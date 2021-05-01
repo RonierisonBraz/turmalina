@@ -9,16 +9,25 @@
 </head>
 <body>
     <h2> <%= Usuarios.nome %>  </h2>
-    <!-- <button class="btn-statusPedido" onclick="showDiv()">Status do pedido</button> -->
-    <input type="button" name="answer" value="Show Div" onclick="showDiv()" />
+
     <button class="btn-historico" id="btn-hist">Historico</button>
     <!-- Essas duas divs de statusPedido e historico sao eventos, so aparecem ao clicar na opcao -->
     <div id="statusPedido">
         <p>Status do Pedido!!!!</p>
     </div>
-    <div id="historico">
-        <p>Historico!!!!</p>
-    </div>
-    <script src="../js/main.js"></script>
+
+    <script>
+        let elemento = document.getElementById("statusPedido");
+        elemento.style.display = "none";
+
+        document.getElementById("btn-hist").onclick = function () { myFunction() };
+        function myFunction() {
+            if (elemento.style.display === "none") {
+                elemento.style.display = "block";
+            } else {
+                elemento.style.display = "none";
+            }       
+        }
+    </script>
 </body>
 </html>
