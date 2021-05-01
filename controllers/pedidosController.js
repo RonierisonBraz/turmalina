@@ -15,7 +15,7 @@ const pedidosController = {
     }, 
     pedidosAguardandoPagamento: async (req, res) => {
         const  pedidosEmAndamento  = await Pedido.findAll({
-            where: { status_pedido_id : 1}
+            where: { status_pedido_id : 1} //funcionando
         });
        
         return res.json(pedidosEmAndamento);
@@ -31,15 +31,16 @@ const pedidosController = {
             });
         return res.send(atualizarPedido);
 
-   // }, cancelarPedido: async (req, res) => {
-    //     let {id} = req.params;
-    //     let {status_pedido_id} = req.body;
-    //     let atualizarStatus = await Pedido.update(
-    //         {status_pedido_id} , {
-    //             where: {id}
-    //         })
-    //         return res.render('perfil-pedido' ,{Pedidos:atualizarStatus});
+   }, cancelarPedido: async (req, res) => {
+        let {id} = req.params;
+        let {status_pedido_id} = req.body;
+        let atualizarStatus = await Pedido.update(
+            {status_pedido_id} , {
+                where: {id}
+            })
         
+            return res.send(atualizarStatus);
+        //localhost:3000/pedidos/cancelar/2
 
     },   delete: async (req, res) => {
         let {id} = req.params;
