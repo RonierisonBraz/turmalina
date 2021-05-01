@@ -13,7 +13,7 @@ const pedidosController = {
         );
         return res.json(novoPedido);
     }, 
-    pedidosAguardandoPagamento: async (req, res) => {
+    sacola: async (req, res) => {
         const  pedidosEmAndamento  = await Pedido.findAll({
             where: { status_pedido_id : 1} //funcionando
         });
@@ -33,15 +33,15 @@ const pedidosController = {
         return res.render("perfil-pedido");
 
    }, cancelarPedido: async (req, res) => {
-        // let {id} = req.params;
-        // let {status_pedido_id} = req.body;
-        // let atualizarStatus = await Pedido.update(
-        //     {status_pedido_id} , {
-        //         where: {id}
-        //     })
+        const {id} = req.params;
+        const {status_pedido_id} = req.body;
+        const atualizarStatus = await Pedido.update(
+            {status_pedido_id} , {
+                where: {id}
+            })
         
             // return res.send(atualizarStatus);
-            return res.render('perfil-pedido');
+            return res.render('perfil-pedido',{Pedidos: atualizarStatus});
         //localhost:3000/pedidos/cancelar/2
 
     },   delete: async (req, res) => {
