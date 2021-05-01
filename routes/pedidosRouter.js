@@ -14,7 +14,7 @@ router.get('/pedidosAndamento', pedidosController.pedidosAguardandoPagamento);
 http://localhost:3000/pedidos/id
 router.put('/:id', pedidosController.update);
 
-router.put('/cancelar/:id', pedidosController.cancelarPedido);
+router.put('/cancelar/:id', pedidosController.cancelarPedido);   // ROTA QUE ESTAMOS VENDO
 
 router.delete('/:id', pedidosController.delete);
 

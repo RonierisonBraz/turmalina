@@ -29,17 +29,19 @@ const pedidosController = {
             }, {
                 where: {id}
             });
-        return res.send(atualizarPedido);
+        // return res.send(atualizarPedido);
+        return res.render("perfil-pedido");
 
    }, cancelarPedido: async (req, res) => {
-        let {id} = req.params;
-        let {status_pedido_id} = req.body;
-        let atualizarStatus = await Pedido.update(
-            {status_pedido_id} , {
-                where: {id}
-            })
+        // let {id} = req.params;
+        // let {status_pedido_id} = req.body;
+        // let atualizarStatus = await Pedido.update(
+        //     {status_pedido_id} , {
+        //         where: {id}
+        //     })
         
-            return res.send(atualizarStatus);
+            // return res.send(atualizarStatus);
+            return res.render('perfil-pedido');
         //localhost:3000/pedidos/cancelar/2
 
     },   delete: async (req, res) => {

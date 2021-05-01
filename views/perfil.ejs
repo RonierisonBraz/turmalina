@@ -16,18 +16,43 @@
         <p>Status do Pedido!!!!</p>
     </div>
 
-    <script>
-        let elemento = document.getElementById("statusPedido");
-        elemento.style.display = "none";
+    <button id="btn-telefone">teste pr mudar telefone no banco</button>
 
-        document.getElementById("btn-hist").onclick = function () { myFunction() };
-        function myFunction() {
-            if (elemento.style.display === "none") {
-                elemento.style.display = "block";
-            } else {
-                elemento.style.display = "none";
-            }       
+    <script>
+        let idUsuario = 1;
+
+        document.getElementById("btn-telefone").onclick = function () { myFunction(idUsuario) };
+        function myFunction(id) {
+
+            fetch(`http://localhost:3000/usuario/alterarTelefone/${id}`, {
+                "method": "PUT",
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "body": "{\"telefone\":\"987430708\"}"
+            })
+                .then(response => {
+                    console.log(response);
+                })
+                .catch(err => {
+                    console.error(err);
+                });
+
         }
+
+                // let elemento = document.getElementById("statusPedido");
+        // elemento.style.display = "none";
+
+        // document.getElementById("btn-hist").onclick = function () { myFunction() };
+        // function myFunction() {
+        //     if (elemento.style.display === "none") {
+        //         elemento.style.display = "block";
+        //     } else {
+        //         elemento.style.display = "none";
+        //     }       
+        // }
+
+
     </script>
 </body>
 </html>
