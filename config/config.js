@@ -1,6 +1,6 @@
 module.exports = {
   "username": "root",
-  "password": "120708",
+  "password": "@FM&CS11",
   "database": "turmalina",
   "host": "127.0.0.1",
   "dialect": "mysql",
