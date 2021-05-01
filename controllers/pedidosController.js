@@ -14,7 +14,7 @@ const pedidosController = {
         return res.json(novoPedido);
     }, 
     pedidosAguardandoPagamento: async (req, res) => {
-        const { pedidosEmAndamento } = await Pedido.findAll({
+        const  pedidosEmAndamento  = await Pedido.findAll({
             where: { status_pedido_id : 1}
         });
        
