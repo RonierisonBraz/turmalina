@@ -8,6 +8,8 @@ router.get('/', pedidosController.index);
 
 router.post('/', pedidosController.create);
 
+router.get('/pedidosAndamento', pedidosController.pedidosAguardandoPagamento);
+
 
 http://localhost:3000/pedidos/id
 router.put('/:id', pedidosController.update);

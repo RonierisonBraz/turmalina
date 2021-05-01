@@ -10,14 +10,15 @@ const catalogoController = {
         return response.json(produtos);
     },
     cadastrarProduto: async (request, response) => {
-        const {nome, descricao, valor, quantidade, categorias_id} = request.body;
+        const {nome, descricao, valor, quantidade, categorias_id, img} = request.body;
 
         const novoProduto = await Produto.create({
             nome,
             descricao,
             valor,
             quantidade,
-            categorias_id
+            categorias_id,
+            img
         });
 
         return response.json(novoProduto);

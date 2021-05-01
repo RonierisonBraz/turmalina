@@ -13,6 +13,13 @@ const pedidosController = {
         );
         return res.json(novoPedido);
     }, 
+    pedidosAguardandoPagamento: async (req, res) => {
+        const { pedidosEmAndamento } = await Pedido.findAll({
+            where: { status_pedido_id : 1}
+        });
+       
+        return res.json(pedidosEmAndamento);
+    },
     update: async (req, res) => {
         let {id} = req.params;
         let {valor_total, status_pedido_id} = req.body;
