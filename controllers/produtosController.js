@@ -3,8 +3,10 @@ const { Produto, sequelize } = require('../models');
 
 const produtosController = {
     list: async(request, response) => {
-        let produtos = await Produto.findAll();
-        return response.json(produtos);
+        let produtos = await Produto.findAll({
+            include: ['categoria']
+        });
+        return response.render('Produto', {Produtos: produtos});
     },
     create: async (request, response) => {
         const {nome, descricao, valor, quantidade, categorias_id} = request.body;
