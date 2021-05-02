@@ -9,7 +9,6 @@ router.get('/:nome', catalogoController.produtosCategoria); //pegar categoria pe
 
 
 
-
 router.post('/categoria', catalogoController.cadastrarCategoria); //cadastrar categoria
 router.delete('/categoria/:id', catalogoController.removerCategoria); //deletar categoria
 

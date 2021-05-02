@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Usuario</title>
+  <link rel="stylesheet" href="./css/cadastro.css">
+</head>
+
+<body>
+  <div id="main-container">
+    <h1>Cadastre-se para acessar o sistema</h1>
+    <form id="register-form">
+      <div class="full-box">
+        <label for="email">E-mail</label>
+        <input type="email" name="email" id="email" placeholder="Digite seu e-mail">
+      </div>
+      <div class="half-box spacing">
+        <label for="name">nome</label>
+        <input type="text" name="name" id="name" placeholder="Digite o seu nome">
+      </div>
+      <div class="half-box spacing">
+        <label for="cpf">Cpf</label>
+        <input type="text" name="cpf" id="cpf" placeholder="Digite o seu cpf">
+      </div>
+      <div class="half-box spacing">
+        <label for="Endereco">Endereço</label>
+        <input type="text" name="Endereco" id="Endereco" placeholder="Digite o seu endereço">
+      </div>
+      <div class="half-box spacing">
+        <label for="Endereco">Número</label>
+        <input type="text" name="Endereco" id="Endereco" placeholder="Digite o numero da casa">
+      </div>
+      <div class="half-box spacing">
+        <label for="password">Senha</label>
+        <input type="password" name="password" id="password" placeholder="Digite sua senha">
+      </div>
+      <div class="half-box">
+        <label for="passconfirmation">Confirme sua senha</label>
+        <input type="password" name="passconfirmation" id="passconfirmation" placeholder="confirme sua senha">
+      </div>
+      <div class="full-box">
+        <input type="checkbox" name="agreement" id="agreement">
+        <label for="agreement" id="agreement-label">Eu li e aceito os <a href="#">termos de uso</a></label>
+      </div>
+      <div class="full-box">
+        <input type="submit" name="agreement" id="btn-submit" value="Registrar">
+      </div>
+    </form>
+  </div>
+  <p class="error-validationc template"></p>
+
+
+  <script src="../js/scripts.js"></script>
+  
+</body>
+
+</html>
