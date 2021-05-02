@@ -12,7 +12,8 @@ router.get('/:nome', catalogoController.produtosCategoria); //pegar categoria pe
 router.post('/categoria', catalogoController.cadastrarCategoria); //cadastrar categoria
 router.delete('/categoria/:id', catalogoController.removerCategoria); //deletar categoria
 
-router.get('/categoria/:id', catalogoController.mostrarProduto);     // tela do produto RENDERIZADO http://localhost:3000/catalogo/categoria/5
+router.get('/categoria/:id', catalogoController.paginaProduto);   //  http://localhost:3000/catalogo/categoria/1
+router.get('/produto/:id', catalogoController.mostrarProduto);     // tela do produto RENDERIZADO http://localhost:3000/catalogo/categoria/5
 router.post('/', catalogoController.cadastrarProduto); //cadastrar produto  http://localhost:3000/catalogo/
 router.delete('/:id', catalogoController.deletarProduto); //deletar produto
 

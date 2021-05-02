@@ -9,14 +9,20 @@ const catalogoController = {
         let produtos = await Produto.findAll();
         return response.json(produtos);
     },
-    mostrarProduto: async (request, response) => {
+    paginaProduto: async(request,response) => {
         const { id } = request.params;
 
         const produto = await Produto.findOne({
             where: {id}
         });
+
+        return response.render('Produto', {Produto: produto});   // renderizei Produto.ejs 
+    },
+    mostrarProduto: async (request, response) => {
+        const { id } = request.params;
+
         // return response.json(produto);
-        return response.render('Produto', {Produto: produto});
+        return response.redirect(`/catalogo/categoria/${id}`);  // to redicionando para metodo paginaProduto
     },
     cadastrarProduto: async (request, response) => {
         const {nome, descricao, valor, quantidade, categorias_id, img} = request.body;

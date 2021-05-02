@@ -10,23 +10,26 @@
 
 <body>
     <h2>TESTE DE APRESENTAÇÃO DE PRODUTOS DA CATEGORIA</h2>
-    
+
     <% for (let produtos of Produtos) { %>
 
         <p>Entrou no laco</p>
 
         <img src=<%=produtos.img %> alt="Imagem do produto" id="img-produto">
 
+        <!-- NAO CONSEGUE PEGAR idProduto porque não passa pr o script -->
+
+        <% const idProduto =produtos.id %>     
+
         <script>
 
-            const idImagem = produtos.id;
+            console.log("HI, THERE!");
+            console.log(idProduto);
 
-            console.log(produtos.id);
-
-            document.getElementById("img-produto").onclick = function () { telaProduto(idImagem) };
+            document.getElementById("img-produto").onclick = function () { telaProduto(idProduto) };
             function telaProduto(id) {
 
-                fetch(`http://localhost:3000/catalogo/categoria/${id}`, {
+                fetch(`http://localhost:3000/catalogo/produto/${id}`, {
                     "method": "GET",
                     "headers": {}
                 })
