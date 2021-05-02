@@ -12,6 +12,7 @@ router.get('/:nome', catalogoController.produtosCategoria); //pegar categoria pe
 router.post('/categoria', catalogoController.cadastrarCategoria); //cadastrar categoria
 router.delete('/categoria/:id', catalogoController.removerCategoria); //deletar categoria
 
+router.get('/produto/:id', catalogoController.mostrarProduto);
 router.post('/', catalogoController.cadastrarProduto); //cadastrar produto  http://localhost:3000/catalogo/
 router.delete('/:id', catalogoController.deletarProduto); //deletar produto
 

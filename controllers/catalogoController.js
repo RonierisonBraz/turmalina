@@ -1,4 +1,4 @@
-const { response } = require('express');
+const { response, request } = require('express');
 const { Produto, Categoria, sequelize } = require('../models');
 
 const catalogoController = {
@@ -8,6 +8,15 @@ const catalogoController = {
     listarTodosProdutos: async(request, response) => {
         let produtos = await Produto.findAll();
         return response.json(produtos);
+    },
+    mostrarProduto: async (request, response) => {
+        const { id } = request.params;
+
+        const produto = await Produto.findOne({
+            where: {id}
+        });
+        return response.json(produto);
+        // return response.redirect('Produto', {Produto: produto});
     },
     cadastrarProduto: async (request, response) => {
         const {nome, descricao, valor, quantidade, categorias_id, img} = request.body;
@@ -57,7 +66,7 @@ const catalogoController = {
             where: {categorias_id:categoria.id}
         });
 
-        return response.json(produtosCategoria);
+        return response.render('categoria', {Produtos: produtosCategoria});
     },
     cadastrarCategoria: async(request,response) => {
         const {nome} = request.body;

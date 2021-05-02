@@ -1,1 +1,16 @@
-<h2> Área categoria </h2>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turmalina</title>
+</head>
+<body>
+    <h2>TESTE DE APRESENTAÇÃO DE PRODUTOS DA CATEGORIA</h2>
+    <% for (let produtos of Produtos) { %> 
+        <p>Entrou no laco</p>
+        <img src=<%= produtos.img %>  alt="Imagem do produto" id="img_produto">
+    <% } %> 
+</body>
+</html> 
