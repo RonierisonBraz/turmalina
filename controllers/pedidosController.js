@@ -7,14 +7,14 @@ const pedidosController = {
         return res.render('perfil-pedido');
     }, 
     create: async (req, res) => {
-        let {data_pedido, valor_total, pagamentos_id, usuarios_id, status_pedido_id} = req.body;
+        let {valor_total, pagamentos_id, usuarios_id, status_pedido_id} = req.body;
         let novoPedido = await Pedido.create(
             {data_pedido: Date.now(), valor_total, pagamentos_id, usuarios_id, status_pedido_id}
         );
         return res.json(novoPedido);
     },
     finalizarPagamento: async (req, res) => {
-        let { parcelas, data_pagamento, tipos_pagamento_id} = req.body;
+        let { parcelas, tipos_pagamento_id} = req.body;
         let novoPagamento = await Pagamento.create(
             {parcelas, data_pagamento: Date.now(), tipos_pagamento_id}
         );
