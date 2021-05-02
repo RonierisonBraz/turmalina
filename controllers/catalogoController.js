@@ -15,8 +15,8 @@ const catalogoController = {
         const produto = await Produto.findOne({
             where: {id}
         });
-        return response.json(produto);
-        // return response.redirect('Produto', {Produto: produto});
+        // return response.json(produto);
+        return response.render('Produto', {Produto: produto});
     },
     cadastrarProduto: async (request, response) => {
         const {nome, descricao, valor, quantidade, categorias_id, img} = request.body;
