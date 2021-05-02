@@ -66,7 +66,7 @@ const catalogoController = {
             where: {categorias_id:categoria.id}
         });
 
-        return response.render('categoria', {Produtos: produtosCategoria});
+        return response.render('categoria', {Produtos: produtosCategoria});  // vai para pagina de categoria
     },
     cadastrarCategoria: async(request,response) => {
         const {nome} = request.body;
