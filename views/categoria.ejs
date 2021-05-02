@@ -11,39 +11,52 @@
 <body>
     <h2>TESTE DE APRESENTAÇÃO DE PRODUTOS DA CATEGORIA</h2>
 
+    <% var nome;  %> 
     <% for (let produtos of Produtos) { %>
 
         <p>Entrou no laco</p>
-
+        
         <img src=<%=produtos.img %> alt="Imagem do produto" id="img-produto">
-
+        <strong> <%= produtos.nome %> </strong>
         <!-- NAO CONSEGUE PEGAR idProduto porque não passa pr o script -->
 
-        <% const idProduto =produtos.id %>     
+        <% nome = produtos.nome; %> 
+            <script>
 
-        <script>
+                var pegar_nome = "<%= nome %>";
+                console.log(pegar_nome);
 
-            console.log("HI, THERE!");
-            console.log(idProduto);
+                document.getElementById("img-produto").onclick = function () { telaProduto(pegar_nome) };
+                function telaProduto(nome) {
+                    console.log("TA INDO");
+                    window.location.href = 'http://localhost:3000/catalogo/categoria/'+nome;
+                }
 
-            document.getElementById("img-produto").onclick = function () { telaProduto(idProduto) };
-            function telaProduto(id) {
 
-                fetch(`http://localhost:3000/catalogo/produto/${id}`, {
-                    "method": "GET",
-                    "headers": {}
-                })
-                    .then(response => {
-                        console.log(response);
-                    })
-                    .catch(err => {
-                        console.error(err);
-                    });
-            }
 
-        </script>
+                // let idProduto = 3;
 
-        <% } %>
+                // console.log("HI, THERE!");
+                // console.log(idProduto);
+
+                // document.getElementById("img-produto").onclick = function () { telaProduto(idProduto) };
+                // function telaProduto(id) {
+
+                //     fetch(`http://localhost:3000/catalogo/categoria/${id}`, {
+                //         "method": "POST",
+                //         "headers": {}
+                //     })
+                //         .then(response => {
+                //             console.log(response);
+                //         })
+                //         .catch(err => {
+                //             console.error(err);
+                //         });
+                // }
+
+            </script>
+
+            <% } %>
 
 </body>
 
