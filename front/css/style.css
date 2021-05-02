@@ -16,7 +16,7 @@ header{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: white;
+    background-color: rgb(255, 249, 239);
     height: 100px;
     box-shadow: 0 0 10px  grey;
     padding: 10px 50px;
