@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Ropa+Sans&display=swap');
+
+/* index.html */
+.container{
+    width: 700px;
+    max-width: 100%;
+    background-color: rgb(151, 135, 222);
+    margin: 0 auto;
+}
+
+body{
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(255, 249, 239);
+    height: 100px;
+    box-shadow: 0 0 10px  grey;
+    padding: 10px 30px;
+    align-items: center;
+}
+
+header i{
+    margin-right: 5px;
+}
+button{
+    justify-content: space-around;
+    align-self: flex-end;
+}
+
+a {
+    font-family: Ropa Sans;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+}
+
+#logo {
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    height: auto;
+}
+
+/* ---------------------------------------------------MAIN------------------------------------------------ */
+main {
+    max-width: 100%;
+    height: 1250px;
+    font-family: Ropa Sans;
+    text-align-last: center;
+    padding: 10px 50px;
+}
+h1 {
+    font-family: Ropa Sans;
+    font-size: 30px;
+}
+h3 {
+    font-family: Ropa Sans;
+    font-size: 30px;
+}
+.destaque{
+    max-width: 100%;
+    opacity: 70%;
+    
+}
+  
+  /* .aneis{
+      background-image: url("/front/img/anel-destaque.jfif");
+      margin-bottom: 20px;
+      height: 500px;
+      width: 300px;
+      box-shadow: 0 0 10px  rgb(22, 20, 20);
+ } */
+
+@keyframes fantasma {
+    0% { opacity: 0% }
+  30% { opacity: 100%; transform: translateY(-50px)};
+    100% { opacity: 0% }
+  
+}
+  .anel-destaque {
+    width: 200px;
+    animation: fantasma 3s infinite;
+    margin-top: 50px;
+    box-shadow: 0 0 10px  rgb(22, 20, 20);
+}
+section{
+    margin-top: 40px;
+}
+
+section.articles {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+article{
+    width: 256px;
+    background-color: #eeeeee;
+    box-shadow: 0 0 10px grey;
+}
+
+.spots{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px 0px 10px;
+}
+
+.spots .value{
+    font-family: Ropa Sans;
+    font-size: 25px;
+    font-weight: 400;
+    color: #888888;
+}
+
+.spots .new {
+    font-family: Ropa Sans;
+    font-size: 20px;
+    font-weight: lighter;
+    color: #fafafa;
+    background-color: #51D275;
+    border-radius: 20px;
+    padding: 0 10px;
+    padding-bottom: 6px;
+    align-content: center;
+    height: 15px;
+}
+
+.spots .sale {
+    font-family: Ropa Sans;
+    font-size: 20px;
+    font-weight: lighter;
+    color: #fafafa;
+    background-color: #DC9730;
+    border-radius: 20px;
+    padding: 0 10px;
+    padding-bottom: 6px;
+    align-content: center;
+    height: 15px;
+}
+
+article p {
+    font-family: Ropa Sans;
+    font-size: 10px;
+    font-weight: lighter;
+    line-height: 12px;
+    padding: 0 10px;
+    text-align: justify;
+    color: #888888;
+}
+
+h2 {
+    font-family: Ropa Sans;
+    font-size: 25px;
+    font-weight: 400;
+    color: #888888;
+    text-align: center;
+}
+/* ---------------------------------------------------FOOTER------------------------------------------------ */
+footer{
+    color:black;
+    font-weight: bold;
+    display: flex;
+    align-items: flex-end;
+    font-family: Ropa Sans;
+    font-size: 14px;
+    line-height: .2;
+    width: 100%;
+}
+
+.footer{
+    background-image: url(/front/img/footer.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100px;
+    padding: 60px 40px;
+    box-shadow: 0 0 10px  grey;
+}
+
+#contato div i{
+    margin-right: 5px;
+}
