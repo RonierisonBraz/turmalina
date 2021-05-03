@@ -51,7 +51,7 @@ a {
 /* ---------------------------------------------------MAIN------------------------------------------------ */
 main {
     max-width: 100%;
-    height: 1200px;
+    height: 1300px;
     font-family: Ropa Sans;
     text-align-last: center;
     padding: 10px 50px;
@@ -71,7 +71,7 @@ h3 {
     100% { opacity: 0% }
   
 }
-.anel-destaque {
+.conjuntos-destaque {
     width: 400px;
     animation: fantasma 3s;
     margin-top: 30px;
