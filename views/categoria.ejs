@@ -11,7 +11,7 @@
 <body>
     <h2>TESTE DE APRESENTAÇÃO DE PRODUTOS DA CATEGORIA</h2>
 
-    <% var nome;  %> 
+    <% var idProduto;  %> 
     <% for (let produtos of Produtos) { %>
 
         <p>Entrou no laco</p>
@@ -20,16 +20,16 @@
         <strong> <%= produtos.nome %> </strong>
         <!-- NAO CONSEGUE PEGAR idProduto porque não passa pr o script -->
 
-        <% nome = produtos.nome; %> 
+        <% idProduto = produtos.id; %> 
             <script>
 
-                var pegar_nome = "<%= nome %>";
-                console.log(pegar_nome);
+                var id_prod= "<%= idProduto %>";
+                console.log(id_prod);
 
-                document.getElementById("img-produto").onclick = function () { telaProduto(pegar_nome) };
-                function telaProduto(nome) {
+                document.getElementById("img-produto").onclick = function () { telaProduto(id_prod) };
+                function telaProduto(id) {
                     console.log("TA INDO");
-                    window.location.href = 'http://localhost:3000/catalogo/categoria/'+nome;
+                    window.location.href = 'http://localhost:3000/catalogo/categoria/'+id;
                 }
 
 

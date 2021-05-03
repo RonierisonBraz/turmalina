@@ -13,7 +13,7 @@ router.post('/categoria', catalogoController.cadastrarCategoria); //cadastrar ca
 router.delete('/categoria/:id', catalogoController.removerCategoria); //deletar categoria
 
 router.get('/categoria/:id', catalogoController.paginaProduto);   //  http://localhost:3000/catalogo/categoria/1
-router.post('/categoria/:nome', catalogoController.mostrarProduto);     // tela do produto RENDERIZADO http://localhost:3000/catalogo/categoria/5
+router.post('/categoria/:id', catalogoController.mostrarProduto);     // tela do produto RENDERIZADO http://localhost:3000/catalogo/categoria/5
 router.post('/', catalogoController.cadastrarProduto); //cadastrar produto  http://localhost:3000/catalogo/
 router.delete('/:id', catalogoController.deletarProduto); //deletar produto
 

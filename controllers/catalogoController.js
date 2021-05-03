@@ -19,10 +19,10 @@ const catalogoController = {
         return response.render('Produto', {Produto: produto});   // renderizei Produto.ejs 
     },
     mostrarProduto: async (request, response) => {
-        const { nome } = request.params;
+        const { id } = request.params;
 
         // return response.json(produto);
-        return response.redirect(`/catalogo/categoria/${nome}`);  // to redicionando para metodo paginaProduto
+        return response.redirect(`/catalogo/categoria/${id}`);  // to redicionando para metodo paginaProduto
     },
     cadastrarProduto: async (request, response) => {
         const {nome, descricao, valor, quantidade, categorias_id, img} = request.body;
