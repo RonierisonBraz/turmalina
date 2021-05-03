@@ -73,7 +73,11 @@ h3 {
     100% { opacity: 0% }
   
 }
-.aliancas-destaque {
+.destaque {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 400px;
     animation: fantasma 3s;
     margin-top: 30px;
