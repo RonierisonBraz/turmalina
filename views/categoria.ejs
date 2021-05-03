@@ -5,58 +5,82 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/aliancas.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <title>Turmalina</title>
 </head>
 
 <body>
-    <h2>TESTE DE APRESENTAÇÃO DE PRODUTOS DA CATEGORIA</h2>
 
-    <% var idProduto;  %> 
-    <% for (let produtos of Produtos) { %>
-
-        <p>Entrou no laco</p>
-        
-        <a href= "http://localhost:3000/catalogo/categoria/<%= produtos.id%>"  ><img src=<%=produtos.img %> alt="Imagem do produto" id="img-produto" ></a>
-        <strong> <%= produtos.nome %> </strong>
-
-        <% idProduto = produtos.id; %> 
-            <script>
-
-
-                // var id_prod= "<%= idProduto %>";
-                // console.log(id_prod);
-
-                // document.getElementById("img-produto").onclick = function () { telaProduto(id_prod) };
-                // function telaProduto(id) {
-                //     console.log("TA INDO");
-                //     window.location.href = 'http://localhost:3000/catalogo/categoria/'+id;
-                // }
-
-
-
-                // let idProduto = 3;
-
-                // console.log("HI, THERE!");
-                // console.log(idProduto);
-
-                // document.getElementById("img-produto").onclick = function () { telaProduto(idProduto) };
-                // function telaProduto(id) {
-
-                //     fetch(`http://localhost:3000/catalogo/categoria/${id}`, {
-                //         "method": "POST",
-                //         "headers": {}
-                //     })
-                //         .then(response => {
-                //             console.log(response);
-                //         })
-                //         .catch(err => {
-                //             console.error(err);
-                //         });
-                // }
-
-            </script>
-
-            <% } %>
+    <div class="container">
+    
+        <header>
+            <div>
+                <img id="logo" src="/front/img/logo-2.png" alt=" logomarca Turmalina">
+            </div>
+            <div>
+                <nav>
+                    <a href="/html/home.html"> Home </a>
+                    <a href="/html/sobre.html"> Sobre </a>
+                    <a href="http://localhost:3000/catalogo/"> Joias </a>
+                    <a href="#contato" > Contato</a>  
+                </nav>
+            </div>
+            <div>
+                <i class="fas fa-users fa-2x"></i>
+                <i class="fas fa-shopping-bag fa-2x"></i>
+            </div>
+        </header>
+    
+        <main>
+            <section class="destaque">
+                <h1> <%= categoria.nome %> em destaque</h1>
+                <img class="destaque" src="../img-produtos/<%=categoria.nome%>-destaque.jfif" alt="<%=categoria.nome %>  flutuante">
+                <h4> <%= categoria.nome %>  Elegance Ouro Branco</h3>
+            </section>
+    
+            <% var idProduto; %>
+    
+                    <section class="articles">
+                        <% for (let produtos of Produtos) { %>
+                    
+                            <article>
+                                <a href="http://localhost:3000/catalogo/categoria/<%= produtos.id%>">
+                                    <img src=<%=produtos.img %> alt="Imagem do produto" id="img-produto" >
+                                </a>
+                                <div class="spots">
+                                    <span class="value"> R$ <%= produtos.valor %> </span>
+                                    <span class="new">New</span>
+                                </div>
+                                <p>
+                                    <%= produtos.descricao %>
+                                </p>
+                            </article>
+                            <% } %>
+                    
+                    </section>
+    
+        </main>
+    
+        <footer>
+            <section class="footer">
+                <div id="contato">
+                    <p>Turmalina Joias - Bright yourself!</p>
+                    <p>Rua do Sol - Recife-PE</p>
+                    <p>+55 (81) 95555-5555</p>
+                    <p>contact@turmalina.com</p>
+                    <p>OUR SOCIAL MEDIAS:</p>
+                    <div>
+                        <i class="fab fa-facebook-square fa-2x"></i>
+                        <i class="fab fa-whatsapp-square fa-2x"></i>
+                        <i class="fab fa-twitter fa-2x"></i>
+                    </div>
+                </div>
+            </section>
+        </footer>
+    
+    </div>
 
 </body>
 
