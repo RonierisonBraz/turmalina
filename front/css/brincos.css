@@ -14,11 +14,13 @@ body{
     flex-direction: row;
     align-items: center;
 }
-
+nav a{
+    margin-right: 20px;
+}
 header{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     background-color: rgb(255, 249, 239);
     height: 100px;
     box-shadow: 0 0 10px  grey;
