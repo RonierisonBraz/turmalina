@@ -69,6 +69,7 @@ header{
 header i{
     margin-right: 5px;
 }
+
 button{
     justify-content: space-around;
     align-self: flex-end;
@@ -195,6 +196,22 @@ footer{
 
 #contato div i{
     margin-right: 5px;
+}
+/* produtos */
+
+.produto-1{
+    width: 150px;
+}
+
+.foto-produto {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;    
+    padding-right: 15px;    
+}
+
+.descricao-produto{
+    border: 1px solid black;
 }
 
 
