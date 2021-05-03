@@ -16,21 +16,21 @@
 
         <p>Entrou no laco</p>
         
-        <img src=<%=produtos.img %> alt="Imagem do produto" id="img-produto">
+        <a href= "http://localhost:3000/catalogo/categoria/<%= produtos.id%>"  ><img src=<%=produtos.img %> alt="Imagem do produto" id="img-produto" ></a>
         <strong> <%= produtos.nome %> </strong>
-        <!-- NAO CONSEGUE PEGAR idProduto porque não passa pr o script -->
 
         <% idProduto = produtos.id; %> 
             <script>
 
-                var id_prod= "<%= idProduto %>";
-                console.log(id_prod);
 
-                document.getElementById("img-produto").onclick = function () { telaProduto(id_prod) };
-                function telaProduto(id) {
-                    console.log("TA INDO");
-                    window.location.href = 'http://localhost:3000/catalogo/categoria/'+id;
-                }
+                // var id_prod= "<%= idProduto %>";
+                // console.log(id_prod);
+
+                // document.getElementById("img-produto").onclick = function () { telaProduto(id_prod) };
+                // function telaProduto(id) {
+                //     console.log("TA INDO");
+                //     window.location.href = 'http://localhost:3000/catalogo/categoria/'+id;
+                // }
 
 
 

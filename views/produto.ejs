@@ -4,15 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/produto.css">
     <title>Turmalina</title>
 </head>
 <body>
-    <h2>PRODUTO ESPECIFICO</h2>
+    <h2>PRODUTO ESPECIFICO CHECANDO!</h2>
+
+    <% console.log(Produto.img); %> 
+
     <p> <%= Produto.id %> </p>
-    <P> <%= Produto.nome  %> </P>
+    <p> <%= Produto.nome  %> </p>
+
     <!-- IMAGEM NAO TA SENDO ENCONTRADA -->
-    <img src=<%=Produto.img %>  alt="Imagem do Produto">    
+    <div>
+        <img src=<%=Produto.img %>  alt="Imagem do Produto">
+    </div>   
     <p> <%= Produto.descricao %> </p>
     <p> <%= Produto.valor  %> </p>
+   
+    
+    <button id="comprar">Comprar</button>
+
+
 </body>
 </html> 

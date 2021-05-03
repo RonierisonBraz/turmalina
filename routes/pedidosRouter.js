@@ -8,7 +8,7 @@ router.get('/', pedidosController.index);
 
 router.post('/', pedidosController.create);
 
-router.get('/sacola', pedidosController.sacola);
+router.get('/sacola', pedidosController.sacola); //http://localhost:3000/pedidos/sacola
 
 
 http://localhost:3000/pedidos/id
