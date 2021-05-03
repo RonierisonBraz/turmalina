@@ -14,7 +14,9 @@ body{
     flex-direction: row;
     align-items: center;
 }
-
+nav a{
+    margin-right: 20px;
+}
 header{
     display: flex;
     flex-direction: row;
@@ -25,9 +27,7 @@ header{
     padding: 10px 30px;
     align-items: center;
 }
-nav a{
-    margin-right: 20px;
-}
+
 header i{
     margin-right: 5px;
 }
@@ -73,7 +73,7 @@ h3 {
     100% { opacity: 0% }
   
 }
-.anel-destaque {
+.brincos-destaque {
     width: 400px;
     animation: fantasma 3s;
     margin-top: 30px;
