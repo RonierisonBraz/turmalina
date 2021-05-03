@@ -216,4 +216,14 @@ footer{
     border: 1px solid black;
 }
 
+/* imagens da home */
 
+.linha {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
+
+section .imagens-demostrativa{
+    margin-top: 1000px;
+}
