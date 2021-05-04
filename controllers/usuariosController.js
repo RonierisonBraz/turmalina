@@ -1,4 +1,3 @@
-
 const { Usuario, Endereco, sequelize } = require('../models/');
 // const Endereco = require('../models/Endereco');
 
@@ -21,21 +20,25 @@ const usuariosController = {
         return res.render('login');
     },
     auth: async (req, res) => {
-        const { email, senha } = req.body;
+        const { email, password} = req.body;
 
         const usuario = await Usuario.findOne({
             where: {
                 email
             }
         });
-
         if (usuario && bcrypt.compareSync(senha, usuario.senha)) {
-            req.session.usuarioLogado = usuario;  //  criando atributo usuarioLogado
-            return res.redirect('/');
+     
+            req.session.usuarioLogado = usuario;
+            return res.redirect('/perfil')
+        } else {
+            console.log(senha);
+            console.log(usuario.senha);
+            return res.redirect('/usuario/login');
         }
     },
-    perfil: async (request, response) => {
-        const {id} = request.params;
+    perfilUsuario: async (request, response) => {
+        const {id} = request.session.usuarioLogado;
         const usuario = await Usuario.findByPk(id);
 
         console.log(usuario);
