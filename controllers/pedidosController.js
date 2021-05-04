@@ -15,11 +15,11 @@ const pedidosController = {
         return res.json(novoPedido);
     },
     finalizarPagamento: async (req, res) => {
-        let { parcelas, tipos_pagamento_id} = req.body;
-        let novoPagamento = await Pagamento.create(
+        const { parcelas, tipos_pagamento_id} = req.body;
+        const novoPagamento = await Pagamento.create(
             {parcelas, data_pagamento: Date.now(), tipos_pagamento_id}
         );
-        return res.json(novoPagamento);
+        return res.render('pagamento', {Pagamento: novoPagamento});
     },  
     sacola: async (req, res) => {
         const { id } = req.params;
@@ -70,6 +70,7 @@ const pedidosController = {
         });
         return res.json(deletarPedido);
     }
+
 }
 
 module.exports = pedidosController;
