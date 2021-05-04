@@ -8,7 +8,6 @@
 
 body{
     background-image: linear-gradient(to top left, rgba(201, 133, 228, 0.952),  rgb(121, 215, 238));
-    /* background-color: #e5d6f3; */
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -18,7 +17,8 @@ header{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    background-image: linear-gradient(to top left, rgba(201, 133, 228, 0.952),  rgb(121, 215, 238));
+    background-color: #e5d6f3;
+    /* background-image: linear-gradient(to top left, rgba(201, 133, 228, 0.952),  rgb(121, 215, 238)); */
     width: auto;
     box-shadow: 0 0 10px  grey;
     padding: 10px 30px;
