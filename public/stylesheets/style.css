@@ -1,80 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Ropa+Sans&display=swap');
 
-/* index.html */
+/* -------------------------------------------------------HOME---------------------------------------------------- */
 .container{
-    width: 700px;
-    max-width: 100%;
-    background-color: #e5d6f3;
-    margin: 0 auto;
+    width: 100%;
+    background-image: linear-gradient(to top left, rgba(201, 133, 228, 0.952),  rgb(121, 215, 238));
 }
 
 body{
-    background-color: black;
+    background-image: linear-gradient(to top left, rgba(201, 133, 228, 0.952),  rgb(121, 215, 238));
+    /* background-color: #e5d6f3; */
     display: flex;
     flex-direction: row;
     align-items: center;
-}
-
-/* -------------------------------------------------------HOME---------------------------------------------------- */
-#slider {
-    width: 80%;
-    max-width:500px;
-    height: 25vw;
-    max-height: 150px;
-
-   position: relative;
-}
-
-#slider img{
-    opacity: 0;
-    position: absolute;
-
-    width: 100%;
-    height: 300px;
-
-    object-fit: cover;
-
-    transition: opacity 800ms;
-}
-
-#slider img.selected{
-    opacity: 1;
-}
-
-.section-home {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 30px;
-}
-
-.imagens-home{
-    margin-top: 200px;
-    margin-bottom: 60px;
 }
 
 header{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    background-color: rgb(255, 249, 239);
-    height: 100px;
+    background-image: linear-gradient(to top left, rgba(201, 133, 228, 0.952),  rgb(121, 215, 238));
+    width: auto;
     box-shadow: 0 0 10px  grey;
     padding: 10px 30px;
     align-items: center;
 }
-nav a{
+
+header i{
     margin-right: 20px;
 }
-header i{
-    margin-right: 5px;
+
+nav a{
+    margin-right: 20px;
+    font-size: 25px;
 }
 
-button{
-    justify-content: space-around;
-    align-self: flex-end;
+a:hover {
+    color: rgb(160,27,255);
+    transition: 200ms;
+    text-shadow: 0 0 0px rgb(207,184,255);
 }
 
 a {
@@ -91,21 +54,72 @@ a {
     height: auto;
 }
 
-
 main {
     max-width: 100%;
     height: 1350px;
     font-family: Ropa Sans;
-    text-align-last: center;
+    text-align-last: center; 
     padding: 10px 50px;
+}
+
+/* -------------------------------------------------------HOME---------------------------------------------------- */
+
+h1,h3{
+    font-family: Ropa Sans;
+    font-size: 30px;
+    text-align: center;
+}
+
+#slider {
+    width: 80%;
+    max-width:500px;
+    height: 25vw;
+    max-height: 150px;
+    position: relative;
+    margin-right: 300px;;
+}
+
+#slider img{
+    opacity: 0;
+    position: absolute;
+    width: 150%;
+    height: 350px;
+    object-fit: cover;
+    transition: opacity 800ms;
+    box-shadow: 0 0 10px black ;
+}
+
+#slider img.selected{
+    opacity: 1;
+}
+
+.section-home {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.imagens-demostrativas{
+    margin-top: 250px;
+}
+
+.imagens-demostrativas img{
+    height: 250px;
 }
 
 /* -------------------------------------------------------SOBRE---------------------------------------------------- */
 
+.sobre p{
+    font-size: 20px;
+}
 .casal{
-    width: 100%;
-    height: 400px;
+    width: 200px;
+    height: 300px;
     max-width: 40%;
+    box-shadow: 0 0 10px;
 }
 
 .joias{
@@ -117,15 +131,33 @@ main {
 }
 
 .girl-power{
-    width: 100%;
     height: 300px;
     max-width: 70%;
+    box-shadow: 0 0 10px;
 }
-/* --------------------catalogo---------------- */
+
+/* -------------------------------------------------------CATÁLOGO---------------------------------------------------- */
+
 .sec-cat{
-display: flex;
-flex-direction: column;
-align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sec-cat div{
+    box-shadow: 0px 5px 10px rgb(22,20,20);
+    opacity: 60%;
+    transition-duration: 200ms;
+    height: 210px;
+    width: 600px;
+    background-repeat: no-repeat;
+    box-shadow: 0 0 10px  rgb(22, 20, 20);
+}
+
+.sec-cat div:hover{
+    box-shadow: 0px 5px 10px rgb(22,20,20);
+    opacity: 100%;
+    transition-duration: 200ms;
 }
 
 .sec-cat p{
@@ -136,45 +168,28 @@ align-items: center;
     padding-top: 13%;
     text-shadow: 0 0 5px cornsilk;
 } 
-  .aneis{
-    background-image: url("/front/img/aneis1.jpg");
-    height: 170px;
-    width: 500px;
-    box-shadow: 0 0 10px  rgb(22, 20, 20);
+.aneis{
+    background-image: url("../img/aneis1.jpg");
+ }
+
+.aliancas{
+    background-image: url("../img/aliancas1.jpg");
 }
-  .aliancas{
-    background-image: url("/front/img/aliancas1.jpg");
-    height: 170px;
-    width: 500px;
-    box-shadow: 0 0 10px  rgb(22, 20, 20);
+
+.brincos{
+    background-image: url("../img/brincos1.jpg");
 }
-  .brincos{
-    background-image: url("/front/img/brincos1.jpg");
-    height: 170px;
-    width: 500px;
-    box-shadow: 0 0 10px  rgb(22, 20, 20);
+
+.colares{
+    background-image: url("../img/colares1.jfif");
 }
-  .colares{
-    background-image: url("/front/img/colares1.jfif");
-    height: 170px;
-    width: 500px;
-    box-shadow: 0 0 10px  rgb(22, 20, 20);
-}
-  .conjuntos{
-    background-image: url("/front/img/conjuntos1.jfif");
-    height: 170px;
-    width: 500px;
-    box-shadow: 0 0 10px  rgb(22, 20, 20);
-}
-  .pulseiras{
-    background-image: url("/front/img/pulseiras1.jfif");
-    height: 170px;
-    width: 500px;
-    box-shadow: 0 0 10px  rgb(22, 20, 20);
+
+.pulseiras{
+    background-image: url("../img/pulseiras1.jfif");
 }
   
-
 /* ---------------------------------------------------FOOTER------------------------------------------------ */
+
 footer{
     color:black;
     font-weight: bold;
@@ -187,7 +202,7 @@ footer{
 }
 
 .footer{
-    background-image: url(../img-produtos/footer.png);
+    background-image: url(../img/footer.png);
     background-size: 100%;
     background-repeat: no-repeat;
     width: 100%;
@@ -199,9 +214,13 @@ footer{
 #contato div i{
     margin-right: 5px;
 }
+
+
+
+
 /* produtos */
 
-.produto-1{
+/* .produto-1{
     width: 150px;
 }
 
@@ -214,16 +233,13 @@ footer{
 
 .descricao-produto{
     border: 1px solid black;
-}
+} */
 
-/* imagens da home */
 
-.linha {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0 4px;
-}
 
-section .imagens-demostrativa{
-    margin-top: 1000px;
-}
+
+
+
+
+
+
