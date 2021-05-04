@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title>Cadastro</title>
+</head>
+<body>
+    <header>
+        <div>
+            <img id="logo" src="../img-produtos/logo-2.png" alt=" logomarca Turmalina">
+        </div>
+        <div>
+            <nav>
+                <a href="/html/home.html"> Home </a>
+                <a href="/html/sobre.html"> Sobre </a>
+                <a href="http://localhost:3000/catalogo/"> Joias </a>
+                <a href="#contato" > Contato</a>                  
+             </nav>
+        </div>
+        <div>
+           <i class="fas fa-users fa-2x"></i>
+           <i class="fas fa-shopping-bag fa-2x"></i>
+        </div>
+    </header>
+
+    <main>
+
+        <% console.log("TAOKAY") %> 
+            <form action="/pedidos/pagamento" method="POST">
+                <input type="number" name="numeroCartao" id="numeroCartao" placeholder="Numero do Cartão de Crédito" required>
+                <input type="number" name="validadeCartao" id="validadeCartao" placeholder="Validade do Cartão" required>
+                <input type="number" name="cvv" id="cvv" placeholder="cvv" required>    
+                <input type="number" name="valorTotal" id="valorTotal" placeholder="valorTotal">      
+                <input type="number" name="parcelas" id="parcelas" placeholder="Parcelas">
+                <button type="submit">Confirmar</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <section class="footer">
+            <div id="contato">
+                <p>Turmalina Joias - Bright yourself!</p>
+                <p>Rua do Sol - Recife-PE</p>
+                <p>+55 (81) 95555-5555</p>
+                <p>contact@turmalina.com</p>
+                <p>OUR SOCIAL MEDIAS:</p>
+                <div>
+                    <i class="fab fa-facebook-square fa-2x"></i>
+                    <i class="fab fa-whatsapp-square fa-2x"></i>
+                    <i class="fab fa-twitter fa-2x"></i>
+                </div>
+            </div>
+        </section>
+    </footer>
+
+</body>
+</html>
