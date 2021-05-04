@@ -169,23 +169,23 @@ h1,h3{
     text-shadow: 0 0 5px cornsilk;
 } 
 .aneis{
-    background-image: url("/front/img/aneis1.jpg");
+    background-image: url("../img/aneis1.jpg");
  }
 
 .aliancas{
-    background-image: url("/front/img/aliancas1.jpg");
+    background-image: url("../img/aliancas1.jpg");
 }
 
 .brincos{
-    background-image: url("/front/img/brincos1.jpg");
+    background-image: url("../img/brincos1.jpg");
 }
 
 .colares{
-    background-image: url("/front/img/colares1.jfif");
+    background-image: url("../img/colares1.jfif");
 }
 
 .pulseiras{
-    background-image: url("/front/img/pulseiras1.jfif");
+    background-image: url("../img/pulseiras1.jfif");
 }
   
 /* ---------------------------------------------------FOOTER------------------------------------------------ */
@@ -202,7 +202,7 @@ footer{
 }
 
 .footer{
-    background-image: url(/front/img/footer.png);
+    background-image: url(../img/footer.png);
     background-size: 100%;
     background-repeat: no-repeat;
     width: 100%;
@@ -220,7 +220,7 @@ footer{
 
 /* produtos */
 
-.produto-1{
+/* .produto-1{
     width: 150px;
 }
 
@@ -233,7 +233,7 @@ footer{
 
 .descricao-produto{
     border: 1px solid black;
-}
+} */
 
 
 

@@ -172,7 +172,7 @@ footer{
 }
 
 .footer{
-    background-image: url(/front/img/footer.png);
+    background-image: url(../img/footer.png);
     background-size: 100%;
     background-repeat: no-repeat;
     width: 100%;
