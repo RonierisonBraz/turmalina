@@ -4,11 +4,13 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usuariosRouter = require('./routes/usuariosRouter');
 
+const indexRouter = require('./routes/index');
+
+const usuariosRouter = require('./routes/usuariosRouter');
 const pedidosRouter = require('./routes/pedidosRouter');
-var produtosRouter = require('./routes/produtosRouter');
+//const produtosRouter = require('./routes/produtosRouter');
+const catalogoRouter = require('./routes/catalogoRouter');
 
 var app = express();
 
@@ -22,13 +24,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/turmalina', indexRouter);
+app.use('/', indexRouter);
 
-app.use('/turmalina/usuario', usuariosRouter);
+
+app.use('/usuario', usuariosRouter);
+
+app.use('/catalogo', catalogoRouter)
 
 app.use('/pedidos', pedidosRouter);
-
-app.use('/produtos', produtosRouter);
+//app.use('/produtos', produtosRouter);
 
 
 
