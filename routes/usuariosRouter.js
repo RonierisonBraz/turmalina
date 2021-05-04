@@ -16,8 +16,8 @@ router.get('/enderecos/:id', usuariosController.enderecos);
 router.put('/enderecos/:id', usuariosController.enderecosUpdate);
 
 // rota de atualizar senha e telefone: http://localhost:3000/usuario/alterarSenha/1
-router.put('/alterarSenha/:id', usuariosController.senhaUpdate);
-router.put('/alterarTelefone/:id', usuariosController.telefoneUpdate);
+router.put('/alterar-senha/:id', usuariosController.senhaUpdate);
+router.put('/alterar-telefone/:id', usuariosController.telefoneUpdate);
 
 router.post('/', usuariosController.create); // http://localhost:3000/usuarios/
 

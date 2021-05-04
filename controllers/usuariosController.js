@@ -1,7 +1,6 @@
 const { Usuario, Endereco, sequelize } = require('../models/');
 
 const usuariosController = {
-
     perfil: async (request, response) => {
         // const usuarios = await Usuario.findAll();
         // return response.json({listaUsuarios: usuarios});

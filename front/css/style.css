@@ -4,17 +4,68 @@
 .container{
     width: 700px;
     max-width: 100%;
+<<<<<<< HEAD
     background-color: #fafafa;
+=======
+    background-color: #e5d6f3;
+>>>>>>> 0cbee40dfe3e1a374494816ee0ba597df6bd8475
     margin: 0 auto;
 }
 
 body{
     background-color: black;
+<<<<<<< HEAD
+=======
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* -------------------------------------------------------HOME---------------------------------------------------- */
+#slider {
+    width: 80%;
+    max-width:500px;
+    height: 25vw;
+    max-height: 150px;
+
+   position: relative;
+}
+
+#slider img{
+    opacity: 0;
+    position: absolute;
+
+    width: 100%;
+    height: 300px;
+
+    object-fit: cover;
+
+    transition: opacity 800ms;
+}
+
+#slider img.selected{
+    opacity: 1;
+}
+
+.section-home {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.imagens-home{
+    margin-top: 200px;
+    margin-bottom: 60px;
+>>>>>>> 0cbee40dfe3e1a374494816ee0ba597df6bd8475
 }
 
 header{
     display: flex;
     flex-direction: row;
+<<<<<<< HEAD
     justify-content: space-between;
     background-color: white;
     height: 100px;
@@ -26,6 +77,22 @@ header{
 header i{
     margin-right: 5px;
 }
+=======
+    justify-content: space-around;
+    background-color: rgb(255, 249, 239);
+    height: 100px;
+    box-shadow: 0 0 10px  grey;
+    padding: 10px 30px;
+    align-items: center;
+}
+nav a{
+    margin-right: 20px;
+}
+header i{
+    margin-right: 5px;
+}
+
+>>>>>>> 0cbee40dfe3e1a374494816ee0ba597df6bd8475
 button{
     justify-content: space-around;
     align-self: flex-end;
@@ -47,21 +114,39 @@ a {
 
 
 main {
+<<<<<<< HEAD
     height: 600px;
     font-family: Ropa Sans;
     text-align-last: center;
     padding: 10px 40px;
 }
+=======
+    max-width: 100%;
+    height: 1350px;
+    font-family: Ropa Sans;
+    text-align-last: center;
+    padding: 10px 50px;
+}
+
+>>>>>>> 0cbee40dfe3e1a374494816ee0ba597df6bd8475
 /* -------------------------------------------------------SOBRE---------------------------------------------------- */
 
 .casal{
     width: 100%;
+<<<<<<< HEAD
     height: 300px;
+=======
+    height: 400px;
+>>>>>>> 0cbee40dfe3e1a374494816ee0ba597df6bd8475
     max-width: 40%;
 }
 
 .joias{
+<<<<<<< HEAD
     background-color: burlywood;
+=======
+    background-color: rgb(255, 249, 239);
+>>>>>>> 0cbee40dfe3e1a374494816ee0ba597df6bd8475
 }
 
 .sobre{
@@ -73,6 +158,61 @@ main {
     height: 300px;
     max-width: 70%;
 }
+<<<<<<< HEAD
+=======
+/* --------------------catalogo---------------- */
+.sec-cat{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.sec-cat p{
+    font-family: Ropa Sans;
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+    padding-top: 13%;
+    text-shadow: 0 0 5px cornsilk;
+} 
+  .aneis{
+    background-image: url("/front/img/aneis1.jpg");
+    height: 170px;
+    width: 500px;
+    box-shadow: 0 0 10px  rgb(22, 20, 20);
+}
+  .aliancas{
+    background-image: url("/front/img/aliancas1.jpg");
+    height: 170px;
+    width: 500px;
+    box-shadow: 0 0 10px  rgb(22, 20, 20);
+}
+  .brincos{
+    background-image: url("/front/img/brincos1.jpg");
+    height: 170px;
+    width: 500px;
+    box-shadow: 0 0 10px  rgb(22, 20, 20);
+}
+  .colares{
+    background-image: url("/front/img/colares1.jfif");
+    height: 170px;
+    width: 500px;
+    box-shadow: 0 0 10px  rgb(22, 20, 20);
+}
+  .conjuntos{
+    background-image: url("/front/img/conjuntos1.jfif");
+    height: 170px;
+    width: 500px;
+    box-shadow: 0 0 10px  rgb(22, 20, 20);
+}
+  .pulseiras{
+    background-image: url("/front/img/pulseiras1.jfif");
+    height: 170px;
+    width: 500px;
+    box-shadow: 0 0 10px  rgb(22, 20, 20);
+}
+  
+>>>>>>> 0cbee40dfe3e1a374494816ee0ba597df6bd8475
 
 /* ---------------------------------------------------FOOTER------------------------------------------------ */
 footer{
@@ -99,5 +239,36 @@ footer{
 #contato div i{
     margin-right: 5px;
 }
+<<<<<<< HEAD
 
 
+=======
+/* produtos */
+
+.produto-1{
+    width: 150px;
+}
+
+.foto-produto {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;    
+    padding-right: 15px;    
+}
+
+.descricao-produto{
+    border: 1px solid black;
+}
+
+/* imagens da home */
+
+.linha {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
+
+section .imagens-demostrativa{
+    margin-top: 1000px;
+}
+>>>>>>> 0cbee40dfe3e1a374494816ee0ba597df6bd8475
