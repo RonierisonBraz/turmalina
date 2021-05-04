@@ -1,4 +1,4 @@
-const { Pedido, Pagamento, sequelize } = require('../models');
+const { Pedido, Pagamento, ItensPedido , Produto, sequelize } = require('../models');
 const { Op } = require('sequelize');
 const { request } = require('express');
 
@@ -14,7 +14,7 @@ const pedidosController = {
         );
         return res.json(novoPedido);
     },
-    pagamenento :  async (req, res) => { 
+    pagamento :  async (req, res) => { 
 
         return res.render('pagamento');
     },
@@ -30,19 +30,27 @@ const pedidosController = {
     sacola: async (req, res) => {
         const { id } = req.params;
 
-        const pedidosEmAndamento = await Pedido.findAll({
+        const pedidoEmAndamento = await Pedido.findOne({
             where: {
                 status_pedido_id: 1,
                 usuarios_id: id
             } //funcionando
         });
 
-        const itens = await ItensPedido.findAll({
-            where: { pedidos_id: pedidosEmAndamento }
-        })
 
-        return res.render('sacola', { Pedido: pedidosEmAndamento });
+        const itens = await ItensPedido.findAll({
+            include: ['produto'],
+            where: { pedidos_id: pedidoEmAndamento.id }
+        });
+
+        console.log(itens[1].produto.nome)
+
+        return res.render('sacola', { Pedido: pedidoEmAndamento, itens});
     },
+    // produtosSacola: async (req, res) => {
+        
+
+    // },
     update: async (req, res) => {
         let {id} = req.params;
         let {valor_total, status_pedido_id} = req.body;

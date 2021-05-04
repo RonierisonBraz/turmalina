@@ -15,7 +15,8 @@ module.exports = (sequelize, DataTypes) => {
     );
     Produto.associate = (models) => {
         Produto.belongsTo(models.Categoria, { as: "categoria", foreignKey: "categorias_id" });
-        Produto.belongsTo(models.ItensPedido, {as:"itensPedido", foreignKey:"id"});
+        Produto.hasMany(models.ItensPedido, {as:"itensPedido", foreignKey:"produtos_id"});
+
     }
 
     return Produto;

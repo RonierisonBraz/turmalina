@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
         Pedido.belongsTo(models.StatusPedido, { as: "status_pedido", foreignKey: "status_pedido_id" });
 
         //VERIFICAR
-        Pedido.hasMany(models.ItensPedido, { as: "itensPedido", foreignKey: "id" });
+        Pedido.hasMany(models.ItensPedido, { as: "itensPedido", foreignKey: "pedidos_id" });
 
     }
     return Pedido;

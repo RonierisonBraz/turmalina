@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    <!-- <link rel="stylesheet" href="/stylesheets/style.css"> -->
 
     <title>Turmalina</title>
 </head>
@@ -28,9 +28,23 @@
     </header>
 
     <div>
-     
-    </div>
+        <% let i=0; %>
     
+            <% for (let item of itens) { %>
+                
+                        <div>
+                            <img src="<%= item.produto.img %>" alt="">
+                            <p><%= item.produto.nome %></p>                          
+                            <p> Valor do item = <%= item.valor  %>  </p>
+                            <input type="number" value="1" min="1" max="10" id=`qtd${i}`>
+
+                        </div>
+            <% } %>
+            <strong> Valor Total do Pedido =<%=Pedido.valor_total  %>  </strong>
+        <div>
+    
+        </div>
+    </div>
 
     <footer>
         <section class="footer">
