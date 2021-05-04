@@ -7,24 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/produto.css">
     <link rel="stylesheet" href="/stylesheets/style.css">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <title>Turmalina</title>
 </head>
 
 <body>
 
     <div class="container">
-    
+
         <header>
             <div>
-                <img id="logo" src="../img-produtos/logo-2.png" alt=" logomarca Turmalina">
+                <img id="logo" src="../img/logo-2.png" alt=" logomarca Turmalina">
             </div>
             <div>
                 <nav>
                     <a href="/html/home.html"> Home </a>
                     <a href="/html/sobre.html"> Sobre </a>
                     <a href="http://localhost:3000/catalogo/"> Joias </a>
-                    <a href="#contato" > Contato</a>  
+                    <a href="#contato"> Contato</a>
                 </nav>
             </div>
             <div>
@@ -32,37 +32,42 @@
                 <i class="fas fa-shopping-bag fa-2x"></i>
             </div>
         </header>
-    
+
         <main>
             <section class="destaque">
-                <h1> <%= categoria.nome %> em destaque</h1>
-                <img class="destaque" src="../img-produtos/<%=categoria.nome%>-destaque.jfif" alt="<%=categoria.nome %> flutuante">
-                <h4> <%= categoria.nome %>  Elegance Ouro Branco</h3>
+                <h1>
+                    <%= categoria.nome %> em destaque
+                </h1>
+                <img class="produto-destaque" src="../img/<%=categoria.nome%>-destaque.jfif"
+                    alt="<%=categoria.nome %> flutuante">
+                <h4>
+                    <%= categoria.nome %> Elegance Ouro Branco</h3>
             </section>
-    
+
             <% var idProduto; %>
-    
-                    <section class="articles">
-                        <% for (let produtos of Produtos) { %>
-                    
-                            <article>
-                                <a href="http://localhost:3000/catalogo/categoria/<%= produtos.id%>">
-                                    <img src=<%=produtos.img %> alt="Imagem do produto" id="img-produto" >
-                                </a>
-                                <div class="spots">
-                                    <span class="value"> R$ <%= produtos.valor %> </span>
-                                    <span class="new">New</span>
-                                </div>
-                                <p>
-                                    <%= produtos.descricao %>
-                                </p>
-                            </article>
-                            <% } %>
-                    
-                    </section>
-    
+
+                <section class="articles">
+                    <% for (let produtos of Produtos) { %>
+
+                        <article>
+                            <a href="http://localhost:3000/catalogo/categoria/<%= produtos.id%>">
+                                <img src=<%=produtos.img %> alt="Imagem do produto" id="img-produto" >
+                            </a>
+                            <div class="spots">
+                                <span class="value"> R$ <%= produtos.valor %> </span>
+                                <span class="new">New</span>
+                            </div>
+                            <p>
+                                <%= produtos.descricao %>
+                            </p>
+                        </article>
+
+                    <% } %>
+
+                </section>
+
         </main>
-    
+
         <footer>
             <section class="footer">
                 <div id="contato">
@@ -79,7 +84,7 @@
                 </div>
             </section>
         </footer>
-    
+
     </div>
 
 </body>

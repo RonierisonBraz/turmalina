@@ -83,7 +83,7 @@ h1,h3{
     width: 150%;
     height: 350px;
     object-fit: cover;
-    transition: opacity 800ms;
+    transition: opacity 500ms;
     box-shadow: 0 0 10px black ;
 }
 
@@ -204,7 +204,7 @@ footer{
     background-size: 100%;
     background-repeat: no-repeat;
     width: 100%;
-    height: 280px;
+    height: 260px;
     padding: 60px 40px;
     box-shadow: 0 0 10px  grey;
 }
