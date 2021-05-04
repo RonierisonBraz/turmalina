@@ -3,23 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turmalina Front</title>
+    <link rel="stylesheet" href="../stylesheets/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
-    <link rel="stylesheet" href="/stylesheets/style.css">
-    <title>Catálogo</title>
 </head>
 <body>
     <div class="container">
+
         <header>
             <div>
-                <img id="logo" src="../img-produtos/logo-2.png" alt=" logomarca Turmalina">
+                <img id="logo" src="/front/img/logo-2.png"" alt="logomarca Turmalina">
             </div>
             <div>
                 <nav>
                     <a href="/html/home.html"> Home </a>
                     <a href="/html/sobre.html"> Sobre </a>
-                    <a href="catalogo"> Joias </a>
-                    <a href="#contato" > Contato</a>                   
+                    <a href="http://localhost:3000/catalogo/"> Joias </a>
+                    <a href="#contato" > Contato</a>               
                  </nav>
             </div>
             <div>
@@ -28,38 +29,31 @@
             </div>
         </header>
 
-        <main>
-            <h1> TODA JOIA TEM UMA HISTÓRIA<h1>
-            <h3>Escolha a sua</h3>
-<section class="sec-cat">
-    <a href="http://localhost:3000/catalogo/aneis">
-        <div class="aneis">
-            <p>Anéis</p>
-        </div>
-    </a>
-    <a href="http://localhost:3000/catalogo/aliancas">
-        <div class="aliancas">
-            <p>Alianças</p>
-        </div>
-    </a>
-    <a href="http://localhost:3000/catalogo/brincos">
-        <div class="brincos">
-            <p>Brincos</p>
-        </div>
-    </a>
-    <a href="http://localhost:3000/catalogo/colares">
-        <div class="colares">
-            <p>Colares</p>
-        </div>
-    </a>
-    <a href="http://localhost:3000/catalogo/pulseiras">
-        <div class="pulseiras">
-            <p>Pulseiras</p>
-        </div>
-    </a>  
-</section>
-        </main>
+        <section class="section-home">
+            <div id="slider">
+                <img class = "selected" src="/front/img/slider1.jpg" alt="foto de miçangas">
+                <img src="/front/img/slider2.jpg" alt="foto de pulseiras">
+                <img src="/front/img/slider3.jpg" alt="foto de colares">
+            </div>
         
+            
+        </section>            
+           <section class="imagens-demostrativa">
+
+            <div class="linha">
+                <div class="coluna">
+                    
+                    <img src="/front/img/Mulher-colar.png" alt="">
+                    <img src="/front/img/mulher-pulseira-colar.png" alt="">
+                    <img src="/front/img/mulher-taça.png" alt="">                    
+                    <img src="/front/img/mulher-anel.png" alt="">
+                </div>
+            </div>
+
+
+
+           </section>
+       
 
         <footer>
             <section class="footer">
@@ -79,5 +73,6 @@
         </footer>
         
     </div>
+    <script src="script.js"></script>
 </body>
 </html>

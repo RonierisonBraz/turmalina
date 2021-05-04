@@ -9,16 +9,50 @@
 </head>
 <body>
     <h2> <%= Usuarios.nome %>  </h2>
-    <!-- <button class="btn-statusPedido" onclick="showDiv()">Status do pedido</button> -->
-    <input type="button" name="answer" value="Show Div" onclick="showDiv()" />
+
     <button class="btn-historico" id="btn-hist">Historico</button>
     <!-- Essas duas divs de statusPedido e historico sao eventos, so aparecem ao clicar na opcao -->
     <div id="statusPedido">
         <p>Status do Pedido!!!!</p>
     </div>
-    <div id="historico">
-        <p>Historico!!!!</p>
-    </div>
-    <script src="../js/main.js"></script>
+
+    <button id="btn-telefone">teste pr mudar telefone no banco</button>
+
+    <script>
+        let idUsuario = 1;
+
+        document.getElementById("btn-telefone").onclick = function () { myFunction(idUsuario) };
+        function myFunction(id) {
+
+            fetch(`http://localhost:3000/usuario/alterarTelefone/${id}`, {
+                "method": "PUT",
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "body": "{\"telefone\":\"987430708\"}"
+            })
+                .then(response => {
+                    console.log(response);
+                })
+                .catch(err => {
+                    console.error(err);
+                });
+
+        }
+
+                // let elemento = document.getElementById("statusPedido");
+        // elemento.style.display = "none";
+
+        // document.getElementById("btn-hist").onclick = function () { myFunction() };
+        // function myFunction() {
+        //     if (elemento.style.display === "none") {
+        //         elemento.style.display = "block";
+        //     } else {
+        //         elemento.style.display = "none";
+        //     }       
+        // }
+
+
+    </script>
 </body>
 </html>

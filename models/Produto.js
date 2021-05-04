@@ -6,7 +6,8 @@ module.exports = (sequelize, DataTypes) => {
         descricao: DataTypes.STRING,
         valor: DataTypes.STRING,
         quantidade: DataTypes.INTEGER,
-        categorias_id: DataTypes.INTEGER
+        categorias_id: DataTypes.INTEGER,
+        img : DataTypes.STRING  // NO MEU BANCO (AMANDA) TEM IMAGEM DO PRODUTO
     }, {
         tableName: "produtos",
         timestamps: false
