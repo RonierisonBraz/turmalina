@@ -14,11 +14,17 @@ const pedidosController = {
         );
         return res.json(novoPedido);
     },
+    pagamenento :  async (req, res) => { 
+
+        return res.render('pagamento');
+    },
+
     finalizarPagamento: async (req, res) => {
-        const { parcelas, tipos_pagamento_id} = req.body;
+        const { parcelas } = req.body;
         const novoPagamento = await Pagamento.create(
-            {parcelas, data_pagamento: Date.now(), tipos_pagamento_id}
+            {parcelas, data_pagamento: Date.now(), tipos_pagamento_id : 2}
         );
+        // return res.render('pagamento', {Pagamento: novoPagamento});
         return res.render('pagamento', {Pagamento: novoPagamento});
     },  
     sacola: async (req, res) => {
@@ -31,9 +37,9 @@ const pedidosController = {
             } //funcionando
         });
 
-        // const itens = await ItensPedido.findAll({
-        //     where: { pedidos_id: pedidosEmAndamento }
-        // })
+        const itens = await ItensPedido.findAll({
+            where: { pedidos_id: pedidosEmAndamento }
+        })
 
         return res.render('sacola', { Pedido: pedidosEmAndamento });
     },
