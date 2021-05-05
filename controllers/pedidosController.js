@@ -24,7 +24,7 @@ const pedidosController = {
         return res.json(novoPagamento);
     },
     sacola: async (req, res) => {
-        const { id } = req.params;
+        const {id} = req.session.usuarioLogado;
 
         const pedidoEmAndamento = await Pedido.findOne({
             where: {
@@ -44,12 +44,12 @@ const pedidosController = {
     },
     produtosSacola: async (req, res) => {
         const {valor, quantidade, produtos_id} = req.body
-        const usuarioId=  2
+        const {id} = req.session.usuarioLogado;
         const valorTotal = valor * quantidade
         const pedidoEmAndamento = await Pedido.findOne({
             where: {
                 status_pedido_id: 1,
-                usuarios_id: usuarioId
+                usuarios_id: id
             } //funcionando
         });      
         if(pedidoEmAndamento){
@@ -70,7 +70,7 @@ const pedidosController = {
             //-----------------criando pedido em andamento na tabale
             let { valor_total, pagamentos_id } = req.body;
             let novoPedido = await Pedido.create(
-                { data_pedido: Date.now(), valor_total:0, pagamentos_id:1, usuarios_id:usuarioId, status_pedido_id:1 }
+                { data_pedido: Date.now(), valor_total:0, pagamentos_id:1, usuarios_id:id, status_pedido_id:1 }
             );  
             //---------------------fim
             //
@@ -85,7 +85,7 @@ const pedidosController = {
         return res.json({mensagem:"sucesso"});
     },
     atualizaValorTotalPedidos: async (req, res) => {
-        let {id} = req.params;
+        const {id} = request.session.usuarioLogado;
         let total = 0;
         let i;
 
@@ -121,7 +121,7 @@ const pedidosController = {
         return res.json(atualizaValorTotal);
     },
     atualizarPedido: async (req, res) => {
-        let { id } = req.params;
+        const {id} = request.session.usuarioLogado;
         let { valor_total, status_pedido_id } = req.body;
 
         let atualizarPedido = await Pedido.update({
@@ -132,7 +132,7 @@ const pedidosController = {
         return res.send(atualizarPedido);
     },
     cancelarPedido: async (req, res) => {
-        const { id } = req.params;
+        const {id} = request.session.usuarioLogado;
         const { status_pedido_id } = req.body;
 
         const atualizarStatus = await Pedido.update(
