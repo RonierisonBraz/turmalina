@@ -83,7 +83,7 @@ h1,h3{
     width: 150%;
     height: 350px;
     object-fit: cover;
-    transition: opacity 600ms;
+    transition: opacity 500ms;
     box-shadow: 0 0 10px black ;
 }
 
