@@ -161,6 +161,7 @@ h2 {
 
 /* ---------------------------------------------------PRODUTO------------------------------------------------ */
 
+
 .geral{
     display: flex;
     flex-direction: row;
@@ -174,12 +175,12 @@ h2 {
 }
 
 .limit .img-produto{
-    max-width: 400px;
-    max-height: 200px;
-    width: auto;
-    height: auto;
     border-radius: 20px;
     margin-bottom: 30px;
+    max-width: 600px;
+    max-height: 300px;
+    width: auto;
+    height: auto;
 }
 .icons-img{
     display: flex;
@@ -207,6 +208,7 @@ h2 {
     padding-right: 80px;
 }
 
+
 .valor-produto{
     display: flex;
     flex-direction: column;
@@ -230,7 +232,9 @@ h2 {
     justify-content: space-around;
 }
 
+
 /* ---------------------------------------------------PAGAMENTO------------------------------------------------ */
+
 
 
 /* ---------------------------------------------------FOOTER------------------------------------------------ */
@@ -260,4 +264,4 @@ footer{
 #contato div i{
     margin-right: 5px;
 }
-/* ---------------------------------------------------Compra do produto------------------------------------------------ */
+

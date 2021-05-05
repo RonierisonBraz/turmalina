@@ -1,32 +1,28 @@
 const { Pedido, Pagamento, ItensPedido , Produto, sequelize } = require('../models');
-const { Op } = require('sequelize');
-const { request } = require('express');
+// const { Op } = require('sequelize');
+// const { request } = require('express');
 
 const pedidosController = {
     index: async (req, res) => {
-     //   let pedidos = await Pedido.findAll();
-        return res.render('perfil-pedido');
-    }, 
-    create: async (req, res) => {
-        let {valor_total, pagamentos_id, usuarios_id, status_pedido_id} = req.body;
+        return res.render('perfil');
+    },
+    fazerPedido: async (req, res) => {
+        let { data_pedido, valor_total, pagamentos_id, usuarios_id } = req.body;
         let novoPedido = await Pedido.create(
-            {data_pedido: Date.now(), valor_total, pagamentos_id, usuarios_id, status_pedido_id}
+            { data_pedido: new Date(data_pedido), valor_total, pagamentos_id, usuarios_id, status_pedido_id: 1 }
         );
-        return res.json(novoPedido);
+        return res.render('sacola', {novoPedido: novoPedido});
     },
     pagamento :  async (req, res) => { 
-
         return res.render('pagamento');
     },
-
     finalizarPagamento: async (req, res) => {
-        const { parcelas } = req.body;
-        const novoPagamento = await Pagamento.create(
-            {parcelas, data_pagamento: Date.now(), tipos_pagamento_id : 2}
+        let { parcelas, tipos_pagamento_id } = req.body;
+        let novoPagamento = await Pagamento.create(
+            { parcelas, data_pagamento: Date.now(), tipos_pagamento_id }
         );
-        // return res.render('pagamento', {Pagamento: novoPagamento});
-        return res.render('pagamento', {Pagamento: novoPagamento});
-    },  
+        return res.json(novoPagamento);
+    },
     sacola: async (req, res) => {
         const { id } = req.params;
 
@@ -36,7 +32,6 @@ const pedidosController = {
                 usuarios_id: id
             } //funcionando
         });
-
 
         const itens = await ItensPedido.findAll({
             include: ['produto'],
@@ -58,7 +53,6 @@ const pedidosController = {
             } //funcionando
         });      
         if(pedidoEmAndamento){
-            console
             // tem pedido em andamento 
             //adcionar o item na tabela de itens_pedidos com o id do pedido e do produto click
             const addItemPedidoAndamento = await ItensPedido.create( {
@@ -126,37 +120,36 @@ const pedidosController = {
 
         return res.json(atualizaValorTotal);
     },
-    update: async (req, res) => {
-        let {id} = req.params;
-        let {valor_total, status_pedido_id} = req.body;
+    atualizarPedido: async (req, res) => {
+        let { id } = req.params;
+        let { valor_total, status_pedido_id } = req.body;
 
-        let atualizarPedido = await Pedido.update(
-            {valor_total, status_pedido_id
-            }, {
-                where: {id}
-            });
-        // return res.send(atualizarPedido);
-        return res.render("perfil-pedido");
-
-   },
-    cancelarPedido: async (req, res) => {
-        const {id} = req.params;
-        const {status_pedido_id} = req.body;
-        const atualizarStatus = await Pedido.update(
-            {status_pedido_id} , {
-                where: {id}
-            })
-        
-            // return res.send(atualizarStatus);
-            return res.render('perfil-pedido',{Pedidos: atualizarStatus});
-        //localhost:3000/pedidos/cancelar/2
-
-    },   delete: async (req, res) => {
-        let {id} = req.params;
-
-        const deletarPedido = await Pedido.destroy ({
-            where: {id}
+        let atualizarPedido = await Pedido.update({
+            valor_total, status_pedido_id
+        }, {
+            where: { id }
         });
+        return res.send(atualizarPedido);
+    },
+    cancelarPedido: async (req, res) => {
+        const { id } = req.params;
+        const { status_pedido_id } = req.body;
+
+        const atualizarStatus = await Pedido.update(
+            { status_pedido_id }, {
+            where: { id }
+        });
+
+        return res.render('perfil', { Pedidos: atualizarStatus });
+        //localhost:3000/pedidos/cancelar/2
+    },
+    delete: async (req, res) => {
+        let { id } = req.params;
+
+        const deletarPedido = await Pedido.destroy({
+            where: { id }
+        });
+
         return res.json(deletarPedido);
     }
 
