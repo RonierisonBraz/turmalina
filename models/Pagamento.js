@@ -12,9 +12,11 @@ module.exports = (sequelize, DataTypes) => {
 
     //fiz modificação
     Pagamento.associate = (models) => {
-        Pagamento.belongsTo(models.Pedido, { as: "pagamento", foreignKey: "pagamentos_id"});
+        //1:N
+        Pagamento.hasMany(models.Pedido, { as: "pagamento", foreignKey: "pagamentos_id"});
+        
         //relação 1:1
-        Pagamento.hasOne(models.TiposPagamento, {as: "tipos_pagamento", foreignKey: "tipos_pagamento_id"})
+        Pagamento.belongsTo(models.TiposPagamento, {as: "tipos_pagamento", foreignKey: "tipos_pagamento_id"})
     }
 
     return Pagamento;
