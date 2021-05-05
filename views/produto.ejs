@@ -14,7 +14,7 @@
 
         <header>
             <div>
-                <img id="logo" src="../img-produtos/logo-2.png" alt=" logomarca Turmalina">
+                <img id="logo" src="/img/logo-2.png" alt=" logomarca Turmalina">
             </div>
             <div>
                 <nav>
@@ -48,7 +48,29 @@
                     <p class="preco">R$ <%= Produto.valor  %> </p>
                     <p class="tipos-pagamentos"></p>
 
-                    <button type="submit"><i class="fas fa-shopping-bag fa-2x"></i> Comprar</button>
+                <button id="btn-status" type="submit" onclick="alert('Produto adicionado a sacola!')"><i class="fas fa-shopping-bag fa-2x"></i>Comprar</button>
+                    
+
+    <!-- <script>
+        let idPedido = 1;
+
+        document.getElementById("btn-status").onclick = function () { myFunction(idPedido) };
+        function myFunction(id_Pedido) {
+            fetch(`http://localhost:3000/pedidos/cancelar/${id_Pedido}`, {
+                "method": "PUT",
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "body": "{\"status_pedido_id\":1}"
+            })
+                .then(response => {
+                    console.log(response);
+                })
+                .catch(err => {
+                    console.error(err);
+                });
+        }
+    </script> -->
 
                 </div>
 

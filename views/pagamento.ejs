@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+
     <title>Cadastro</title>
 </head>
 <body>
@@ -29,13 +31,14 @@
     <main>
 
         <% console.log("TAOKAY") %> 
-            <form action="/pedidos/pagamento" method="POST">
+        <!-- NAO TA ADD NO BANCO, PORQUE? -->
+            <form action="/pedidos/pagamento" method="POST">   
                 <input type="number" name="numeroCartao" id="numeroCartao" placeholder="Numero do Cartão de Crédito" required>
                 <input type="number" name="validadeCartao" id="validadeCartao" placeholder="Validade do Cartão" required>
                 <input type="number" name="cvv" id="cvv" placeholder="cvv" required>    
                 <input type="number" name="valorTotal" id="valorTotal" placeholder="valorTotal">      
                 <input type="number" name="parcelas" id="parcelas" placeholder="Parcelas">
-                <button type="submit">Confirmar</button>
+                <button type="submit" onclick="alert('Pagamento realizado!')" >Confirmar Pagamento</button>
             </form>
         </div>
     </main>
