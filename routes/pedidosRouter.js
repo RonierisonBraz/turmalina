@@ -6,6 +6,7 @@ const pedidosController = require('../controllers/pedidosController');
 router.get('/', pedidosController.index);
 
 router.post('/', pedidosController.create);
+router.post('/additem', pedidosController.produtosSacola);// modificar ===============
 
 router.get('/sacola/:id', pedidosController.sacola); //http://localhost:3000/pedidos/sacola/1
 
