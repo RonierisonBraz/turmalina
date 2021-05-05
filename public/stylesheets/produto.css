@@ -165,19 +165,27 @@ h2 {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin-top: 30px;
+    margin-top: 45px;
+    background-color: white;
+    border-radius: 20px;
+    width:75%;
+    margin-left: 150px;
+    margin-bottom: 5px;
 }
 
 .limit .img-produto{
-    max-width: 600px;
-    max-height: 300px;
+    max-width: 400px;
+    max-height: 200px;
     width: auto;
     height: auto;
+    border-radius: 20px;
+    margin-bottom: 30px;
 }
 .icons-img{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 20px;
 }
 
 .icons a{
@@ -196,7 +204,7 @@ h2 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-right: 150px;
+    padding-right: 80px;
 }
 
 .valor-produto{
@@ -221,6 +229,9 @@ h2 {
     justify-content: center;
     justify-content: space-around;
 }
+
+/* ---------------------------------------------------PAGAMENTO------------------------------------------------ */
+
 
 /* ---------------------------------------------------FOOTER------------------------------------------------ */
 
