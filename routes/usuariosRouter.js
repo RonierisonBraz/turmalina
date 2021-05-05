@@ -4,13 +4,10 @@ const usuariosController = require('../controllers/usuariosController');
 const validarLogin = require('../middleware/validarLogin');
 
 //PERFIL
-router.get('/perfil', usuariosController.perfil); // http://localhost:3000/perfil
+router.get('/perfil/:id', usuariosController.perfil); // http://localhost:3000/perfil
 router.post('/login', usuariosController.auth);
 router.get('/login', usuariosController.login);
 router.get('/cadastro', usuariosController.cadastro);
-
-//USUARIOS
-router.get('/', usuariosController.listarUsuarios);
 
 // rotas de endereço: http://localhost:3000/usuario/enderecos/1
 router.get('/enderecos/:id', usuariosController.enderecos);
@@ -30,4 +27,5 @@ router.get('/perfil/:id', usuariosController.perfil);   //CRIAR MIDDLEWARE QUE S
 //OU ENTAO FAZ UMA SESSION QUE VAI PEGAR O USUARIO LOGADO 
 
 
+// router.get('/teste/:id', usuariosController.teste);
 module.exports = router;

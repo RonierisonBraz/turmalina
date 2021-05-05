@@ -2,14 +2,14 @@ const { Pedido, Pagamento, sequelize } = require('../models');
 
 const pedidosController = {
     index: async (req, res) => {
-        return res.render('perfil-pedido');
+        return res.render('perfil');
     },
     fazerPedido: async (req, res) => {
         let { data_pedido, valor_total, pagamentos_id, usuarios_id } = req.body;
         let novoPedido = await Pedido.create(
             { data_pedido: new Date(data_pedido), valor_total, pagamentos_id, usuarios_id, status_pedido_id: 1 }
         );
-        return res.render('perfil-pedido', {novoPedido: novoPedido});
+        return res.render('sacola', {novoPedido: novoPedido});
     },
     finalizarPagamento: async (req, res) => {
         let { parcelas, tipos_pagamento_id } = req.body;
@@ -45,7 +45,7 @@ const pedidosController = {
             where: { id }
         });
 
-        return res.render('perfil-pedido', { Pedidos: atualizarStatus });
+        return res.render('perfil', { Pedidos: atualizarStatus });
         //localhost:3000/pedidos/cancelar/2
     },
     delete: async (req, res) => {
