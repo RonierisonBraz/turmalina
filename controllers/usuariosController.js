@@ -27,10 +27,12 @@ const usuariosController = {
                 email
             }
         });
+
+        console.log(usuario.id);
         // if (usuario && bcrypt.compareSync(senha, usuario.senha)) {
        if (usuario && usuario.senha == senha) {
             req.session.usuarioLogado = usuario;
-            return res.redirect('/usuario/perfil')
+            return res.redirect('/usuario/perfil/')
         } else {
             console.log(senha);
             console.log(usuario.senha);
@@ -43,7 +45,7 @@ const usuariosController = {
 
         console.log(usuario);
 
-        return response.render('perfil', {Usuarios: usuario});
+        return response.render('perfil', {usuario});
     },
     enderecos: async (request, response) => {
         const { id } = request.params;
