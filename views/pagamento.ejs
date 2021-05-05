@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/stylesheets/produto.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
-
-    <title>Turmalina</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title>Catálogo</title>
 </head>
 
 <body>
@@ -16,42 +14,40 @@
 
         <header>
             <div>
-                <img id="logo" src="/img/logo-2.png" alt=" logomarca Turmalina">
+                <img id="logo" src="../img-produtos/logo-2.png" alt=" logomarca Turmalina">
             </div>
             <div>
                 <nav>
                     <a href="/html/home.html"> Home </a>
                     <a href="/html/sobre.html"> Sobre </a>
-                    <a href="http://localhost:3000/catalogo/"> Joias </a>
-                    <a href="#contato"> Contato</a>
-                </nav>
+                    <a href="catalogo"> Joias </a>
+                    <a href="#contato" > Contato</a>                   
+                 </nav>
             </div>
             <div>
-                <i class="fas fa-user fa-2x"></i>
-                <i class="fas fa-shopping-bag fa-2x"></i>
+               <i class="fas fa-users fa-2x"></i>
+               <i class="fas fa-shopping-bag fa-2x"></i>
             </div>
         </header>
 
-        <main>
-            
-                <!-- <% console.log("TAOKAY") %> -->
+    <main>
+
+        <% console.log("TAOKAY") %> 
             <form action="/pedidos/pagamento" method="POST" id="register-form">
                 <div class="half-box spacing">
-                    <input type="number" name="numeroCartao" id="numeroCartao"
-                        placeholder="Numero do Cartão de Crédito" required>
+                <input type="number" name="numeroCartao" id="numeroCartao" placeholder="Numero do Cartão de Crédito" required>
                 </div>
                 <div class="half-box spacing">
-                    <input type="number" name="validadeCartao" id="validadeCartao"
-                        placeholder="Validade do Cartão" required>
+                <input type="number" name="validadeCartao" id="validadeCartao" placeholder="Validade do Cartão" required>
                 </div>
                 <div class="half-box spacing">
-                    <input type="number" name="cvv" id="cvv" placeholder="cvv" required>
+                <input type="number" name="cvv" id="cvv" placeholder="cvv" required>    
+            </div>
+            <div class="half-box spacing">
+                <input type="number" name="valorTotal" id="valorTotal" placeholder="valorTotal">      
                 </div>
                 <div class="half-box spacing">
-                    <input type="number" name="valorTotal" id="valorTotal" placeholder="valorTotal">
-                </div>
-                <div class="half-box spacing">
-                    <input type="number" name="parcelas" id="parcelas" placeholder="Parcelas">
+                <input type="number" name="parcelas" id="parcelas" placeholder="Parcelas">
                 </div>
                 <button type="submit">Confirmar</button>
             </form>
@@ -71,13 +67,11 @@
                     <i class="fab fa-facebook-square fa-2x"></i>
                     <i class="fab fa-whatsapp-square fa-2x"></i>
                     <i class="fab fa-twitter fa-2x"></i>
-                </div>
+                </div>   
             </div>
         </section>
     </footer>
 
-    </div>
-
+</div>
 </body>
-
 </html>
