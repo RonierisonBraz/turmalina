@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/produto.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
 
     <title>Turmalina</title>
 </head>
+
 <body>
     <div class="container">
 
@@ -21,8 +23,8 @@
                     <a href="/html/home.html"> Home </a>
                     <a href="/html/sobre.html"> Sobre </a>
                     <a href="http://localhost:3000/catalogo/"> Joias </a>
-                    <a href="#contato" > Contato</a>                  
-                 </nav>
+                    <a href="#contato"> Contato</a>
+                </nav>
             </div>
             <div>
                <i class="fas fa-user fa-2x"></i>
@@ -37,21 +39,32 @@
                     <a href="#"><i class="fas fa-share-alt"></i>Compartilhar</a>
                     <a href=""><img src=<%=Produto.img %> class="aneis" alt="Imagem do Produto"></a>
                 </div>
+            </div>
 
-                <div class="descricao-produto">
+            <div class="descricao-produto">
 
-                    <h3><%= Produto.nome  %></h3>
-                    <p> <%= Produto.descricao %> </p>
-                </div>
+                <h3>
+                    <%= Produto.nome %>
+                </h3>
+                <p>
+                    <%= Produto.descricao %>
+                </p>
+            </div>
 
-                <div class="descricao-produto">
-                    <p class="preco">R$ <%= Produto.valor  %> </p>
-                    <p class="tipos-pagamentos"></p>
+            <div class="descricao-produto">
+                <p class="preco">R$ <%= Produto.valor %>
+                </p>
+                <p class="tipos-pagamentos"></p>
+
+                <button id="btn-status" type="submit" onclick="alert('Produto adicionado a sacola!')"><i
+                        class="fas fa-shopping-bag fa-2x"></i>Comprar</button>
+
 
                 <button id="btn-status" type="submit" onclick="addPedido('<%=Produto.id %>')"><i class="fas fa-shopping-bag fa-2x"></i>Comprar</button>
                     
 
-    <!-- <script>
+
+                <!-- <script>
         let idPedido = 1;
 
         document.getElementById("btn-status").onclick = function () { myFunction(idPedido) };
@@ -72,7 +85,6 @@
         }
     </script> -->
 
-                </div>
 
             </div>
         </main>
@@ -96,7 +108,9 @@
     </div>
 
 </body>
-</html> 
+
+</html>
+
 <script>
     function addPedido(id) {
         console.log(id)
@@ -115,3 +129,4 @@
             });
     }
 </script>
+

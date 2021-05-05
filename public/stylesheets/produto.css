@@ -158,20 +158,41 @@ h2 {
     color: #888888;
     text-align: center;
 }
+
+/* ---------------------------------------------------PRODUTO------------------------------------------------ */
+
+/* .produto-1{
+    width: 150px;
+} */
+
+.aneis {
+    display: flex;
+    justify-content: space-center;
+    flex-direction: row;
+    width: 30%;
+    height: 30%;
+    padding-right: 15px;
+}
+
+/* .descricao-produto{
+    border: 1px solid black;
+} */
+
 /* ---------------------------------------------------FOOTER------------------------------------------------ */
 
 footer{
-    color:black;
-    font-weight: bold;
     display: flex;
     align-items: flex-end;
     font-family: Ropa Sans;
-    font-size: 14px;
+    font-size: 22px;
     line-height: .2;
     width: 100%;
 }
 
 .footer{
+    color:black;
+    font-weight: bold;
+    font-family: Ropa Sans;
     background-image: url(../img/footer.png);
     background-size: 100%;
     background-repeat: no-repeat;
