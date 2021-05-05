@@ -110,7 +110,7 @@ input[type="submit"] {
   display: none;
 }
 
-div.registrar{
+div.registrar {
   display: flex;
   flex-direction: row;
   justify-content: center;
