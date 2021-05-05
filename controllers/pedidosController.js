@@ -47,10 +47,49 @@ const pedidosController = {
 
         return res.render('sacola', { Pedido: pedidoEmAndamento, itens});
     },
-    // produtosSacola: async (req, res) => {
-        
+    produtosSacola: async (req, res) => {
+        const {valor, quantidade, produtos_id} = req.body
+        const usuarioId=  2
+        const valorTotal = valor * quantidade
+        const pedidoEmAndamento = await Pedido.findOne({
+            where: {
+                status_pedido_id: 1,
+                usuarios_id: usuarioId
+            } //funcionando
+        });      
+        if(pedidoEmAndamento){
+            console
+            // tem pedido em andamento 
+            //adcionar o item na tabela de itens_pedidos com o id do pedido e do produto click
+            const addItemPedidoAndamento = await ItensPedido.create( {
+                valor:valor,
+                quantidade:quantidade,
+                valor_total:valorTotal,
+                produtos_id: produtos_id, 
+                pedidos_id: pedidoEmAndamento.id
+            } )    
 
-    // },
+        } else {
+            // não tem pedido em andamento e
+            //Criar um id na tabela de Pedidos com o status em andamento 
+            // adcionar o item na tabela de itens_pedidos com o id do pedido e do produto click
+            //-----------------criando pedido em andamento na tabale
+            let { valor_total, pagamentos_id } = req.body;
+            let novoPedido = await Pedido.create(
+                { data_pedido: Date.now(), valor_total:0, pagamentos_id:1, usuarios_id:usuarioId, status_pedido_id:1 }
+            );  
+            //---------------------fim
+            //
+            const pedido = await ItensPedido.create( {
+                valor:valor,
+                quantidade:quantidade,
+                valor_total:valorTotal,
+                produtos_id: produtos_id, 
+                pedidos_id: novoPedido.id
+            } )
+        } 
+        return res.json({mensagem:"sucesso"});
+    },
     update: async (req, res) => {
         let {id} = req.params;
         let {valor_total, status_pedido_id} = req.body;
