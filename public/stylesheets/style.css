@@ -7,8 +7,7 @@
 }
 
 body{
-    /* background-image: linear-gradient(to top left, rgba(238, 208, 250, 0.952),  rgb(121, 215, 238)); */
-    /* background-color: #e5d6f3; */
+    background-image: linear-gradient(to top left, rgba(201, 133, 228, 0.952),  rgb(121, 215, 238));
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -19,7 +18,6 @@ header{
     flex-direction: row;
     justify-content: space-around;
     background-image: linear-gradient(to top left, rgba(201, 133, 228, 0.952),  rgb(121, 215, 238));
-    width: auto;
     box-shadow: 0 0 10px  grey;
     padding: 10px 30px;
     align-items: center;
@@ -85,7 +83,7 @@ h1,h3{
     width: 150%;
     height: 350px;
     object-fit: cover;
-    transition: opacity 800ms;
+    transition: opacity 500ms;
     box-shadow: 0 0 10px black ;
 }
 
@@ -107,7 +105,7 @@ h1,h3{
 }
 
 .imagens-demostrativas img{
-    height: 250px;
+    height: 400px;
 }
 
 /* -------------------------------------------------------SOBRE---------------------------------------------------- */
@@ -116,23 +114,23 @@ h1,h3{
     font-size: 20px;
 }
 .casal{
-    width: 200px;
-    height: 300px;
+    width: 400px;
+    height: 800px;
     max-width: 40%;
     box-shadow: 0 0 10px;
-}
-
-.joias{
-    background-color: rgb(255, 249, 239);
 }
 
 .sobre{
     height: 100%;
 }
 
+.joias{
+    background-image: linear-gradient(to top left, rgba(106, 14, 143, 0.952),  rgb(121, 215, 238));
+}
+
 .girl-power{
-    height: 300px;
-    max-width: 70%;
+    height: 800px;
+    max-width: 100%;
     box-shadow: 0 0 10px;
 }
 
@@ -196,7 +194,7 @@ footer{
     display: flex;
     align-items: flex-end;
     font-family: Ropa Sans;
-    font-size: 14px;
+    font-size: 22px;
     line-height: .2;
     width: 100%;
 }
@@ -206,7 +204,7 @@ footer{
     background-size: 100%;
     background-repeat: no-repeat;
     width: 100%;
-    height: 100px;
+    height: 260px;
     padding: 60px 40px;
     box-shadow: 0 0 10px  grey;
 }

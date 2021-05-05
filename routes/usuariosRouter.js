@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const usuariosController = require('../controllers/usuariosController');
-const validarLogin = require('../middleware/validarLogin');
+const validarCadastro = require('../middleware/validarCadastro');
+const autenticarLogin = require('../middleware/autenticarLogin')
 
 //PERFIL
 router.get('/perfil', usuariosController.perfil); // http://localhost:3000/perfil
@@ -22,13 +23,13 @@ router.put('/enderecos/:id', usuariosController.enderecosUpdate);
 router.put('/alterarSenha/:id', usuariosController.senhaUpdate);
 router.put('/alterarTelefone/:id', usuariosController.telefoneUpdate);
 
-router.post('/login', validarLogin, usuariosController.create); // http://localhost:3000/usuarios/
+router.post('/cadastro', validarCadastro, usuariosController.create); // http://localhost:3000/usuarios/
 
 router.put('/:id', usuariosController.update); // http://localhost:3000/usuarios/id
 
 router.delete('/:id', usuariosController.delete); // http://localhost:3000/usuarios/id
 
-router.get('/perfil/:id', usuariosController.perfil);   //CRIAR MIDDLEWARE QUE SO ACESSE SE FOR O ID DELE
+router.get('/perfil/', autenticarLogin, usuariosController.perfilUsuario);   //CRIAR MIDDLEWARE QUE SO ACESSE SE FOR O ID DELE
 //OU ENTAO FAZ UMA SESSION QUE VAI PEGAR O USUARIO LOGADO 
 
 
