@@ -90,6 +90,42 @@ const pedidosController = {
         } 
         return res.json({mensagem:"sucesso"});
     },
+    atualizaValorTotalPedidos: async (req, res) => {
+        let {id} = req.params;
+        let total = 0;
+        let i;
+
+        const encontrarPedido = await Pedido.findOne ({
+            where : {
+                status_pedido_id : 1,
+                usuarios_id: id
+            }
+        });
+        const valorItens = await ItensPedido.findAll(
+            // {
+            //     valorTotalPedido : ItensPedido.valor_total
+            // },
+            {
+                where : { pedidos_id: encontrarPedido.id }
+            }
+        );
+        for(i=0; i< valorItens.length; i++) {
+            total = total + valorItens.valor_total;
+        }
+        // ELE NAO TA PEGANDO O VALOR DE TOTAL, O ERRO EH valor_total = ?
+        const atualizaValorTotal = await Pedido.update(
+            {
+                valor_total : total
+            },            
+            {
+                where: {
+                status_pedido_id : 1,
+                usuarios_id: id }
+            });
+
+
+        return res.json(atualizaValorTotal);
+    },
     update: async (req, res) => {
         let {id} = req.params;
         let {valor_total, status_pedido_id} = req.body;
