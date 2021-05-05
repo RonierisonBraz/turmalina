@@ -73,7 +73,7 @@ input {
 }
 
 input:focus {
-  border-bottom: 2px solid #dd9690;
+  border-bottom: 2px solid #e5d6f3;
 }
 
 #forgot-pass {
@@ -87,13 +87,13 @@ input[type="submit"]{
   font-weight: bold;
   border-radius: 20px;
   margin-top: 30px;
-  color: #fff;
-  background-color: #dd9690;
+  color: black;
+  background-color: #e5d6f3;
   cursor: pointer;
 }
 
 input[type="submit"]:hover{
-  background-color: #d17c7d;
+  background-color: #e5d6f3;
   transition: .5s;
 }
 
