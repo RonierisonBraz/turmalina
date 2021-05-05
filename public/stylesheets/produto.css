@@ -161,23 +161,67 @@ h2 {
 
 /* ---------------------------------------------------PRODUTO------------------------------------------------ */
 
-/* .produto-1{
-    width: 150px;
-} */
 
-.aneis {
+.geral{
     display: flex;
-    justify-content: space-center;
     flex-direction: row;
-    width: 30%;
-    height: 30%;
-    padding-right: 15px;
+    justify-content: space-around;
+    margin-top: 30px;
 }
 
-/* .descricao-produto{
-    border: 1px solid black;
-} */
+.limit .img-produto{
+   max-width: 600px;
+   max-height: 300px;
+   width: auto;
+   height: auto;
+}
+.icons-img{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.icons a{
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.img-produto {
+      width: 50%;
+      margin-top: 30px;
+      box-shadow: 0 0 10px grey;
+}
+
+.descricao-produto{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-right: 150px;
+}
+
+.valor-produto{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#btn-status{
+    background-image: linear-gradient(to top left, rgba(106, 14, 143, 0.952),  rgb(121, 215, 238));
+    box-shadow: 0 0 10px grey;
+    border-radius: 10px;
+    font-family: Ropa Sans;
+    font-weight: bold;
+    align-items: center;
+    font-size: 16px;
+    width: 110px;
+    padding: 10px 0;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-around;
+}
 /* ---------------------------------------------------FOOTER------------------------------------------------ */
 
 footer{
@@ -205,4 +249,4 @@ footer{
 #contato div i{
     margin-right: 5px;
 }
-/* ---------------------------------------------------Compra do produto------------------------------------------------ */
+
