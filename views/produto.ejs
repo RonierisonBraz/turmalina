@@ -33,58 +33,32 @@
         </header>
 
         <main>
-            <div class="foto-produto">
-                <div class="descricao-produto">
-                    <a href="#"><i class="far fa-heart"></i>Favoritar</a>
-                    <a href="#"><i class="fas fa-share-alt"></i>Compartilhar</a>
-                    <a href=""><img src=<%=Produto.img %> class="aneis" alt="Imagem do Produto"></a>
+            <div class="geral">
+                <div class="icons-img">
+
+                    <div class="icons">
+                        <a href="#"><i class="far fa-heart"></i> Favoritar</a>
+                        <a href="#"><i class="fas fa-share-alt"></i> Compartilhar</a>
+                    </div>
+
+                    <div class="limit">
+                        <img class="img-produto" src=<%=Produto.img %> alt="Imagem do Produto">
+                    </div>
+
                 </div>
-            </div>
 
-            <div class="descricao-produto">
+                <div class="descricao-produto">
+                    <h3> <%= Produto.nome %></h3>
+                    <p><strong><%= Produto.descricao %></strong></p>
+                </div>
 
-                <h3>
-                    <%= Produto.nome %>
-                </h3>
-                <p>
-                    <%= Produto.descricao %>
-                </p>
-            </div>
-
-            <div class="descricao-produto">
-                <p class="preco">R$ <%= Produto.valor %>
-                </p>
-                <p class="tipos-pagamentos"></p>
-
-                <button id="btn-status" type="submit" onclick="alert('Produto adicionado a sacola!')"><i
-                        class="fas fa-shopping-bag fa-2x"></i>Comprar</button>
-
-
-                <button id="btn-status" type="submit" onclick="addPedido('<%=Produto.id %>')"><i class="fas fa-shopping-bag fa-2x"></i>Comprar</button>
+                <div class="valor-produto">
+                    <h3>R$ <%= Produto.valor %></h3>
+                    <p><strong> tipos-pagamento </strong></p>
                     
-
-
-                <!-- <script>
-        let idPedido = 1;
-
-        document.getElementById("btn-status").onclick = function () { myFunction(idPedido) };
-        function myFunction(id_Pedido) {
-            fetch(`http://localhost:3000/pedidos/cancelar/${id_Pedido}`, {
-                "method": "PUT",
-                "headers": {
-                    "Content-Type": "application/json"
-                },
-                "body": "{\"status_pedido_id\":1}"
-            })
-                .then(response => {
-                    console.log(response);
-                })
-                .catch(err => {
-                    console.error(err);
-                });
-        }
-    </script> -->
-
+                    <button id="btn-status" type="submit" onclick="addPedido('<%=Produto.id %>')"></a><i
+                            class="fas fa-shopping-bag fa-2x"></i>Comprar</button>
+                </div>
 
             </div>
         </main>
@@ -129,4 +103,3 @@
             });
     }
 </script>
-
