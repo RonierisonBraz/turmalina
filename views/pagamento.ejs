@@ -32,12 +32,22 @@
     <main>
 
         <% console.log("TAOKAY") %> 
-            <form action="/pedidos/pagamento" method="POST">
+            <form action="/pedidos/pagamento" method="POST" id="register-form">
+                <div class="half-box spacing">
                 <input type="number" name="numeroCartao" id="numeroCartao" placeholder="Numero do Cartão de Crédito" required>
+                </div>
+                <div class="half-box spacing">
                 <input type="number" name="validadeCartao" id="validadeCartao" placeholder="Validade do Cartão" required>
+                </div>
+                <div class="half-box spacing">
                 <input type="number" name="cvv" id="cvv" placeholder="cvv" required>    
+            </div>
+            <div class="half-box spacing">
                 <input type="number" name="valorTotal" id="valorTotal" placeholder="valorTotal">      
+                </div>
+                <div class="half-box spacing">
                 <input type="number" name="parcelas" id="parcelas" placeholder="Parcelas">
+                </div>
                 <button type="submit">Confirmar</button>
             </form>
         </div>
@@ -63,3 +73,8 @@
 </div>
 </body>
 </html>
+
+<script>
+
+    
+</script>
