@@ -20,17 +20,17 @@ const usuariosController = {
         return res.render('login');
     },
     auth: async (req, res) => {
-        const { email, password} = req.body;
+        const { email, senha} = req.body;
 
         const usuario = await Usuario.findOne({
             where: {
                 email
             }
         });
-        if (usuario && bcrypt.compareSync(senha, usuario.senha)) {
-     
+        // if (usuario && bcrypt.compareSync(senha, usuario.senha)) {
+       if (usuario && usuario.senha == senha) {
             req.session.usuarioLogado = usuario;
-            return res.redirect('/perfil')
+            return res.redirect('/usuario/perfil')
         } else {
             console.log(senha);
             console.log(usuario.senha);
