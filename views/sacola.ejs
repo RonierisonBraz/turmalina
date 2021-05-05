@@ -4,14 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="/stylesheets/style.css"> -->
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/pedidos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
 
     <title>Turmalina</title>
 </head>
 <body>
+    <div class="container">
+
     <header>
         <div>
-            <img id="logo" src="../img-produtos/logo-2.png" alt=" logomarca Turmalina">
+            <img id="logo" src="/img/logo-2.png" alt=" logomarca Turmalina">
         </div>
         <div>
             <nav>
@@ -27,24 +31,48 @@
         </div>
     </header>
 
-    <div>
+    <main>
         <% let i=0; %>
-    
-            <% for (let item of itens) { %>
-                
-                        <div>
-                            <img src="<%= item.produto.img %>" alt="">
-                            <p><%= item.produto.nome %></p>                          
-                            <p> Valor do item = <%= item.valor  %>  </p>
-                            <input type="number" value="1" min="1" max="10" id=`qtd${i}`>
+        <% let qtd = [];
+         let valorPedido = []; %> 
 
+        <% let valorPedidoTotal = 0; %> 
+            <% for (let item of itens) { %>
+                <% i++; %> 
+                <div class="pedido">
+                    <img src="<%= item.produto.img %>" alt="">
+                
+                    <div class="infoPedido">
+                        <div class="indices">
+                            <p> Produto </p>
+                            <p> Valor Unitário </p>
+                            <p> Quantidade </p>
+                            <p> Valor Total </p>
                         </div>
+                        <div class="valores">
+                            <p> <%= item.produto.nome %></p>
+                            <p> R$ <%= item.valor %> </p>
+                            <input type="number" value="1" min="1" max="10" id="<%=i%>" oninput="console.log('Hi', this.id)">
+                            <p> R$ <%= item.valor_total %> </p>
+                        </div>
+                    </div>
+                </div>
             <% } %>
-            <strong> Valor Total do Pedido =<%=Pedido.valor_total  %>  </strong>
-        <div>
+
+            <script>
+                // calcular(this.value, this.id, preco)
+                // function calcular(valor, id, preco) {
+                //     let qtd = [];
+                //     let valorPedido = []
+                //     qtd[id] = [valor];
+                //     valorPedido[id] = qtd * preco;
+                //     console.log(qtd[id], id, valorPedido[id]);                  
+                // }
+           
+            </script>      
     
-        </div>
-    </div>
+        
+    </main>
 
     <footer>
         <section class="footer">
@@ -62,5 +90,6 @@
             </div>
         </section>
     </footer>
+    </div>
 </body>
 </html>

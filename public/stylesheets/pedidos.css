@@ -1,0 +1,40 @@
+main {
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+
+.pedido {
+    display: flex;
+    width: 100%;
+    border: white;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.pedido img {
+    width: 10%;
+    border-radius: 20px;
+    padding: 15px;
+}
+
+.infoPedido {
+    display: block;
+    width: 100%;
+    padding: 5px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
+    
+}
+
+.indices {
+    display: flex;
+    font-weight: bolder;
+    justify-content: space-between;
+}
+.valores {
+    display: flex;
+    justify-content: space-between;
+    /* padding-right: 20px; */
+}
