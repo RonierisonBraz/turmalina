@@ -1,8 +1,8 @@
 module.exports = (request, response, next) => {
-    if(request.session.usuarioLogado !== null){
+    if(request.session.usuarioLogado != null){
         next();
     }
     else{
-        response.redirect('/usuario/login');
+        response.redirect('http://localhost:3000/usuario/login');
     }
 }

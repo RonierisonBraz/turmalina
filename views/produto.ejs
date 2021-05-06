@@ -113,6 +113,7 @@
             "body": `{\"valor\":100,\"quantidade\":1,\"produtos_id\":${id}}`
         })
             .then(response => {
+                alert("Produto adicionado a sacola!")
                 console.log(response);
             })
             .catch(err => {

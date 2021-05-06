@@ -17,9 +17,9 @@ const pedidosController = {
         return res.render('pagamento');
     },
     finalizarPagamento: async (req, res) => {
-        let { parcelas, tipos_pagamento_id } = req.body;
+        let { parcelas } = req.body;
         let novoPagamento = await Pagamento.create(
-            { parcelas, data_pagamento: Date.now(), tipos_pagamento_id }
+            { parcelas, data_pagamento: Date.now(), tipos_pagamento_id: 2}
         );
         return res.json(novoPagamento);
     },
@@ -85,7 +85,7 @@ const pedidosController = {
         return res.json({mensagem:"sucesso"});
     },
     atualizaValorTotalPedidos: async (req, res) => {
-        const {id} = request.session.usuarioLogado;
+        const {id} = req.session.usuarioLogado;
         let total = 0;
         let i;
 
@@ -118,7 +118,7 @@ const pedidosController = {
             });
 
 
-        return res.json(atualizaValorTotal);
+        return res.render('', atualizaValorTotal);
     },
     atualizarPedido: async (req, res) => {
         const {id} = request.session.usuarioLogado;

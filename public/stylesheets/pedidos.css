@@ -50,3 +50,9 @@ button {
     border-color: rgb(255, 255, 255);
     height: 60px;
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; /* <-- Aparentemente, algumas margens ainda estão lá, apesar de estar ocultas */
+}
