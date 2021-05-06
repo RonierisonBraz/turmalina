@@ -38,7 +38,7 @@ const pedidosController = {
             where: { pedidos_id: pedidoEmAndamento.id }
         });
 
-        console.log(itens[1].produto.nome)
+        // console.log(itens[1].produto.nome)
 
         return res.render('sacola', { Pedido: pedidoEmAndamento, itens});
     },
@@ -84,10 +84,32 @@ const pedidosController = {
         } 
         return res.json({mensagem:"sucesso"});
     },
+    atualizaItensSacola: async (req, res) => {
+        const {valor, quantidade, produtos_id, pedidos_id} = req.body
+        // const {id} = req.session.usuarioLogado;
+
+        const valorTotal = valor * quantidade;
+
+        const pedido = await ItensPedido.update( {
+            quantidade: quantidade,
+            valor_total: valorTotal,
+        },
+        {
+            where : {
+                produtos_id,
+                pedidos_id
+            }
+        });
+
+        return res.json(pedido);
+    },
     atualizaValorTotalPedidos: async (req, res) => {
-        const {id} = req.session.usuarioLogado;
+        const {id} = req.params;
+        let { quantidade, pedido_ } = req.body;
         let total = 0;
         let i;
+
+        console.log("TA PEGANDO");
 
         const encontrarPedido = await Pedido.findOne ({
             where : {
@@ -104,7 +126,7 @@ const pedidosController = {
             }
         );
         for(i=0; i< valorItens.length; i++) {
-            total = total + valorItens.valor_total;
+            total = total + (quantidade * valorItens[i].valor_total);
         }
         // ELE NAO TA PEGANDO O VALOR DE TOTAL, O ERRO EH valor_total = ?
         const atualizaValorTotal = await Pedido.update(
@@ -117,20 +139,44 @@ const pedidosController = {
                 usuarios_id: id }
             });
 
-
-        return res.render('', atualizaValorTotal);
+        return res.render(atualizaValorTotal);
     },
     atualizarPedido: async (req, res) => {
-        const {id} = request.session.usuarioLogado;
-        let { valor_total, status_pedido_id } = req.body;
+        const {id} = req.session.usuarioLogado;
+         const {idpedido} = req.body;
+        let valorTotal = 0;
+        //const id =6
+        
 
-        let atualizarPedido = await Pedido.update({
-            valor_total, status_pedido_id
+        // const encontrarPedido = await Pedido.findOne ({
+        //     where : {
+        //         status_pedido_id : 1,
+        //         usuarios_id: id
+        //     }
+        // });
+        const itens = await ItensPedido.findAll(
+            {
+                where : { pedidos_id: idpedido }
+            }
+        );
+
+        for(let i=0; i < itens.length; i++) {
+           console.log(itens[i].valor_total)
+            valorTotal = valorTotal + itens[i].valor_total;
+        }
+        console.log("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+        console.log(valorTotal)
+        const atualizarPedido = await Pedido.update({
+            valor_total : valorTotal
         }, {
-            where: { id }
+            where: { 
+                usuarios_id: id,
+                status_pedido_id : 1
+            }
         });
-        return res.send(atualizarPedido);
+        return res.json(atualizarPedido);
     },
+    
     cancelarPedido: async (req, res) => {
         const {id} = request.session.usuarioLogado;
         const { status_pedido_id } = req.body;

@@ -33,9 +33,8 @@
 
     <main>
         <% let i=0; %>
-        <% let qtd = [];
-         let valorPedido = []; %> 
-
+        <%let valorPedido = []; %> 
+        <% let quantidade; %> 
         <% let valorPedidoTotal = 0; %> 
             <% for (let item of itens) { %>
                 <% i++; %> 
@@ -49,32 +48,22 @@
                             <p> Quantidade </p>
                             <p> Valor Total </p>
                         </div>
-                        <div class="valores">
+                        <form class="valores" action="/pedidos/sacola/comprar" method="PUT">
                             <p> <%= item.produto.nome %></p>
                             <p> R$ <%= item.valor %> </p>
-                            <input type="number" value="1" min="1" max="10" id="<%=i%>" oninput="console.log('Hi', this.id)">
-                            <p> R$ <%= item.valor_total %> </p>
-                        </div>
+                            <div>
+                            <input type="number"  min="1" max="10" name="quantidade" onchange="editar('<%=item.id%>',this.value,'<%=item.valor%>','<%=item.pedidos_id%>')" id="quantidade<%=item.id%>" >
+                            <button type="submit" id="btn-atualiza" value=1 ></button>
+                            </div>
+                        </form>
+                        <%= console.log(quantidade); %> 
+                        <p id="<%=item.id%>">  <%= item.valor_total  %>  </p>
                     </div>
                 </div>
-            <% } %>
-
-            
-
-            <script>
-                // calcular(this.value, this.id, preco)
-                // function calcular(valor, id, preco) {
-                //     let qtd = [];
-                //     let valorPedido = []
-                //     qtd[id] = [valor];
-                //     valorPedido[id] = qtd * preco;
-                //     console.log(qtd[id], id, valorPedido[id]);                  
-                // }
-           
-            </script>      
+            <% } %>  
     
-            <button> <a href="http://localhost:3000/pedidos/pagamento">Finalizar Compra</a> </button>
-        
+            <button onclick="FinalizarPedido('<%=itens[0].pedidos_id%>')" > <a href="http://localhost:3000/pedidos/pagamento"> Finalizar Compra</a> </button>
+            <!-- <a href="http://localhost:3000/pedidos/pagamento"> -->
     </main>
 
     <footer>
@@ -95,4 +84,70 @@
     </footer>
     </div>
 </body>
+<script>
+    function editar(idproduto,value,valorproduto, pedido_id){
+       // const quantidade = document.getElementById("quantidade"+idproduto).innerText
+        console.log(value)
+        const valortotal =value *valorproduto
+        document.getElementById(idproduto).innerText= valortotal
+
+                        fetch("http://localhost:3000/pedidos/sacola/item", {
+                "method": "PUT",
+                "headers": {
+                    
+                    "Content-Type": "application/json"
+                },
+                "body": `{\"valor\":${valorproduto},\"quantidade\":${value},\"produtos_id\":${idproduto},\"pedidos_id\":${pedido_id}}`
+                })
+                .then(response => {
+                console.log(response);
+                })
+                .catch(err => {
+                console.error(err);
+                });
+
+        // var btn = document.querySelector("#btn-atualiza");
+        // btn.addEventListener("click", function () {
+        //     alert
+            
+        // });      
+    }
+    function FinalizarPedido(idpedido){
+
+        fetch("http://localhost:3000/pedidos/pagamento/", {
+  "method": "PUT",
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": `{\"idpedido\":${idpedido}}`
+})
+.then(response => {
+  console.log(response);
+})
+.catch(err => {
+  console.error(err);
+});
+
+//         fetch("http://localhost:3000/pedidos/pagamento/", {
+//   "method": "PUT",
+//   "headers": {
+//     "Content-Type": "application/json"
+//   },
+//   "body": "false"
+// })
+// .then(response => {
+//   console.log(response);
+// })
+// .catch(err => {
+//   console.error(err);
+// });
+}
+    // function atualizar(valorTotal, quantidade) {
+    //     // let valorTotal = document.getElementById(idproduto).innerText;
+        
+    //     if(document.getElementById('btn-atualiza').onclick) {
+    //         alert("Ta pegando!")
+    //     }
+    // }
+</script>
 </html>
