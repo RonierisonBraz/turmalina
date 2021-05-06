@@ -12,21 +12,30 @@ const usuariosController = {
         return res.render('login');
     },
     auth: async (req, res) => {
-        const { email, senha } = req.body;
+        const { email, senha} = req.body;
 
         const usuario = await Usuario.findOne({
             where: {
                 email
             }
         });
-
-        if (usuario && bcrypt.compareSync(senha, usuario.senha)) {
-            req.session.usuarioLogado = usuario;  //  criando atributo usuarioLogado
-            return res.redirect('/');
+    
+        console.log(usuario.id);
+        // if (usuario && bcrypt.compareSync(senha, usuario.senha)) {
+        if (usuario) {
+            if (usuario.senha == senha) {
+                req.session.usuarioLogado = usuario;
+                return res.redirect('/usuario/perfil/')
+            }
+        } else {
+            console.log(senha);
+            console.log(usuario.senha);
+            // return res.redirect('/usuario/login');
+            alert("Usuario não encontrado!")
         }
     },
-    perfil: async (request, response) => {
-        const {id} = request.params;
+    perfilUsuario: async (request, response) => {
+        const {id} = request.session.usuarioLogado;
         const usuario = await Usuario.findByPk(id);
         const endereco = await Endereco.findByPk(usuario.enderecos_id);
 
@@ -35,15 +44,15 @@ const usuariosController = {
             where: {usuarios_id:id}
         });
 
-        return response.render('perfil', {Usuario:usuario, PedidosUsuario:pedidosUsuario, Endereco:endereco/*, StatusPedido:statusPedido, Pagamento:pagamento, TipoPagamento:tipoPagamento*/});
+        return response.render('perfil', {Usuario:usuario, PedidosUsuario:pedidosUsuario, Endereco:endereco});
     },
-    enderecos: async (request, response) => {
-        const { id } = request.params;
-        const usuario = await Usuario.findByPk(id);
-        const enderecoId = usuario.enderecos_id;
-        const endereco = await Endereco.findByPk(enderecoId);
-        return response.json(endereco);
-    },
+    // enderecos: async (request, response) => {
+    //     const { id } = request.params;
+    //     const usuario = await Usuario.findByPk(id);
+    //     const enderecoId = usuario.enderecos_id;
+    //     const endereco = await Endereco.findByPk(enderecoId);
+    //     return response.json(endereco);
+    // },
     enderecosUpdate: async (request, response) => {
         const { id } = request.params;
         const { lougradouro, numero, bairro, cidade, cep, complemento } = request.body;

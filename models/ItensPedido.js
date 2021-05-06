@@ -8,14 +8,14 @@ module.exports = (sequelize, DataTypes) => {
         pedidos_id: DataTypes.INTEGER,
         produtos_id: DataTypes.INTEGER
     }, {
-        tableName: 'itens_pedidos',
+        tableName: 'itens_pedido',
         timestamps: false
     });
 
-    ItensPedido.associate = (models) => {
-        ItensPedido.belongsTo(models.Pedido, { as: "pedido", foreignKey: "pedidos_id" });
-        ItensPedido.hasMany(models.Produto, { as: "produto", foreignKey: "produtos_id" });
-    }
+   ItensPedido.associate = (models) => {
+       ItensPedido.belongsTo(models.Pedido, { as: "pedido", foreignKey: "pedidos_id" });
+       ItensPedido.belongsTo(models.Produto, { as: "produto", foreignKey: "produtos_id" });
+   }
 
     return ItensPedido;
 }

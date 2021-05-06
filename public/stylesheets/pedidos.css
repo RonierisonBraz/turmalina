@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Ropa+Sans&display=swap');
+
+main {
+    display: block;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.pedido {
+    display: flex;
+    width: 100%;
+    /* border: rgb(168, 168, 168); */
+    background-color: white;
+    border-radius: 20px;
+    margin: 30px 0px ;
+}
+
+.pedido img {
+    width: 10%;
+    border-radius: 40px;
+    padding: 20px;
+}
+
+.infoPedido {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
+    
+}
+
+.indices {
+    display: flex;
+    font-weight: bolder;
+    justify-content: space-between;
+}
+.valores {
+    display: flex;
+    justify-content: space-between;
+    /* padding-right: 20px; */
+}
+
+button {
+    width: 20%;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    border-color: rgb(255, 255, 255);
+    height: 60px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;  /* <-- Aparentemente, algumas margens ainda estão lá, apesar de estar ocultas */
+}
+
+   /* tela de pagamentos */
+/* .principal .formPag {
+    justify-items: center;
+    align-items: center;
+}
+
+.formPag {
+    display: block;
+    width: 50%;
+    border: grey;
+    background-color: whitesmoke;
+    border-width: 3px;
+    border-radius: 30px;
+    margin-top: 20px;
+}
+
+.formPag input {
+    width: 50%;
+    height: 15px;
+    border-radius: 30px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.principal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+#main-container {
+    width: 500px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 25px;
+    padding-top: 50px; 
+  }
+    
+  form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 8%;
+  }
+  
+  .full-box{ 
+    flex: 1 1 100%;
+    position: relative;
+    }
+  .half-box{
+    flex: 1 1 45%;
+    position: relative;
+  }
+  .spacing {
+    margin-right: 2.5%;
+  }
+ 
+  p{
+    font-weight: bold;
+  }
+
+  .indices{
+    margin-left: 12px;
+  }
+
+  .valores{
+    margin-right: 15px;
+  }
+     
+  ::placeholder, input{
+      text-align: center;
+      border-radius: 8px;
+      padding: 0 10px;
+  }
+
+
+  input:focus {
+    border-color:#e5d6f3;
+    
+  }
+  
+  input[type="submit"] {
+    background-color:#e5d6f3;
+    color: black;
+    border: none;
+    border-radius: 20px;
+    height: 40px;
+    width: 200px;
+    cursor: pointer;
+    margin-left: 3%;
+  }
+  
+  
+  /*validações*/
+  
+  .error-validation{
+    color: #ff1a1a;
+    position: absolute;
+    top: 57px;
+    font-size: none;
+  }
+  
+  .tamplate {
+    display: none;
+  }
+  
+  div.registrar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+  }

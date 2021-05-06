@@ -4,28 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+<link rel="stylesheet" href="../stylesheets/login.css">
     
     <title>Login</title>
 </head>
 <body>
-    <main>
-
-        <div class="banner">
-            <img src="./img/img/banner-login.png" alt="Banner-logo" >
+    <div id="login-container">
+        <h1>Login</h1>
+        <form action="/usuario/login" method="POST">
+          <label for="email">E-mail</label>
+          <input type="email" name="email" id="email" autocomplet="off">
+          <label for="password">Senha</label>
+          <input type="password" name="senha" id="password">
+          <a href="#" id="forgot-pass">Esqueceu a senha?</a>
+          <input type="submit" value="Login">
+        </form>
+        <div id="social-container">
+          <p>ou entre com suas redes sociais</p>
+          <i class="fab fa-facebook-f"></i>
+          <i class="fab fa-google"></i>
         </div>
-        <div class="login">
-            <img src="/img/img/logo.png" alt="logo" class="logo" >
-            <form action="/usuarios/login" method="POST">
+        <div id="register-container">
 
-                <input type="email" name="email" id="email" placeholder="Nome de usuario ou email" required>
-                <input type="password" name="password" id="password" placeholder="Digite sua senha" required>
-                <button type="submit">Entra</button>
-            </form>
-            <div class="cta-cadastro">
-                <p>Não tenho uma conta ?<a href="cadastro.html">Cadastre-se</a></p>
-            </div>
+         <p>Ainda não tem uma conta?</p>    
+
+         <a href="#">Cadastre-se</a>
         </div>
-    </main>
+     
+        </div>
 </body>
 </html>

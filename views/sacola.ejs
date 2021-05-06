@@ -4,12 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/pedidos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+
     <title>Turmalina</title>
 </head>
 <body>
+    <div class="container">
+
     <header>
         <div>
-            <img id="logo" src="../img-produtos/logo-2.png" alt=" logomarca Turmalina">
+            <img id="logo" src="/img/logo-2.png" alt=" logomarca Turmalina">
         </div>
         <div>
             <nav>
@@ -20,15 +26,45 @@
              </nav>
         </div>
         <div>
-           <i class="fas fa-users fa-2x"></i>
-           <i class="fas fa-shopping-bag fa-2x"></i>
+            <a href="http://localhost:3000/usuario/perfil"><i class="fas fa-user fa-2x"></i></a>
+            <a href="http://localhost:3000/pedidos/sacola"><i class="fas fa-shopping-bag fa-2x"></i></a>
         </div>
     </header>
 
-    <div>
-     
-    </div>
+    <main>
+        <% let i=0; %>
+        <%let valorPedido = []; %> 
+        <% let quantidade; %> 
+        <% let valorPedidoTotal = 0; %> 
+            <% for (let item of itens) { %>
+                <% i++; %> 
+                <div class="pedido">
+                    <img src="<%= item.produto.img %>" alt="">
+                
+                    <div class="infoPedido">
+                        <div class="indices">
+                            <p> Produto </p>
+                            <p> Valor Unitário </p>
+                            <p> Quantidade </p>
+                            <p> Valor Total </p>
+                        </div>
+                        <form class="valores" action="/pedidos/sacola/comprar" method="PUT">
+                            <p> <%= item.produto.nome %></p>
+                            <p> R$ <%= item.valor %> </p>
+                            <div>
+                            <input type="number"  min="1" max="10" name="quantidade" onchange="editar('<%=item.id%>',this.value,'<%=item.valor%>','<%=item.pedidos_id%>')" id="quantidade<%=item.id%>" >
+                            <button type="submit" id="btn-atualiza" value=1 ></button>
+                            </div>
+                        </form>
+                        <%= console.log(quantidade); %> 
+                        <p id="<%=item.id%>">  <%= item.valor_total  %>  </p>
+                    </div>
+                </div>
+            <% } %>  
     
+            <button onclick="FinalizarPedido('<%=itens[0].pedidos_id%>')" > <a href="http://localhost:3000/pedidos/pagamento"> Finalizar Compra</a> </button>
+            <!-- <a href="http://localhost:3000/pedidos/pagamento"> -->
+    </main>
 
     <footer>
         <section class="footer">
@@ -46,5 +82,72 @@
             </div>
         </section>
     </footer>
+    </div>
 </body>
+<script>
+    function editar(idproduto,value,valorproduto, pedido_id){
+       // const quantidade = document.getElementById("quantidade"+idproduto).innerText
+        console.log(value)
+        const valortotal =value *valorproduto
+        document.getElementById(idproduto).innerText= valortotal
+
+                        fetch("http://localhost:3000/pedidos/sacola/item", {
+                "method": "PUT",
+                "headers": {
+                    
+                    "Content-Type": "application/json"
+                },
+                "body": `{\"valor\":${valorproduto},\"quantidade\":${value},\"produtos_id\":${idproduto},\"pedidos_id\":${pedido_id}}`
+                })
+                .then(response => {
+                console.log(response);
+                })
+                .catch(err => {
+                console.error(err);
+                });
+
+        // var btn = document.querySelector("#btn-atualiza");
+        // btn.addEventListener("click", function () {
+        //     alert
+            
+        // });      
+    }
+    function FinalizarPedido(idpedido){
+
+        fetch("http://localhost:3000/pedidos/pagamento/", {
+  "method": "PUT",
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": `{\"idpedido\":${idpedido}}`
+})
+.then(response => {
+  console.log(response);
+})
+.catch(err => {
+  console.error(err);
+});
+
+//         fetch("http://localhost:3000/pedidos/pagamento/", {
+//   "method": "PUT",
+//   "headers": {
+//     "Content-Type": "application/json"
+//   },
+//   "body": "false"
+// })
+// .then(response => {
+//   console.log(response);
+// })
+// .catch(err => {
+//   console.error(err);
+// });
+}
+    // function atualizar(valorTotal, quantidade) {
+    //     // let valorTotal = document.getElementById(idproduto).innerText;
+        
+    //     if(document.getElementById('btn-atualiza').onclick) {
+    //         alert("Ta pegando!")
+    //     }
+    // }
+</script>
 </html>

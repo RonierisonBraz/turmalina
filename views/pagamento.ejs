@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/pedidos.css">
+
+    <title>Catálogo</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <header>
+            <div>
+                <img id="logo" src="/img/logo-2.png" alt=" logomarca Turmalina">
+            </div>
+            <div>
+                <nav>
+                    <a href="/html/home.html"> Home </a>
+                    <a href="/html/sobre.html"> Sobre </a>
+                    <a href="http://localhost:3000/catalogo/"> Joias </a>
+                    <a href="#contato" > Contato</a>                  
+                 </nav>
+            </div>
+            <div>
+                <a href="http://localhost:3000/usuario/perfil"><i class="fas fa-user fa-2x"></i></a>
+                <a href="http://localhost:3000/pedidos/sacola"><i class="fas fa-shopping-bag fa-2x"></i></a>
+            </div>
+        </header>
+
+    <div id="main-container" class="principal">
+        
+        <% console.log("TAOKAY") %> 
+        <form action="/pedidos/pagamento" method="POST">   
+            <input type="number" name="numeroCartao" id="numeroCartao" placeholder="Numero do Cartão de Crédito" required>
+            <input type="number" name="validadeCartao" id="validadeCartao" placeholder="Validade do Cartão" required>
+            <input type="number" name="cvv" id="cvv" placeholder="cvv" required>    
+            <input type="number" name="valorTotal" id="valorTotal" placeholder="valorTotal">      
+            <input type="number" name="parcelas" id="parcelas" placeholder="Parcelas">
+            <button type="submit" onclick="alert('Pagamento realizado!')" >Confirmar Pagamento</button>
+        </form>
+
+            <!-- <form action="/pedidos/pagamento" method="POST" id="register-form">
+                <div class="half-box spacing">
+                <input type="number" name="numeroCartao" id="numeroCartao" placeholder="Numero do Cartão de Crédito" required>
+                </div>
+                <div class="half-box spacing">
+                <input type="text" name="validadeCartao" id="validadeCartao" placeholder="Validade do Cartão" required>
+                </div>
+                <div class="half-box spacing">
+                <input type="number" maxlength="3" name="cvv" id="cvv" placeholder="cvv" required>    
+            </div>
+            <div class="half-box spacing">
+                <input type="number" name="valorTotal" id="valorTotal" placeholder="valorTotal">      
+                </div>
+                <div class="half-box spacing">                    
+                <input type="number" value="1" min="1" max="10" name="parcelas" id="parcelas" placeholder="Parcelas">
+                </div>
+                <button type="submit" >Confirmar</button>
+            </form> -->
+        
+    
+    </div>
+
+    <footer>
+        <section class="footer">
+            <div id="contato">
+                <p>Turmalina Joias - Bright yourself!</p>
+                <p>Rua do Sol - Recife-PE</p>
+                <p>+55 (81) 95555-5555</p>
+                <p>contact@turmalina.com</p>
+                <p>OUR SOCIAL MEDIAS:</p>
+                <div>
+                    <i class="fab fa-facebook-square fa-2x"></i>
+                    <i class="fab fa-whatsapp-square fa-2x"></i>
+                    <i class="fab fa-twitter fa-2x"></i>
+                </div>   
+            </div>
+        </section>
+    </footer>
+
+</div>
+</body>
+</html>
