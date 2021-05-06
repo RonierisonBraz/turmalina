@@ -18,9 +18,10 @@
 
 /*plano de fundo do login*/
 body {
-  background-image: url('../img/capa\ de\ fundo.jpg');
+  background-image: url('../img/capadefundo.jpg');
   background-size: cover;
-  background-position-y: -200px;
+  background-position-y: -190px;
+  background-repeat: no-repeat;
 }
 
 textarea:focus,

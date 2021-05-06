@@ -3,12 +3,12 @@
 /* -------------------------------------------------------HOME---------------------------------------------------- */
 .container{
     width: 100%;
-    /* background-image: linear-gradient(to top left, rgba(204, 158, 223, 0.952),  rgb(121, 215, 238)); */
+    
     background-color:whitesmoke;
 }
 
 body{
-    /* background-image: linear-gradient(to top left, rgba(201, 133, 228, 0.952),  rgb(121, 215, 238)); */
+    
     background-color: whitesmoke;
     display: flex;
     flex-direction: row;
@@ -91,6 +91,7 @@ h1,h3{
 
 #slider img.selected{
     opacity: 1;
+
 }
 
 .section-home {

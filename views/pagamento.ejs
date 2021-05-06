@@ -16,7 +16,7 @@
 
         <header>
             <div>
-                <img id="logo" src="../img-produtos/logo-2.png" alt=" logomarca Turmalina">
+                <img id="logo" src="../img/logo-2.png" alt=" logomarca Turmalina">
             </div>
             <div>
                 <nav>
@@ -32,8 +32,8 @@
             </div>
         </header>
 
-    <div class="principal">
-        <div class="formPag">
+    <div id="main-container" class="principal">
+        
         <% console.log("TAOKAY") %> 
             <form action="/pedidos/pagamento" method="POST" id="register-form">
                 <div class="half-box spacing">
@@ -48,14 +48,16 @@
             <div class="half-box spacing">
                 <input type="number" name="valorTotal" id="valorTotal" placeholder="valorTotal">      
                 </div>
-                <div class="half-box spacing">
+                <div class="half-box spacing">                    
                 <input type="number" value="1" min="1" max="10" name="parcelas" id="parcelas" placeholder="Parcelas">
                 </div>
-                <button type="submit">Confirmar</button>
+                <div class="registrar">
+                    <input type="submit" id="btn-submit" value="Confirmar">
+                </div> 
             </form>
-        </div>
+        
     
-        </div>
+    </div>
 
     <footer>
         <section class="footer">
