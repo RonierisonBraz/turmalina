@@ -17,12 +17,12 @@
 
         </div>
         <div>
-            <nav>
-                <a href="http://localhost:3000/home"> Home </a>
-                <a href="http://localhost:3000/sobre"> Sobre </a>
-                <a href="http://localhost:3000/catalogo"> Joias </a>
-                <a href="#contato"> Contato</a>
-            </nav>
+           <nav>
+                    <a href="/html/home.html"> Home </a>
+                    <a href="/html/sobre.html"> Sobre </a>
+                    <a href="http://localhost:3000/catalogo/"> Joias </a>
+                    <a href="#contato" > Contato</a>                  
+                 </nav>
         </div>
         <div>
             <i class="fas fa-user fa-2x"></i>
@@ -130,7 +130,9 @@
 
         var btn = document.querySelector("#btn-alterar-endereco");
         btn.addEventListener("click", function () {
+
             var div = document.querySelector("#div-alterar-dados-endereco");
+
             if (div.style.display === "none") {
                 div.style.display = "flex";
             } else {
@@ -140,6 +142,7 @@
 
         var btn = document.querySelector("#btn-ver-pedidos");
         btn.addEventListener("click", function () {
+
             var div = document.querySelector("#div-ver-pedidos");
             if (div.style.display === "none") {
                 div.style.display = "flex";
@@ -147,6 +150,7 @@
                 div.style.display = "none";
             }
         });
+
 
         function alterarDados(id) {
             let form = document.getElementById("form-alterar-dados-usuario");
@@ -283,6 +287,7 @@
         display: none;
     }
 
+
     #div-alterar-dados-usuario{
         justify-content: center;
     }
@@ -306,6 +311,9 @@
     #div-alterar-dados-endereco{
         justify-content: center;
     }
+
+</style>
+
 
     #div-alterar-dados-endereco form{
         line-height:20px;

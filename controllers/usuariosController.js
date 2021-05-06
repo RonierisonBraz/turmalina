@@ -20,16 +20,19 @@ const usuariosController = {
                 email
             }
         });
-
+    
         console.log(usuario.id);
         // if (usuario && bcrypt.compareSync(senha, usuario.senha)) {
-       if (usuario && usuario.senha == senha) {
-            req.session.usuarioLogado = usuario;
-            return res.redirect('/usuario/perfil/')
+        if (usuario) {
+            if (usuario.senha == senha) {
+                req.session.usuarioLogado = usuario;
+                return res.redirect('/usuario/perfil/')
+            }
         } else {
             console.log(senha);
             console.log(usuario.senha);
-            return res.redirect('/usuario/login');
+            // return res.redirect('/usuario/login');
+            alert("Usuario não encontrado!")
         }
     },
     // logout: async (req,res) => {

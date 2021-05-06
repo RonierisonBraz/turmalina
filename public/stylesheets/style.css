@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Ropa+Sans&display=swap');
 
-/* -------------------------------------------------------HOME---------------------------------------------------- */
+/* -------------------------------------------------------GERAL---------------------------------------------------- */
 .container{
-    width: 100%;
-    /* background-image: linear-gradient(to top left, rgba(201, 133, 228, 0.952),  rgb(121, 215, 238)); */
+    width: 100%
+    
 }
 
+
 body{
-    /* background-image: linear-gradient(to top left, rgba(201, 133, 228, 0.952),  rgb(121, 215, 238)); */
+    background-color: rgba(230, 248, 252, 0.952);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -17,7 +18,7 @@ header{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    background-image: linear-gradient(to top left, rgba(201, 133, 228, 0.952),  rgb(121, 215, 238));
+    background-image: linear-gradient(to top left, rgba(201, 133, 228, 0.952),  rgba(151, 222, 235, 0.952));
     box-shadow: 0 0 10px  grey;
     padding: 10px 30px;
     align-items: center;
@@ -63,15 +64,19 @@ main {
 
 /* -------------------------------------------------------HOME---------------------------------------------------- */
 
-h1,h3{
+h3{
     font-family: Ropa Sans;
+
     font-size: 24px;
     text-align: center;
 }
 
 h2{
     font-family: Ropa Sans;
-    font-size: 24px;
+   
+
+    font-size: 50px;
+
     text-align: center;
     background-color: aliceblue;
     padding: 15px;
@@ -79,31 +84,32 @@ h2{
 }
 
 #slider {
-    width: 80%;
-    max-width:500px;
-    height: 25vw;
+    width: 100%;
+    height: 500px;
     max-height: 150px;
     position: relative;
-    margin-right: 300px;;
+    margin-bottom: 150px;
 }
 
-#slider img{
+#slider .img{
     opacity: 0;
     position: absolute;
-    width: 1235px;
-    height: 465px;
+    width: 100%;
+    height: 500px;
     object-fit: cover;
     transition: opacity 500ms;
-    /* box-shadow: 0 0 10px black ; */
-    margin-left: -220px;
-    margin-top: -25px;
+    box-shadow: 0 0 10px black ;
+    background-size: cover;
+    background-position: center;
+
 }
 
-#slider img.selected{
+#slider .img.selected{
     opacity: 1;
+
 }
 
-.section-home {
+.section-slider {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -112,6 +118,7 @@ h2{
     margin-top: 30px;
 }
 
+/*
 .imagens-demostrativas{
     margin-top: 285px;
 }
@@ -121,33 +128,57 @@ h2{
     width: 580px;
     margin-top: -40px;
     margin-left: 40px;
+*/
+.section-home{
+    height: 100%;
+    margin-top: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
+.section-home img{
+    max-width: 400px;
+    max-height: 600px;
+    margin: 50px 50px;
+    box-shadow: 0 0 10px black ;
+
+}
+
+.linha{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
 /* -------------------------------------------------------SOBRE---------------------------------------------------- */
 
 .sobre p{
-    font-size: 20px;
+    font-size: 28px;
+    text-align: justify;
 }
-.casal{
-    width: 400px;
-    height: 800px;
-    max-width: 40%;
+.sobre img{
+    max-width: 600px;
+    max-height: 600px;
+    width: auto;
+    height: auto;
     box-shadow: 0 0 10px;
+    margin-right: 100px;
+    margin-top: 80px;
+    margin-left: 20px;
 }
 
 .sobre{
-    padding: 0px;
-    height: 100%;
+    height: 90%;
+
 }
 
-.joias{
-    background-image: linear-gradient(to top left, rgba(106, 14, 143, 0.952),  rgb(121, 215, 238));
-}
-
-.girl-power{
-    height: 800px;
-    max-width: 100%;
+.power img{
+    max-width: 200%;
     box-shadow: 0 0 10px;
+    margin-bottom: 50px;
+    margin-top: 30px;
 }
 
 /* -------------------------------------------------------CATÁLOGO---------------------------------------------------- */
@@ -229,11 +260,28 @@ footer{
     margin-right: 5px;
 }
 
+@media (max-width: 1050px) {
+    .section-home img{
+        margin: 30px;
+    }
+}
 
+@media (max-width: 935px) {
+    .menu { width:600px; max-width: 100% }
+    .section-home img {
+        width: 300px;
+    }
+}
 
+@media (max-width: 735px){
+    .linha {
+        justify-content: center;
+    }
 
-
-
+    .linha img{
+        width: 100%;
+    }
+}
 
 
 
