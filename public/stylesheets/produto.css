@@ -4,11 +4,11 @@
 
 .container{
     width: 100%;
-    background-color: whitesmoke;
+    background-color: rgba(230, 248, 252, 0.952);
 }
 
 body{
-    background-color: whitesmoke;
+    background-color: rgba(230, 248, 252, 0.952);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -161,7 +161,6 @@ h2 {
 
 /* ---------------------------------------------------PRODUTO------------------------------------------------ */
 
-
 .geral{
     display: flex;
     flex-direction: row;
@@ -207,7 +206,6 @@ h2 {
     align-items: center;
     padding-right: 80px;
 }
-
 
 .valor-produto{
     display: flex;

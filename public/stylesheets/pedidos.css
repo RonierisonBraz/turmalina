@@ -54,8 +54,9 @@ button {
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
-    margin: 0; /* <-- Aparentemente, algumas margens ainda estão lá, apesar de estar ocultas */
+    margin: 0;  /* <-- Aparentemente, algumas margens ainda estão lá, apesar de estar ocultas */
 }
+
    /* tela de pagamentos */
 /* .principal .formPag {
     justify-items: center;
@@ -118,17 +119,22 @@ input::-webkit-inner-spin-button {
     margin-right: 2.5%;
   }
  
-  input {
-    border-bottom: 2px solid #323232;
-    padding: 10px;
-    font-size: .9rem;
-    margin-bottom: 30px;
-    border-radius: 20px;
-    width: 120%;
+  p{
+    font-weight: bold;
   }
-   
+
+  .indices{
+    margin-left: 12px;
+  }
+
+  .valores{
+    margin-right: 15px;
+  }
+     
   ::placeholder, input{
       text-align: center;
+      border-radius: 8px;
+      padding: 0 10px;
   }
 
 
