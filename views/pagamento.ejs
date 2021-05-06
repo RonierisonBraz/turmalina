@@ -16,7 +16,7 @@
 
         <header>
             <div>
-                <img id="logo" src="../img-produtos/logo-2.png" alt=" logomarca Turmalina">
+                <img id="logo" src="../img/logo-2.png" alt=" logomarca Turmalina">
             </div>
             <div>
                 <nav>
@@ -32,10 +32,19 @@
             </div>
         </header>
 
-    <div class="principal">
-        <div class="formPag">
+    <div id="main-container" class="principal">
+        
         <% console.log("TAOKAY") %> 
-            <form action="/pedidos/pagamento" method="POST" id="register-form">
+        <form action="/pedidos/pagamento" method="POST">   
+            <input type="number" name="numeroCartao" id="numeroCartao" placeholder="Numero do Cartão de Crédito" required>
+            <input type="number" name="validadeCartao" id="validadeCartao" placeholder="Validade do Cartão" required>
+            <input type="number" name="cvv" id="cvv" placeholder="cvv" required>    
+            <input type="number" name="valorTotal" id="valorTotal" placeholder="valorTotal">      
+            <input type="number" name="parcelas" id="parcelas" placeholder="Parcelas">
+            <button type="submit" onclick="alert('Pagamento realizado!')" >Confirmar Pagamento</button>
+        </form>
+
+            <!-- <form action="/pedidos/pagamento" method="POST" id="register-form">
                 <div class="half-box spacing">
                 <input type="number" name="numeroCartao" id="numeroCartao" placeholder="Numero do Cartão de Crédito" required>
                 </div>
@@ -48,14 +57,14 @@
             <div class="half-box spacing">
                 <input type="number" name="valorTotal" id="valorTotal" placeholder="valorTotal">      
                 </div>
-                <div class="half-box spacing">
+                <div class="half-box spacing">                    
                 <input type="number" value="1" min="1" max="10" name="parcelas" id="parcelas" placeholder="Parcelas">
                 </div>
                 <button type="submit" >Confirmar</button>
-            </form>
-        </div>
+            </form> -->
+        
     
-        </div>
+    </div>
 
     <footer>
         <section class="footer">

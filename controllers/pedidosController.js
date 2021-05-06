@@ -21,7 +21,8 @@ const pedidosController = {
         let novoPagamento = await Pagamento.create(
             { parcelas, data_pagamento: Date.now(), tipos_pagamento_id: 2}
         );
-        return res.json(novoPagamento);
+        console.log("ta entrando no metodo");
+        return res.send(novoPagamento);
     },
     sacola: async (req, res) => {
         const {id} = req.session.usuarioLogado;
