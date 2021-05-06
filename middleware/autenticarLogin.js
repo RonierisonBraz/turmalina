@@ -3,6 +3,6 @@ module.exports = (request, response, next) => {
         next();
     }
     else{
-        response.redirect('/usuario/login');
+        response.redirect('http://localhost:3000/usuario/login');
     }
 }

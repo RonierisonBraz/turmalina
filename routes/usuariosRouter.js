@@ -18,15 +18,16 @@ router.put('/enderecos/:id', usuariosController.enderecosUpdate);
 router.put('/alterar-senha/:id', usuariosController.senhaUpdate);
 router.put('/alterar-telefone/:id', usuariosController.telefoneUpdate);
 
+
 router.post('/cadastro', validarCadastro, usuariosController.create); // http://localhost:3000/usuarios/
 
-router.put('/:id', usuariosController.update); // http://localhost:3000/usuarios/id
+router.put('/alterar-dados/:id', usuariosController.update); // http://localhost:3000/usuarios/id
 
 router.delete('/:id', usuariosController.delete); // http://localhost:3000/usuarios/id
 
 router.get('/perfil', autenticarLogin, usuariosController.perfilUsuario);   //CRIAR MIDDLEWARE QUE SO ACESSE SE FOR O ID DELE
-//OU ENTAO FAZ UMA SESSION QUE VAI PEGAR O USUARIO LOGADO 
-
+router.put('/alterar-endereco/:id', usuariosController.enderecosUpdate);
+// router.put('/logout', usuariosController.logout);
 
 // router.get('/teste/:id', usuariosController.teste);
 module.exports = router;

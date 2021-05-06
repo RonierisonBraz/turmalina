@@ -47,6 +47,7 @@ a:hover {
   margin-top: 10vh;
   border-radius: 10px;
   text-align: center;
+  border:solid 1px #e5d6f3;
 }
 
 form {
