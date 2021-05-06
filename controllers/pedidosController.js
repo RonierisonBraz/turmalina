@@ -22,7 +22,7 @@ const pedidosController = {
             { parcelas, data_pagamento: Date.now(), tipos_pagamento_id: 2}
         );
         console.log("ta entrando no metodo");
-        return res.send(novoPagamento);
+        return res.render('pagamento' ,novoPagamento);
     },
     sacola: async (req, res) => {
         const {id} = req.session.usuarioLogado;
