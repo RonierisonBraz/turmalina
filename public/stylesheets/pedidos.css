@@ -56,3 +56,33 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0; /* <-- Aparentemente, algumas margens ainda estão lá, apesar de estar ocultas */
 }
+
+.principal .formPag {
+    justify-items: center;
+    align-items: center;
+}
+
+.formPag {
+    display: block;
+    width: 50%;
+    align-self: center;
+    border: grey;
+    background-color: whitesmoke;
+    border-width: 3px;
+    border-radius: 30px;
+    margin-top: 20px;
+}
+
+.formPag input {
+    width: 50%;
+    height: 15px;
+    border-radius: 30px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.principal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -3,11 +3,13 @@
 /* -------------------------------------------------------HOME---------------------------------------------------- */
 .container{
     width: 100%;
-    background-image: linear-gradient(to top left, rgba(201, 133, 228, 0.952),  rgb(121, 215, 238));
+    /* background-image: linear-gradient(to top left, rgba(204, 158, 223, 0.952),  rgb(121, 215, 238)); */
+    background-color:whitesmoke;
 }
 
 body{
-    background-image: linear-gradient(to top left, rgba(201, 133, 228, 0.952),  rgb(121, 215, 238));
+    /* background-image: linear-gradient(to top left, rgba(201, 133, 228, 0.952),  rgb(121, 215, 238)); */
+    background-color: whitesmoke;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -17,7 +19,7 @@ header{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    background-image: linear-gradient(to top left, rgba(201, 133, 228, 0.952),  rgb(121, 215, 238));
+    background-image: linear-gradient(to top left, rgba(201, 133, 228, 0.952),  rgba(151, 222, 235, 0.952));
     box-shadow: 0 0 10px  grey;
     padding: 10px 30px;
     align-items: center;
