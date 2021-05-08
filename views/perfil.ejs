@@ -10,41 +10,101 @@
 </head>
 
 <body style="background-color:white;">
-    
     <header>
         <div>
+
             <img id="logo" src="/img/logo-2.png" alt=" logomarca Turmalina">
+
         </div>
         <div>
-            <nav>
-                <a href="/html/home.html"> Home </a>
-                <a href="/html/sobre.html"> Sobre </a>
-                <a href="http://localhost:3000/catalogo/"> Joias </a>
-                <a href="#contato" > Contato</a>                  
-             </nav>
+           <nav>
+                    <a href="/html/home.html"> Home </a>
+                    <a href="/html/sobre.html"> Sobre </a>
+                    <a href="http://localhost:3000/catalogo/"> Joias </a>
+                    <a href="#contato" > Contato</a>                  
+                 </nav>
         </div>
         <div>
-           <i class="fas fa-user fa-2x"></i>
-           <i class="fas fa-shopping-bag fa-2x"></i>
+            <i class="fas fa-user fa-2x"></i>
+            <i class="fas fa-shopping-bag fa-2x"></i>
         </div>
     </header>
 
     <section class="perfil">
-        <h2>
+        <h1>
             Bem vindo(a) <%= Usuario.nome %>,
-        </h2>
+        </h1>
         <div id="div-btn">
-            <button class="btn-pedidos" id="btn-pedidos">Meus Pedidos</button>
-            <button id="btn-dados-usuario">Meus Dados</button>
             <button id="btn-encerrar">Sair</button>
-
         </div>
     </section>
-    <section class="pedidos">
+    
+    <section class="dados-cadastrais">
+        <div id="div-dados-cadastrais">
+            <article>
+                <div id="usuario">
+                    <h1>Dados do usuário</h1>
+                    <p>Nome: <%= Usuario.nome %></p>
+                    <p>CPF: <%= Usuario.cpf %></p>
+                    <p>Telefone: <%= Usuario.telefone %></p>
+                    <p>E-mail: <%= Usuario.email %></p>
+                    <button id="btn-alterar-dados">Alterar Dados</button>
+                </div>
+
+                <div id="endereco">
+                    <h1>Endereço Cadastrado</h1>
+                    <p>Logradouro: <%= Endereco.logradouro %></p>
+                    <p>Número: <%= Endereco.numero %></p>
+                    <p>Bairro: <%= Endereco.bairro %></p>
+                    <p>Cidade: <%= Endereco.cidade %></p>
+                    <p>CEP: <%= Endereco.cep %></p>
+                    <p>Complemento: <%= Endereco.complemento %></p>
+                    <button id="btn-alterar-endereco">Alterar endereco</button>
+                </div>
+
+                <div id="pedidos">
+                    <h1> Meus Pedidos</h1>
+                    <button id="btn-ver-pedidos">Ver Pedidos</button>
+                </div>
+            </article>
+        </div>
+    </section>
+    <section class="alterar-dados-cadastrais">
         <article>
-            <div id="div-pedidos">
-                <h2>Meus Pedidos</h2>
+            <div id="div-alterar-dados-usuario">
+                <form id="form-alterar-dados-usuario">
+                    <h1>Alterar Dados Cadastrais</h1>
+                    Nome: <input type="text" id="nome" name="nome" value="<%=Usuario.nome%>"> <br>
+                    CPF: <input type="number" id="cpf" name="cpf" value="<%=Usuario.cpf%>"> <br>
+                    Telefone: <input type="tel" id="telefone" name="telefone" value="<%=Usuario.telefone%>"> <br>
+                    E-mail: <input type="email" id="email" name="email" value="<%=Usuario.email%>"> <br>
+                    <input onclick="alterarDados('<%=Usuario.id%>')" type="submit" id="input-alterar-dados" value="Alterar">
+
+                    <h1>Alterar senha</h1>
+                    Nova senha: <input type="password" id="nova-senha" name="nova-senha"> <br>
+                    <input onclick="alterarSenha('<%=Usuario.id%>')" type="submit" id="input-alterar-senha" value="Alterar">
+
+                </form>
+            </div>
+        </article>
+        <article>
+            <div id="div-alterar-dados-endereco">
+                <form id="form-alterar-dados-endereco">
+                    <h1>Alterar Endereço</h1>
+                    Logradouro: <input type="text" id="logradouro" name="logradouro" value="<%=Endereco.logradouro%>"> <br>
+                    Número: <input type="text" id="numero" name="numero" value="<%=Endereco.numero%>"> <br>
+                    Bairro: <input type="text" id="bairro" name="bairro" value="<%=Endereco.bairro%>"> <br>
+                    Cidade: <input type="text" id="cidade" name="cidade" value="<%=Endereco.cidade%>"> <br>
+                    CEP: <input type="text" id="cep" name="cep" value="<%=Endereco.cep%>"> <br>
+                    Complemento: <input type="text" id="complemento" name="complemento" value="<%=Endereco.complemento%>"> <br>
+                    <input onclick="alterarEndereco('<%=Endereco.id%>')" type="submit" id="input-alterar-endereco" value="Alterar">
+                </form>
+            </div>
+        </article>
+        <article>
+            <div id="div-ver-pedidos">
                 <ul>
+                    <h1>Meus Pedidos</h1>
                     <% for(let pedido of PedidosUsuario){ %>
                         <li>Status:<%=pedido.status_pedido.descricao%></li>
                         <li>Total:R$<%=pedido.valor_total%></li>
@@ -56,66 +116,22 @@
             </div>
         </article>
     </section>
-    <section class="dados-cadastrais">
-        <div id="div-dados-cadastrais">
-            <article>
-                <div id="usuario">
-                    <h2>Dados do usuário</h2>
-                    <p>Nome: <%= Usuario.nome %></p>
-                    <p>CPF: <%= Usuario.cpf %></p>
-                    <p>Telefone: <%= Usuario.telefone %></p>
-                    <p>E-mail: <%= Usuario.email %></p>
-                    <button id="btn-alterar-dados">Alterar Dados</button>
-                </div>
-
-                <div id="endereco">
-                    <h2>Endereço Cadastrado</h2>
-                    <p>CEP: <%= Endereco.cep %></p>
-                    <p>Logradouro: <%= Endereco.logradouro %></p>
-                    <p>Número: <%= Endereco.numero %></p>
-                    <p>Bairro: <%= Endereco.bairro %></p>
-                    <p>Cidade: <%= Endereco.cidade %></p>
-                    <p>Complemento: <%= Endereco.complemento %></p>
-                    <button id="btn-alterar-endereco">Alterar endereco</button>
-                </div>
-            </article>
-        </div>
-    </section>
-    <section class="alterar-dados-cadastrais">
-        <article>
-            <div id="div-alterar-dados-usuario">
-                <form id="form-alterar-dados-usuario">
-                    Nome: <input type="text" id="nome" name="nome" value="<%=Usuario.nome%>">
-                    CPF: <input type="number" id="cpf" name="cpf" value="<%=Usuario.cpf%>">
-                    Telefone: <input type="tel" id="telefone" name="telefone" value="<%=Usuario.telefone%>">
-                    E-mail: <input type="email" id="email" name="email" value="<%=Usuario.email%>">
-                    Senha atual: <input type="password" id="senha" name="senha">
-                    Nova senha: <input type="password" id="nova-senha" name="nova-senha">
-                    <input type="submit" id="alterar-dados" value="Alterar">
-                </form>
-            </div>
-        </article>
-        <article>
-            <div id="div-alterar-dados-endereco">
-                <form id="form-alterar-dados-endereco">
-                    CEP: <input type="text" id="cep" name="cep" value="<%=Endereco.cep%>">
-                    Logradouro: <input type="text" id="logradouro" name="logradouro"
-                        value="<%=Endereco.logradouro%>">
-                    Número: <input type="text" id="numero" name="numero" value="<%=Endereco.numero%>">
-                    Bairro: <input type="text" id="bairro" name="bairro" value="<%=Endereco.bairro%>">
-                    Cidade: <input type="text" id="cidade" name="cidade" value="<%=Endereco.cidade%>">
-                    Complemento: <input type="text" id="complemento" name="complemento"
-                        value="<%=Endereco.complemento%>">
-                    <input type="submit" id="id=" alterar-endereco" value="Alterar">
-                </form>
-            </div>
-        </article>
-    </section>
-
     <script>
-        var btn = document.querySelector("#btn-pedidos");
+        //mostrar divs
+        var btn = document.querySelector("#btn-alterar-dados");
         btn.addEventListener("click", function () {
-            var div = document.querySelector("#div-pedidos");
+            var div = document.querySelector("#div-alterar-dados-usuario");
+            if (div.style.display === "none") {
+                div.style.display = "flex";
+            } else {
+                div.style.display = "none";
+            }
+        });
+
+        var btn = document.querySelector("#btn-alterar-endereco");
+        btn.addEventListener("click", function () {
+
+            var div = document.querySelector("#div-alterar-dados-endereco");
 
             if (div.style.display === "none") {
                 div.style.display = "flex";
@@ -124,59 +140,91 @@
             }
         });
 
-        var btn = document.querySelector("#btn-dados-usuario");
+        var btn = document.querySelector("#btn-ver-pedidos");
         btn.addEventListener("click", function () {
-            var div = document.querySelector("#div-dados-cadastrais");
 
+            var div = document.querySelector("#div-ver-pedidos");
             if (div.style.display === "none") {
-                div.style.display = "block";
+                div.style.display = "flex";
             } else {
                 div.style.display = "none";
             }
         });
 
-        var btn = document.querySelector("#btn-alterar-dados");
-        btn.addEventListener("click", function () {
-            var div = document.querySelector("#div-alterar-dados-usuario");
 
-            if (div.style.display === "none") {
-                div.style.display = "block";
-            } else {
-                div.style.display = "none";
-            }
-        });
+        function alterarDados(id) {
+            let form = document.getElementById("form-alterar-dados-usuario");
+            let nome = document.getElementById("nome").value;
+            let telefone = document.getElementById("telefone").value;
+            let email = document.getElementById("email").value;
+            let cpf = document.getElementById("cpf").value;
+            
+            fetch(`http://localhost:3000/usuario/alterar-dados/${id}`, {
+                "method": "PUT",
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "body": `{\"nome\":\"${nome}"\,\"telefone\":\"${telefone}"\,\"email\":\"${email}"\,\"cpf\":\"${cpf}"\}`
+            })
+                .then(response => {
+                    console.log(response);
+                })
+                .catch(err => {
+                    console.error(err);
+                });
 
-        var btn = document.querySelector("#btn-alterar-endereco");
-        btn.addEventListener("click", function () {
-            var div = document.querySelector("#div-alterar-dados-endereco");
+                alert("Dados alterados com sucesso!");
+        }
 
-            if (div.style.display === "none") {
-                div.style.display = "block";
-            } else {
-                div.style.display = "none";
-            }
-        });
+        function alterarSenha(id) {
+            let novasenha = document.getElementById("nova-senha").value;
+            
+            fetch(`http://localhost:3000/usuario/alterar-senha/${id}`, {
+                "method": "PUT",
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "body": `{\"senha\":\"${novasenha}"\}`
+            })
+                .then(response => {
+                    console.log(response);
+                })
+                .catch(err => {
+                    console.error(err);
+                });
+            
+                alert("Senha alterada com sucesso!");
+        }
+
+        function alterarEndereco(id) {
+            let form = document.getElementById("form-alterar-dados-endereco");
+            let logradouro = document.getElementById("logradouro").value;
+            let numero = document.getElementById("numero").value;
+            let bairro = document.getElementById("bairro").value;
+            let cidade = document.getElementById("cidade").value;
+            let cep = document.getElementById("cep").value;
+            let complemento = document.getElementById("complemento").value;
+            console.log(numero);
+            fetch(`http://localhost:3000/usuario/alterar-endereco/${id}`, {
+                "method": "PUT",
+                "headers": {
+                    "cookie": "connect.sid=s%253Ai5NJA4P235xHbaI1Q6Fk5EKBYe6s8Myk.BvMCJsRk5cQKFNgtj1eSFDbHB6dl8G9GmahBDoeMrUM",
+                    "Content-Type": "application/json"
+                },
+                "body": `{\"logradouro\":\"${logradouro}"\,\"numero\":\"${numero}"\,\"bairro\":\"${bairro}"\,\"cidade\":\"${cidade}"\,\"cep\":\"${cep}"\,\"complemento\":\"${complemento}"\}`
+            })
+                .then(response => {
+                    console.log(response);
+                })
+                .catch(err => {
+                    console.error(err);
+                });
+            
+                alert("Endereço alterado com sucesso!");
+
+        }
+
     </script>
-
-    <!-- <script>
-    //             document.getElementById("btn-telefone").onclick = function () { myFunction(idUsuario) };
-    //             function myFunction(id) {
-        
-    //                 fetch(`http://localhost:3000/usuario/alterarTelefone/${id}`, {
-    //                     "method": "PUT",
-    //                     "headers": {
-    //                         "Content-Type": "application/json"
-    //                     },
-    //                     "body": "{\"telefone\":\"987430708\"}"
-    //                 })
-    //                     .then(response => {
-    //                         console.log(response);
-    //                     })
-    //                 .catch(err => {
-    //                     console.error(err);
-    //                 });
-    //         }
-    //     </script> -->
 </body>
 <style>
     body{
@@ -185,14 +233,14 @@
 
     section.perfil{
         display:flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        flex-direction: row;
+        justify-content:space-around;
+        align-items:center;
         width: 100%;
-        height: 170px;
-        background-color: violet;
-        border:solid 1px white;
-        color: white;
+        height: 80px;
+        /* background-color: aliceblue; */
+        background-color: white;
+        color: black;
     }
 
     section.dados-cadastrais article{
@@ -202,30 +250,101 @@
     }
 
     section.dados-cadastrais article div{
-        line-height: 4px;
-        width: 400px;
-        border:solid aqua;
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+        justify-content:space-between;
+        line-height:1px;
+        width: 360px;
+        border:solid rgb(206, 238, 238);
         padding: 5px;
-        font-size: 13px;
+        font-size: 18px;
+        margin-left: 30px;
+        background-color: rgb(245, 250, 255);
     }
 
+    section.dados-cadastrais article #pedidos{
+       justify-content: center;
+    }
 
-    #btn-pedidos, #btn-dados-usuario{
+    #btn-ver-pedidos, #btn-alterar-dados, #btn-alterar-endereco{
         background-color: thistle;
         width: 160px;
         height: 42px;
-        border-radius: 50px;
         font-size: 14px;
         color:black;
+        border: solid 1px gray;
     }
 
     #div-pedidos,
-    #div-dados-cadastrais,
+    #div-dados-cadastrais{
+        display: flex;
+    }
+
+    #div-ver-pedidos,
     #div-alterar-dados-usuario,
     #div-alterar-dados-endereco {
         display: none;
     }
 
+
+    #div-alterar-dados-usuario{
+        justify-content: center;
+    }
+
+    #div-alterar-dados-usuario form{
+        line-height:20px;
+        width: 500px;
+        border:solid rgb(206, 238, 238);
+        padding: 40px;
+        margin: 10px;
+        font-size: 18px;
+        margin-top: 60px;
+        margin-left: 30px;
+        background-color: rgb(245, 250, 255);
+        font-family: Ropa Sans;
+    }
+
+    #div-alterar-dados-usuario input{
+        height: 20px;
+    }
+    #div-alterar-dados-endereco{
+        justify-content: center;
+    }
+
 </style>
 
+
+    #div-alterar-dados-endereco form{
+        line-height:20px;
+        width: 500px;
+        border:solid rgb(206, 238, 238);
+        padding: 40px;
+        margin: 10px;
+        font-size: 18px;
+        margin-top: 60px;
+        margin-left: 30px;
+        background-color: rgb(245, 250, 255);
+        font-family: Ropa Sans;
+    }
+
+    #div-alterar-dados-endereco input{
+        height: 20px;
+    }
+
+    #div-ver-pedidos{
+        justify-content: center;
+        line-height:20px;
+        width: 500px;
+        border:solid rgb(206, 238, 238);
+        padding: 40px;
+        margin: 10px;
+        font-size: 18px;
+        margin-top: 60px;
+        margin-left: 340px;
+        background-color: rgb(245, 250, 255);
+        font-family: Ropa Sans;
+    }
+
+</style>
 </html>

@@ -1,3 +1,4 @@
+const { response } = require('express');
 const { Usuario, Endereco, Pedido, sequelize } = require('../models/');
 
 const usuariosController = {
@@ -34,6 +35,11 @@ const usuariosController = {
             alert("Usuario não encontrado!")
         }
     },
+    // logout: async (req,res) => {
+    //     const { id } = request.params;
+    //     req.session.usuarioLogado = null;
+    //     return resp.render('home');
+    // },
     perfilUsuario: async (request, response) => {
         const {id} = request.session.usuarioLogado;
         const usuario = await Usuario.findByPk(id);
@@ -55,12 +61,12 @@ const usuariosController = {
     // },
     enderecosUpdate: async (request, response) => {
         const { id } = request.params;
-        const { lougradouro, numero, bairro, cidade, cep, complemento } = request.body;
+        const { logradouro, numero, bairro, cidade, cep, complemento } = request.body;
         
         const usuario = await Usuario.findByPk(id);
         const enderecoId = usuario.enderecos_id;
         const enderecoAtualizar = await Endereco.update({
-            lougradouro,
+            logradouro,
             numero,
             bairro,
             cidade,
@@ -69,7 +75,7 @@ const usuariosController = {
         }, {
             where: {id: enderecoId}
         });
-        return response.json(enderecoAtualizar);
+        return response.render('perfil');
     },
     senhaUpdate: async (request, response) => {
         const { id } = request.params;
@@ -108,20 +114,18 @@ const usuariosController = {
     },
     update: async (request, response) => {
         const { id } = request.params;
-        const { nome, telefone, email, senha, cpf, enderecos_id } = request.body;
+        const { nome, telefone, email, cpf} = request.body;
 
         const usuarioAtualizar = await Usuario.update({
             nome,
             telefone,
             email,
-            senha,
-            cpf,
-            enderecos_id
+            cpf
         }, {
             where: { id }
         })
 
-        return response.send(usuarioAtualizar);
+        return response.render('perfil');
     },
     delete: async (request, response) => {
         const { id } = request.params;
