@@ -206,6 +206,25 @@ const pedidosController = {
         return res.render('perfil', { Pedidos: atualizarStatus });
         //localhost:3000/pedidos/cancelar/2
     },
+    limparSacola: async (req, res) => {
+        // const {id} = req.session.usuarioLogado;
+        const {id} = req.params;
+
+
+        const pedidoEmAndamento = await Pedido.findOne({
+            where: {
+                status_pedido_id: 1,
+                usuarios_id: id
+            } //funcionando
+        });
+
+        const limpandoSacola = await Pedido.update(
+            {  status_pedido_id : 2  }, {
+                where : { id: pedidoEmAndamento.id }
+        })
+
+        return res.json({mensagem:"sucesso"});
+    },
     delete: async (req, res) => {
         let { id } = req.params;
 
