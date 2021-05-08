@@ -176,7 +176,7 @@ input::-webkit-inner-spin-button {
     background-color:#e5d6f3;
     color: black;
     border: none;
-    border-radius: 20px;
+    /* border-radius: 20px; */
     height: 40px;
     width: 200px;
     cursor: pointer;
@@ -209,4 +209,43 @@ input::-webkit-inner-spin-button {
     display: block;
   }
 
-  
+.formPagamento {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+
+}
+
+.formPagamento input {
+  border-radius: 0%;
+  width: 80%;
+  height: 15%;
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+
+input {
+  outline: 0;
+  border-width: 0 0 2px;
+  border-color: black;
+}
+input:focus {
+  border-color: rgb(148, 45, 189);
+}
+
+.formPagamento p {
+  font-size: 20px;
+}
+
+.formPagamento button {
+  background-color: rgb(182, 113, 209);
+  font-size: 13px;
+  padding: 5px;
+  font-weight: bold;
+  border-radius: 10px;
+  border-color: rgb(182, 113, 209);
+  color: rgb(36, 36, 36);
+  padding: 10px;
+  margin-top: 20px;
+}

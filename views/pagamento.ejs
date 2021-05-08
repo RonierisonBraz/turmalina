@@ -39,11 +39,11 @@
     <div id="main-container" class="principal">
         
         <% console.log("TAOKAY") %> 
-        <form action="/pedidos/pagamento" method="POST">   
-            <input type="number" name="numeroCartao" id="numeroCartao" placeholder="Numero do Cartão de Crédito" required>
+        <form class="formPagamento" action="/pedidos/pagamento" method="POST">   
+            <input type="number" name="numeroCartao" id="numeroCartao" placeholder="Número do Cartão de Crédito" required>
             <input type="number" name="validadeCartao" id="validadeCartao" placeholder="Validade do Cartão" required>
-            <input type="number" name="cvv" id="cvv" placeholder="cvv" required>    
-            <p> <%= Pedido.valor_total %>  </p>            
+            <input type="text" name="cvv" id="cvv" placeholder="cvv" required>    
+            <p> Total: R$<%= Pedido.valor_total %>  </p>            
             <input type="number" name="parcelas" id="parcelas" placeholder="Parcelas">
             <button type="submit" onclick="limparSacola()" >Confirmar Pagamento</button>
         </form>
