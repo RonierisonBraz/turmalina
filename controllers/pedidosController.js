@@ -56,13 +56,29 @@ const pedidosController = {
         if(pedidoEmAndamento){
             // tem pedido em andamento 
             //adcionar o item na tabela de itens_pedidos com o id do pedido e do produto click
-            const addItemPedidoAndamento = await ItensPedido.create( {
-                valor:valor,
-                quantidade:quantidade,
-                valor_total:valorTotal,
-                produtos_id: produtos_id, 
-                pedidos_id: pedidoEmAndamento.id
-            } )    
+            // busca nos ItensPedido se tem um pedidos_id: pedidoEmAndamento.id que tenha um produtos_id: produtos_id.
+
+            // const itemExiste = await ItensPedido.findAll({
+            //     where: {
+            //         pedidos_id: pedidoEmAndamento.id,
+            //         produtos_id: produtos_id
+            //     }
+            // }) 
+
+            // if (!itemExiste) {
+
+                const addItemPedidoAndamento = await ItensPedido.create({
+                    valor: valor,
+                    quantidade: quantidade,
+                    valor_total: valorTotal,
+                    produtos_id: produtos_id,
+                    pedidos_id: pedidoEmAndamento.id
+                })
+            // }
+
+            // if(itemExiste) {
+            //     alert("Produto está na sacola!")
+            // }
 
         } else {
             // não tem pedido em andamento e

@@ -56,7 +56,7 @@
                 <div class="valor-produto">
                     <h3>R$ <%= Produto.valor %></h3>
 
-                    <button id="btn-status" type="submit" onclick="addPedido('<%=Produto.id %>')"></a><i
+                    <button id="btn-status" type="submit" onclick="addPedido('<%=Produto.id %>', '<%= Produto.valor %>')"></a><i
                             class="fas fa-shopping-bag fa-2x"></i>Comprar</button>
                 </div>
                 <!-- <script>
@@ -105,14 +105,30 @@
 </html>
 
 <script>
-    function addPedido(id) {
+    function addPedido(id, valor) {
+
+//         fetch("http://localhost:3000/pedidos/additem", {
+//   "method": "POST",
+//   "headers": {
+//     "Content-Type": "application/json"
+//   },
+//   "body": "{\"valor\":100,\"quantidade\":1,\"produtos_id\":${id}}"
+// })
+// .then(response => {
+//   console.log(response);
+// })
+// .catch(err => {
+//   console.error(err);
+// });
+
+
         console.log(id)
         fetch("http://localhost:3000/pedidos/additem", {
             "method": "POST",
             "headers": {
                 "Content-Type": "application/json"
             },
-            "body": `{\"valor\":100,\"quantidade\":1,\"produtos_id\":${id}}`
+            "body": `{\"valor\":${valor},\"quantidade\":1,\"produtos_id\":${id}}`
         })
             .then(response => {
                 alert("Produto adicionado a sacola!")
