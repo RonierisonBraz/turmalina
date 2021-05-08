@@ -14,7 +14,16 @@ const pedidosController = {
         return res.render('sacola', {novoPedido: novoPedido});
     },
     pagamento :  async (req, res) => { 
-        return res.render('pagamento');
+        const {id} = req.session.usuarioLogado;
+        
+        const pedidoPago = await Pedido.findOne({
+            where: {
+                status_pedido_id: 1,
+                usuarios_id: id
+            } //funcionando
+        });
+
+        return res.render('pagamento', {Pedido: pedidoPago} );
     },
     finalizarPagamento: async (req, res) => {
         let { parcelas } = req.body;

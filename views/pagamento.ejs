@@ -43,7 +43,7 @@
             <input type="number" name="numeroCartao" id="numeroCartao" placeholder="Numero do Cartão de Crédito" required>
             <input type="number" name="validadeCartao" id="validadeCartao" placeholder="Validade do Cartão" required>
             <input type="number" name="cvv" id="cvv" placeholder="cvv" required>    
-            <input type="number" name="valorTotal" id="valorTotal" placeholder="valorTotal">      
+            <p> <%= Pedido.valor_total %>  </p>            
             <input type="number" name="parcelas" id="parcelas" placeholder="Parcelas">
             <button type="submit" onclick="limparSacola()" >Confirmar Pagamento</button>
         </form>

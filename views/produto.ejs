@@ -59,26 +59,7 @@
                     <button id="btn-status" type="submit" onclick="addPedido('<%=Produto.id %>', '<%= Produto.valor %>')"></a><i
                             class="fas fa-shopping-bag fa-2x"></i>Comprar</button>
                 </div>
-                <!-- <script>
-        let idPedido = 1;
-
-        document.getElementById("btn-status").onclick = function () { myFunction(idPedido) };
-        function myFunction(id_Pedido) {
-            fetch(`http://localhost:3000/pedidos/cancelar/${id_Pedido}`, {
-                "method": "PUT",
-                "headers": {
-                    "Content-Type": "application/json"
-                },
-                "body": "{\"status_pedido_id\":1}"
-            })
-                .then(response => {
-                    console.log(response);
-                })
-                .catch(err => {
-                    console.error(err);
-                });
-        }
-    </script> -->
+               
         </main>
 
 <footer>
