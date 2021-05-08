@@ -14,7 +14,7 @@ router.put('/sacola/comprar/:id', pedidosController.atualizaValorTotalPedidos); 
 router.get('/sacola/comprar', autenticarLogin, pedidosController.atualizaValorTotalPedidos);  // esse id eh do usuario
 
 router.put('/sacola/item', pedidosController.atualizaItensSacola);
-router.put('/sacola/pago/:id', pedidosController.limparSacola);
+router.put('/sacola/pago', autenticarLogin, pedidosController.limparSacola);
 
 //pedido
 router.post('/', pedidosController.fazerPedido);

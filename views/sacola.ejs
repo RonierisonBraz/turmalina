@@ -38,6 +38,8 @@
         <%let valorPedido = []; %> 
         <% let quantidade; %> 
         <% let valorPedidoTotal = 0; %> 
+
+        <% if(itens) {%> 
             <% for (let item of itens) { %>
                 <% i++; %> 
                 <div class="pedido">
@@ -67,9 +69,17 @@
                 </div>
                   
             <% } %>  
-    
-            <button onclick="FinalizarPedido('<%=itens[0].pedidos_id%>')" > <a href="http://localhost:3000/pedidos/pagamento"> Finalizar Compra</a> </button>
-            <!-- <a href="http://localhost:3000/pedidos/pagamento"> -->
+         
+                <button onclick="FinalizarPedido('<%=itens[0].pedidos_id%>')" > <a href="http://localhost:3000/pedidos/pagamento"> Finalizar Compra</a> </button>
+                <!-- <a href="http://localhost:3000/pedidos/pagamento"> -->
+        <% } %>
+
+            <% if(!itens) { %>
+                <div class="sacolaVazia">
+                    <p style="color:rgb(0, 0, 0); font-size:40px;">Sua sacola está vazia!</p>
+                    <img src="/img/sacola-vazia.png" alt="Sacola Vazia...">
+                    </div>
+            <% } %> 
     </main>
 
     <footer>

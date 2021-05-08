@@ -34,14 +34,22 @@ const pedidosController = {
             } //funcionando
         });
 
-        const itens = await ItensPedido.findAll({
-            include: ['produto'],
-            where: { pedidos_id: pedidoEmAndamento.id }
-        });
+        if (pedidoEmAndamento) {
 
+            const itens = await ItensPedido.findAll({
+                include: ['produto'],
+                where: { pedidos_id: pedidoEmAndamento.id }
+            });
+
+            return res.render('sacola', { Pedido: pedidoEmAndamento, itens});
+
+        } else {
+            console.log("NÃO HÁ NADA AQUI!!!!!!!!!!!!!!!!!!");
+            return res.render('sacola', itens = null);
+        }
         // console.log(itens[1].produto.nome)
 
-        return res.render('sacola', { Pedido: pedidoEmAndamento, itens});
+        // return res.render('sacola', { Pedido: pedidoEmAndamento, itens});
     },
     produtosSacola: async (req, res) => {
         const {valor, quantidade, produtos_id} = req.body
@@ -207,8 +215,8 @@ const pedidosController = {
         //localhost:3000/pedidos/cancelar/2
     },
     limparSacola: async (req, res) => {
-        // const {id} = req.session.usuarioLogado;
-        const {id} = req.params;
+        const {id} = req.session.usuarioLogado;
+        // const {id} = req.params;
 
 
         const pedidoEmAndamento = await Pedido.findOne({

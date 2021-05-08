@@ -45,28 +45,25 @@
             <input type="number" name="cvv" id="cvv" placeholder="cvv" required>    
             <input type="number" name="valorTotal" id="valorTotal" placeholder="valorTotal">      
             <input type="number" name="parcelas" id="parcelas" placeholder="Parcelas">
-            <button type="submit" onclick="alert('Pagamento realizado!')" >Confirmar Pagamento</button>
+            <button type="submit" onclick="limparSacola()" >Confirmar Pagamento</button>
         </form>
 
-            <!-- <form action="/pedidos/pagamento" method="POST" id="register-form">
-                <div class="half-box spacing">
-                <input type="number" name="numeroCartao" id="numeroCartao" placeholder="Numero do Cartão de Crédito" required>
-                </div>
-                <div class="half-box spacing">
-                <input type="text" name="validadeCartao" id="validadeCartao" placeholder="Validade do Cartão" required>
-                </div>
-                <div class="half-box spacing">
-                <input type="number" maxlength="3" name="cvv" id="cvv" placeholder="cvv" required>    
-            </div>
-            <div class="half-box spacing">
-                <input type="number" name="valorTotal" id="valorTotal" placeholder="valorTotal">      
-                </div>
-                <div class="half-box spacing">                    
-                <input type="number" value="1" min="1" max="10" name="parcelas" id="parcelas" placeholder="Parcelas">
-                </div>
-                <button type="submit" >Confirmar</button>
-            </form> -->
-        
+         <script>
+             function limparSacola() {
+                fetch("http://localhost:3000/pedidos/sacola/pago", {
+                "method": "PUT",
+                "headers": {
+                "cookie": "connect.sid=s%253AeTMT1l1ISJjzcOmdn1QhduofAtWQQ3UY.Pp5N1kuSOqwIfKoLnzcDPHS1zRihpO%252BzjLjwVnceF2k"
+                }
+                })
+                .then(response => {
+                console.log(response);
+                })
+                .catch(err => {
+                console.error(err);
+                });
+             }
+         </script>
     
     </div>
 
