@@ -15,13 +15,15 @@
     <div class="container">
         <header>
             <div>
+
                 <img id="logo" src="/img/logo-2.png" alt=" logomarca Turmalina">
+
             </div>
             <div>
                 <nav>
-                    <a href="/html/home.html"> Home </a>
-                    <a href="/html/sobre.html"> Sobre </a>
-                    <a href="http://localhost:3000/catalogo/"> Joias </a>
+                    <a href="http://localhost:3000/home"> Home </a>
+                    <a href="http://localhost:3000/sobre"> Sobre </a>
+                    <a href="http://localhost:3000/catalogo"> Joias </a>
                     <a href="#contato"> Contato</a>
                 </nav>
             </div>
@@ -54,29 +56,10 @@
                 <div class="valor-produto">
                     <h3>R$ <%= Produto.valor %></h3>
 
-                    <button id="btn-status" type="submit" onclick="addPedido('<%=Produto.id %>')"></a><i
+                    <button id="btn-status" type="submit" onclick="addPedido('<%=Produto.id %>', '<%= Produto.valor %>')"></a><i
                             class="fas fa-shopping-bag fa-2x"></i>Comprar</button>
                 </div>
-                <!-- <script>
-        let idPedido = 1;
-
-        document.getElementById("btn-status").onclick = function () { myFunction(idPedido) };
-        function myFunction(id_Pedido) {
-            fetch(`http://localhost:3000/pedidos/cancelar/${id_Pedido}`, {
-                "method": "PUT",
-                "headers": {
-                    "Content-Type": "application/json"
-                },
-                "body": "{\"status_pedido_id\":1}"
-            })
-                .then(response => {
-                    console.log(response);
-                })
-                .catch(err => {
-                    console.error(err);
-                });
-        }
-    </script> -->
+               
         </main>
 
 <footer>
@@ -103,14 +86,30 @@
 </html>
 
 <script>
-    function addPedido(id) {
+    function addPedido(id, valor) {
+
+//         fetch("http://localhost:3000/pedidos/additem", {
+//   "method": "POST",
+//   "headers": {
+//     "Content-Type": "application/json"
+//   },
+//   "body": "{\"valor\":100,\"quantidade\":1,\"produtos_id\":${id}}"
+// })
+// .then(response => {
+//   console.log(response);
+// })
+// .catch(err => {
+//   console.error(err);
+// });
+
+
         console.log(id)
         fetch("http://localhost:3000/pedidos/additem", {
             "method": "POST",
             "headers": {
                 "Content-Type": "application/json"
             },
-            "body": `{\"valor\":100,\"quantidade\":1,\"produtos_id\":${id}}`
+            "body": `{\"valor\":${valor},\"quantidade\":1,\"produtos_id\":${id}}`
         })
             .then(response => {
                 alert("Produto adicionado a sacola!")

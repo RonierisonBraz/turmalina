@@ -8,12 +8,13 @@ const autenticarLogin = require('../middleware/autenticarLogin')
 router.get('/', pedidosController.index);
 
 //sacola
-router.post('/additem', pedidosController.produtosSacola);// modificar ===============
+router.post('/additem', autenticarLogin, pedidosController.produtosSacola);// modificar ===============
 router.get('/sacola', autenticarLogin, pedidosController.sacola); //http://localhost:3000/pedidos/sacola
 router.put('/sacola/comprar/:id', pedidosController.atualizaValorTotalPedidos);  // esse id eh do usuario
 router.get('/sacola/comprar', autenticarLogin, pedidosController.atualizaValorTotalPedidos);  // esse id eh do usuario
 
 router.put('/sacola/item', pedidosController.atualizaItensSacola);
+router.put('/sacola/pago', autenticarLogin, pedidosController.limparSacola);
 
 //pedido
 router.post('/', pedidosController.fazerPedido);

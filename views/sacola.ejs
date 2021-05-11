@@ -13,6 +13,7 @@
 <body>
     <div class="container">
 
+
     <header>
         <div>
             <img id="logo" src="/img/logo-2.png" alt=" logomarca Turmalina">
@@ -31,11 +32,14 @@
         </div>
     </header>
 
+
     <main>
         <% let i=0; %>
         <%let valorPedido = []; %> 
         <% let quantidade; %> 
         <% let valorPedidoTotal = 0; %> 
+
+        <% if(itens) {%> 
             <% for (let item of itens) { %>
                 <% i++; %> 
                 <div class="pedido">
@@ -46,24 +50,36 @@
                             <p> Produto </p>
                             <p> Valor Unitário </p>
                             <p> Quantidade </p>
-                            <p> Valor Total </p>
+                            <!-- <p> Valor Total </p> -->
                         </div>
-                        <form class="valores" action="/pedidos/sacola/comprar" method="PUT">
+                        <form class="form-inline" action="/pedidos/sacola/comprar" method="PUT">
                             <p> <%= item.produto.nome %></p>
                             <p> R$ <%= item.valor %> </p>
-                            <div>
+                            <div id="qtd">
                             <input type="number"  min="1" max="10" name="quantidade" onchange="editar('<%=item.id%>',this.value,'<%=item.valor%>','<%=item.pedidos_id%>')" id="quantidade<%=item.id%>" >
                             <button type="submit" id="btn-atualiza" value=1 ></button>
                             </div>
                         </form>
                         <%= console.log(quantidade); %> 
+                    </div>
+                    <div class="total">
+                        <strong>TOTAL</strong>
                         <p id="<%=item.id%>">  <%= item.valor_total  %>  </p>
                     </div>
                 </div>
+                  
             <% } %>  
-    
-            <button onclick="FinalizarPedido('<%=itens[0].pedidos_id%>')" > <a href="http://localhost:3000/pedidos/pagamento"> Finalizar Compra</a> </button>
-            <!-- <a href="http://localhost:3000/pedidos/pagamento"> -->
+         
+                <button onclick="FinalizarPedido('<%=itens[0].pedidos_id%>')" > <a href="http://localhost:3000/pedidos/pagamento"> Finalizar Compra</a> </button>
+                <!-- <a href="http://localhost:3000/pedidos/pagamento"> -->
+        <% } %>
+
+            <% if(!itens) { %>
+                <div class="sacolaVazia">
+                    <p style="color:rgb(0, 0, 0); font-size:40px;">Sua sacola está vazia!</p>
+                    <img src="/img/sacola-vazia.png" alt="Sacola Vazia...">
+                    </div>
+            <% } %> 
     </main>
 
     <footer>

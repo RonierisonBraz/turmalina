@@ -7,13 +7,41 @@ main {
     align-items: center;
 }
 
+.form-inline {
+  display: flex;
+  /* width: 100%; */
+  justify-content:  space-between;
+  /* align-items: center; */
+  align-content: center;
+  /* margin-right: 95px; */
+  flex-direction: row;
+  padding-left: 15px;
+}
+
+
+#qtd {
+  width: 10%;
+  justify-content: right;
+}
+
+#btn-atualiza {
+  width: 30px;
+  height: 15px;
+  background-color: rgba(201, 133, 228, 0.952);
+  margin-right: 14px;
+}
+
 .pedido {
     display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
     width: 100%;
     /* border: rgb(168, 168, 168); */
     background-color: white;
     border-radius: 20px;
     margin: 30px 0px ;
+    padding-right: 30px;
 }
 
 .pedido img {
@@ -26,7 +54,7 @@ main {
     display: block;
     width: 100%;
     padding: 15px;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 25px;
     
@@ -34,14 +62,15 @@ main {
 
 .indices {
     display: flex;
+    width: 90%;
     font-weight: bolder;
     justify-content: space-between;
 }
-.valores {
+/* .valores {
     display: flex;
     justify-content: space-between;
-    /* padding-right: 20px; */
-}
+    
+} */
 
 button {
     width: 20%;
@@ -153,7 +182,7 @@ input::-webkit-inner-spin-button {
     background-color:#e5d6f3;
     color: black;
     border: none;
-    border-radius: 20px;
+    /* border-radius: 20px; */
     height: 40px;
     width: 200px;
     cursor: pointer;
@@ -181,3 +210,48 @@ input::-webkit-inner-spin-button {
     align-items: center;
     width: 100vw;
   }
+
+  .sacolaVazia {
+    display: block;
+  }
+
+.formPagamento {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+
+}
+
+.formPagamento input {
+  border-radius: 0%;
+  width: 80%;
+  height: 15%;
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+
+input {
+  outline: 0;
+  border-width: 0 0 2px;
+  border-color: black;
+}
+input:focus {
+  border-color: rgb(148, 45, 189);
+}
+
+.formPagamento p {
+  font-size: 20px;
+}
+
+.formPagamento button {
+  background-color: rgb(182, 113, 209);
+  font-size: 13px;
+  padding: 5px;
+  font-weight: bold;
+  border-radius: 10px;
+  border-color: rgb(182, 113, 209);
+  color: rgb(36, 36, 36);
+  padding: 10px;
+  margin-top: 20px;
+}

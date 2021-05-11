@@ -35,13 +35,14 @@ body {
   margin-right: auto;
   background-color: #fff;
   border-radius: 10px;
+  border:solid 1px #e5d6f3;
   padding: 25px; 
 }
 
 #main-container h1{
   text-align: center;
   margin-bottom: 25px;
-  font-size: 1.6rem;
+  font-size: 2em;
 }
 
 form {
@@ -53,7 +54,9 @@ form {
 .full-box{ 
   flex: 1 1 100%;
   position: relative;
-  }
+  
+}
+
 .half-box{
   flex: 1 1 45%;
   position: relative;
@@ -79,12 +82,13 @@ input:focus {
 }
 
 input[type="submit"] {
-  background-color:#e5d6f3;
-  color: black;
-  border: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
   border-radius: 20px;
-  height: 40px;
-  width: min-content;
+  margin-top: 30px;
+  color: black;
+  background-color: #e5d6f3;
   cursor: pointer;
 }
 

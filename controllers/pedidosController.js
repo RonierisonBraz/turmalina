@@ -14,7 +14,16 @@ const pedidosController = {
         return res.render('sacola', {novoPedido: novoPedido});
     },
     pagamento :  async (req, res) => { 
-        return res.render('pagamento');
+        const {id} = req.session.usuarioLogado;
+        
+        const pedidoPago = await Pedido.findOne({
+            where: {
+                status_pedido_id: 1,
+                usuarios_id: id
+            } //funcionando
+        });
+
+        return res.render('pagamento', {Pedido: pedidoPago} );
     },
     finalizarPagamento: async (req, res) => {
         let { parcelas } = req.body;
@@ -34,14 +43,22 @@ const pedidosController = {
             } //funcionando
         });
 
-        const itens = await ItensPedido.findAll({
-            include: ['produto'],
-            where: { pedidos_id: pedidoEmAndamento.id }
-        });
+        if (pedidoEmAndamento) {
 
+            const itens = await ItensPedido.findAll({
+                include: ['produto'],
+                where: { pedidos_id: pedidoEmAndamento.id }
+            });
+
+            return res.render('sacola', { Pedido: pedidoEmAndamento, itens});
+
+        } else {
+            console.log("NÃO HÁ NADA AQUI!!!!!!!!!!!!!!!!!!");
+            return res.render('sacola', itens = null);
+        }
         // console.log(itens[1].produto.nome)
 
-        return res.render('sacola', { Pedido: pedidoEmAndamento, itens});
+        // return res.render('sacola', { Pedido: pedidoEmAndamento, itens});
     },
     produtosSacola: async (req, res) => {
         const {valor, quantidade, produtos_id} = req.body
@@ -56,13 +73,29 @@ const pedidosController = {
         if(pedidoEmAndamento){
             // tem pedido em andamento 
             //adcionar o item na tabela de itens_pedidos com o id do pedido e do produto click
-            const addItemPedidoAndamento = await ItensPedido.create( {
-                valor:valor,
-                quantidade:quantidade,
-                valor_total:valorTotal,
-                produtos_id: produtos_id, 
-                pedidos_id: pedidoEmAndamento.id
-            } )    
+            // busca nos ItensPedido se tem um pedidos_id: pedidoEmAndamento.id que tenha um produtos_id: produtos_id.
+
+            // const itemExiste = await ItensPedido.findAll({
+            //     where: {
+            //         pedidos_id: pedidoEmAndamento.id,
+            //         produtos_id: produtos_id
+            //     }
+            // }) 
+
+            // if (!itemExiste) {
+
+                const addItemPedidoAndamento = await ItensPedido.create({
+                    valor: valor,
+                    quantidade: quantidade,
+                    valor_total: valorTotal,
+                    produtos_id: produtos_id,
+                    pedidos_id: pedidoEmAndamento.id
+                })
+            // }
+
+            // if(itemExiste) {
+            //     alert("Produto está na sacola!")
+            // }
 
         } else {
             // não tem pedido em andamento e
@@ -189,6 +222,25 @@ const pedidosController = {
 
         return res.render('perfil', { Pedidos: atualizarStatus });
         //localhost:3000/pedidos/cancelar/2
+    },
+    limparSacola: async (req, res) => {
+        const {id} = req.session.usuarioLogado;
+        // const {id} = req.params;
+
+
+        const pedidoEmAndamento = await Pedido.findOne({
+            where: {
+                status_pedido_id: 1,
+                usuarios_id: id
+            } //funcionando
+        });
+
+        const limpandoSacola = await Pedido.update(
+            {  status_pedido_id : 2  }, {
+                where : { id: pedidoEmAndamento.id }
+        })
+
+        return res.json({mensagem:"sucesso"});
     },
     delete: async (req, res) => {
         let { id } = req.params;
