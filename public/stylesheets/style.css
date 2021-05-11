@@ -34,7 +34,7 @@ nav a{
 }
 
 a:hover {
-    /* color: rgb(160,27,255); */
+    color: rgb(160,27,255);
     color:white;
     transition: 200ms;
     text-shadow: 0 0 0px rgb(207,184,255);
@@ -135,7 +135,6 @@ h2{
     max-height: 600px;
     margin: 50px 50px;
     box-shadow: 0 0 10px black ;
-
 }
 
 .linha{
