@@ -154,10 +154,16 @@ input::-webkit-inner-spin-button {
 
   .indices{
     margin-left: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
 
   .valores{
     margin-right: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
      
   ::placeholder, input{

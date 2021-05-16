@@ -34,7 +34,7 @@ nav a{
 }
 
 a:hover {
-    /* color: rgb(160,27,255); */
+    color: rgb(160,27,255);
     color:white;
     transition: 200ms;
     text-shadow: 0 0 0px rgb(207,184,255);
@@ -110,6 +110,7 @@ h2{
 }
 
 .section-slider {
+    max-width: 100%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -118,32 +119,22 @@ h2{
     margin-top: 30px;
 }
 
-/*
-.imagens-demostrativas{
-    margin-top: 285px;
-}
-
-.imagens-demostrativas img{
-    height: 500px;
-    width: 580px;
-    margin-top: -40px;
-    margin-left: 40px;
-*/
 .section-home{
+    max-width: 100%;
     height: 100%;
     margin-top: 200px;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
 
 .section-home img{
-    max-width: 400px;
+    max-width: 100%;
     max-height: 600px;
     margin: 50px 50px;
     box-shadow: 0 0 10px black ;
-
 }
 
 .linha{
@@ -159,23 +150,23 @@ h2{
     text-align: justify;
 }
 .sobre img{
-    max-width: 600px;
+    max-width: 100%;
     max-height: 600px;
-    width: auto;
-    height: auto;
     box-shadow: 0 0 10px;
-    margin-right: 100px;
     margin-top: 80px;
-    margin-left: 20px;
+    margin-left: 5px;
 }
 
 .sobre{
     height: 90%;
-
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .power img{
-    max-width: 200%;
+    max-width: 100%;
     box-shadow: 0 0 10px;
     margin-bottom: 50px;
     margin-top: 30px;
@@ -184,12 +175,15 @@ h2{
 /* -------------------------------------------------------CATÁLOGO---------------------------------------------------- */
 
 .sec-cat{
+    max-width: 100%;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
 }
 
 .sec-cat div{
+    max-width: 100%;
     box-shadow: 0px 5px 10px rgb(22,20,20);
     opacity: 60%;
     transition-duration: 200ms;
@@ -206,6 +200,7 @@ h2{
 }
 
 .sec-cat p{
+    max-width: 100%;
     font-family: Ropa Sans;
     font-size: 30px;
     font-weight: bold;
@@ -239,14 +234,17 @@ footer{
     color:black;
     font-weight: bold;
     display: flex;
+    flex-wrap: wrap;
     align-items: flex-end;
     font-family: Ropa Sans;
     font-size: 20px;
     line-height: .2;
     width: 100%;
+    max-width: 100%;
 }
 
 .footer{
+    max-width: 100%;
     background-image: url(../img/footer.png);
     background-size: 100%;
     background-repeat: no-repeat;
@@ -282,6 +280,10 @@ footer{
         width: 100%;
     }
 }
+
+
+
+
 
 
 
