@@ -138,7 +138,7 @@ const pedidosController = {
         return res.json(pedido);
     },
     atualizaValorTotalPedidos: async (req, res) => {
-        const {id} = req.params;
+        const {id} = req.session.usuarioLogado;
         let { quantidade, pedido_ } = req.body;
         let total = 0;
         let i;
@@ -239,8 +239,9 @@ const pedidosController = {
             {  status_pedido_id : 2  }, {
                 where : { id: pedidoEmAndamento.id }
         })
+        return res.redirect('/usuario/perfil');
 
-        return res.json({mensagem:"sucesso"});
+        // return res.json({mensagem:"sucesso"});
     },
     delete: async (req, res) => {
         let { id } = req.params;
